@@ -1,5 +1,8 @@
 import React from 'react';
 import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import Image from 'next/image'; 
+import Tentative from '../../../public/logos/Vision5 Logo_R_O1.svg';
+
 
 export default function Footer(){
 
@@ -10,8 +13,13 @@ export default function Footer(){
         {/* About */}
         <div className='flex flex-col items-center md:pl-14'>
             <div className='flex flex-col items-start'>
-          {/* <h2 className="text-white text-lg font-semibold mb-4">Vision5 Tech</h2> */}
-          <div className='bg-primary  h-12 w-full'></div>
+            <Image
+            src={Tentative}
+            width={100} 
+            height={100} 
+            alt={'Vision5 Tech Logo'} 
+            className="mb-4" 
+          />
           <p className="text-xs leading-relaxed">
             At Vision5 Tech, we help businesses cut costs and scale faster with expert offshore
             development teams and tailored technology solutions. From Microsoft Power Platform
