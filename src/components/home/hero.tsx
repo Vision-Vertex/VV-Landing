@@ -13,7 +13,8 @@ import { motion } from 'framer-motion';
 function hero() {
   return (
     <>
-      <div className="bg-accent  w-full p-4 md:px-14 md:py-7 h-[40vh] md:h-[70vh] flex items-center gap-10 justify-center ">
+      
+      <div className="bg-accent w-full p-8 md:px-14 md:py-7 h-[90vh] md:h-[80vh] flex items-center gap-10 justify-center">
         <Image
           src={Tentative}
           width={500}
@@ -70,20 +71,27 @@ function hero() {
           >
             <Image src={N} alt="N" width={110} height={110} />
           </motion.div>
-        {/* </div> */}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 p-4 md:px-14 md:py-7">
-        <h1 className="text-4xl font-bold">
-          Cutting Costs, Elevating Quality: Your Global Tech Partner
-        </h1>
-        <div className="">
-          At Vision5 Tech, we help businesses cut costs and scale faster with
-          expert offshore development teams and tailored technology solutions.
-          From Microsoft Power Platform to secure full stack development, we
-          deliver innovation you can trust — at a fraction of the cost.
+          </div>
+  
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-14 py-12 -mt-6">
+      <div className="m-8">
+      <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8 md:mt-0 mt-8 md:mt-0">
+        Cutting Costs, Elevating Quality: Your Global Tech Partner
+      </h3>
+      <p className="mt-4 mb-4 text-gray-600"> At Vision5 Tech, we help businesses cut costs and scale faster with expert offshore
+        development teams and tailored technology solutions. From Microsoft Power Platform to secure
+        full stack development, we deliver innovation you can trust — at a fraction of the cost.  </p>
         </div>
-      </div>
-    </>
+      <div className="hidden md:block md:border-l md:border-gray-300 md:pl-10 m-8">
+      <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8 md:mt-0 mt-8 md:mt-0">
+        Ready to transform your business?
+        </h3>
+        <p className="mt-4 mb-4 text-gray-600"> At Vision5 Tech, we help businesses cut costs and scale faster with expert offshore
+        development teams and tailored technology solutions. From Microsoft Power Platform to secure
+        full stack development, we deliver innovation you can trust — at a fraction of the cost.</p>
+        </div>
+    </section>
+    </> 
   );
 }
 
