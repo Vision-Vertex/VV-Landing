@@ -16,6 +16,8 @@ import Icon5 from '../../public/icons/image 5.png';
 import Picture1 from '../../public/images/Rectangle 34 (1).png';
 import Picture2 from '../../public/images/Rectangle 34.png';
 import TestmonialLogos from '../../public/logos/hijrah.webp';
+import TestmonialLogos2 from '../../public/logos/tinova.webp';
+import TestmonialLogos3 from '../../public/logos/jem.webp';
 import Team1 from '../../public/assets/team/image (1).png';
 import Team2 from '../../public/assets/team/image (2).png';
 import Team3 from '../../public/assets/team/image copy.png';
@@ -549,6 +551,18 @@ export const testmonial: Testmonial[] = [
       "We are incredibly grateful to Vision5 Tech LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision5 Tech. We highly recommend them to any organization looking for trusted IT solutions.",
     name: 'First Hijrah Foundation Board',
     image: TestmonialLogos,
+  },
+   {
+    quote:
+      "We are incredibly grateful to Vision5 Tech LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision5 Tech. We highly recommend them to any organization looking for trusted IT solutions.",
+    name: 'Tinova',
+    image: TestmonialLogos2,
+  },
+  {
+    quote:
+      "We are incredibly grateful to Vision5 Tech LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision5 Tech. We highly recommend them to any organization looking for trusted IT solutions.",
+    name: 'JS',
+    image: TestmonialLogos3,
   },
 ];
 
