@@ -620,3 +620,17 @@ export const team: Team[] = [
     email: 'john.doe@example.com',
   },
 ];
+export const caseStudies: CaseStudy[] = [
+  {
+    content:
+      'For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.',
+  },
+  {
+    content:
+      'For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.',
+  },
+  {
+    content:
+      'For a logistics company, we automated their lead gen with email flows, increasing qualified leads by 120%.',
+  },
+];
