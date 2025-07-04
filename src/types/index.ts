@@ -9,6 +9,9 @@ export interface NavItem {
   components?: Array;
   link: Boolean;
 }
+export interface CaseStudy{
+  content: string;
+}
 export interface PartnerItem {
   path: any;
   alt: string;

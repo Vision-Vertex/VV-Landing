@@ -5,12 +5,14 @@ import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import { useRouter } from "next/navigation"; 
 
 function ServicesList() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [fadeState, setFadeState] = useState<'fade-in' | 'fade-out'>('fade-in');
   const scrollRef = useRef<HTMLDivElement | null>(null);
-
+  const router= useRouter();
+  
   const handleIconClick = (index: number) => {
     if (index === activeIndex) return;
 
@@ -27,6 +29,10 @@ function ServicesList() {
       }
     }, 150);
   };
+
+  const handleLearnMoreClick= () =>{
+    router.push(`/services/${services[activeIndex].slug}`);
+  }
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -61,11 +67,11 @@ function ServicesList() {
             <div className="text-secondary font-medium text-lg">{services[activeIndex].headline}</div>
           </div>
           <p className="text-primary text-base">{services[activeIndex].small_description}</p>
-          //text-muted-foreground
+          
           <p className="text-sm whitespace-pre-line">
             {services[activeIndex].description}
           </p>
-          <Button variant="link" className="pl-0">
+          <Button variant="link" className="pl-0" onClick={handleLearnMoreClick}>
             <Link href={services[activeIndex].slug} className="flex items-center gap-2">
               Learn More <ChevronRight />
             </Link>
@@ -125,7 +131,7 @@ function ServicesList() {
         </div>
       </div>
 
-     
+ 
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
