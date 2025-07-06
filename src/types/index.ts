@@ -9,9 +9,7 @@ export interface NavItem {
   components?: Array;
   link: Boolean;
 }
-export interface CaseStudy{
-  content: string;
-}
+
 export interface PartnerItem {
   path: any;
   alt: string;
@@ -89,3 +87,14 @@ export interface ServiceProps {
 export type MainNavItem = NavItemWithOptionalChildren;
 
 export type SidebarNavItem = NavItemWithChildren;
+
+export interface CaseStudy{
+  content: string;
+}
+
+export interface Quality{
+  icon?: any;
+  image: any;
+  title: string;
+  description: string;
+}
