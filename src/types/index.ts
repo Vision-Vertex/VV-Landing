@@ -1,4 +1,3 @@
-// import { Icons } from '@/components/icons';
 
 import { qualities } from "@/constants/data";
 import { StaticImageData } from "next/image";
