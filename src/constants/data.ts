@@ -5,8 +5,8 @@ import {
   Services,
   Stats,
   Team,
-  CaseStudy,
   Quality,
+  CaseStudy,
   Testmonial,
 } from '@/types';
 import Google from '../../public/partners/image 2.png';
@@ -23,13 +23,13 @@ import TestmonialLogos3 from '../../public/logos/jem.webp';
 import Team1 from '../../public/assets/team/image (1).png';
 import Team2 from '../../public/assets/team/image (2).png';
 import Team3 from '../../public/assets/team/image copy.png';
+import trust from '../../public/qualities/trust.jpg';
+import innovation from '../../public/qualities/innovation.jpg';
+import commitment from '../../public/qualities/commitment.jpg';
+import thinking from '../../public/qualities/thinking.jpg';
 import Partner1 from '../../public/partners/cropped-output-onlinepngtools-2.webp';
 import Partner2 from '../../public/partners/jem.png';
 import Partner3 from '../../public/partners/photo_2025-06-19 17.40.15.jpeg';
-import commitment from '../../public/qualities/commitment.jpg'
-import innovation from '../../public/qualities/innovation.jpg'
-import thinking from '../../public/qualities/thinking.jpg'
-import trust from '../../public/qualities/trust.jpg'
 import { UserRound, Users2Icon, icons } from 'lucide-react';
 import { slugify } from '@/lib/slugify';
 import { FaPaintBrush, FaHandshake, FaRocket, FaUserCheck } from 'react-icons/fa';
@@ -628,6 +628,32 @@ export const team: Team[] = [
     email: 'john.doe@example.com',
   },
 ];
+export const qualities: Quality[] = [
+  {
+    icon: FaPaintBrush,
+    title: 'Creative Thinking',
+    description: 'We bring bold ideas and fresh perspectives to every project.',
+    image: thinking,
+  },
+  {
+    icon: FaHandshake,
+    title: 'Client Commitment',
+    description: 'Strong partnerships are at the heart of what we do.',
+    image: commitment, 
+  },
+  {
+    icon: FaRocket,
+    title: 'Innovation & Insight',
+    description: 'We continuously seek new ways to solve challenges.',
+    image: innovation,
+  },
+  {
+    icon: FaUserCheck,
+    title: 'Integrity & Trust',
+    description: 'Our work is rooted in honesty, transparency, and results.',
+    image: trust,
+  },
+];
 export const caseStudies: CaseStudy[] = [
   {
     content:
@@ -640,32 +666,5 @@ export const caseStudies: CaseStudy[] = [
   {
     content:
       'For a logistics company, we automated their lead gen with email flows, increasing qualified leads by 120%.',
-  },
-];
-
-export const qualities: Quality[] = [
-  {
-    icon: FaPaintBrush,
-    image: thinking,
-    title: 'Creative Thinking',
-    description: 'We bring bold ideas and fresh perspectives to every project.',
-  },
-  {
-    icon: FaHandshake,
-    image: commitment,
-    title: 'Client Commitment',
-    description: 'Long-term success starts with strong, respectful partnerships.',
-  },
-  {
-    icon: FaRocket,
-    image: innovation,
-    title: 'Driven by Innovation',
-    description: 'We continuously seek new ways to solve challenges.',
-  },
-  {
-    icon: FaUserCheck,
-    image: trust,
-    title: 'Integrity & Trust',
-    description: 'Our work is rooted in honesty, transparency, and results.',
   },
 ];

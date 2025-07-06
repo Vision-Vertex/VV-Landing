@@ -8,7 +8,17 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { caseStudies } from '@/constants/data'; 
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+
+
+const caseStudyVariant = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.9, ease: 'easeInOut' },
+  },
+};
 
 const slideIn = (direction: 'left' | 'right' | 'center'): Variants => ({
   hidden: {
@@ -140,33 +150,31 @@ function ServicesPage({ params }: ServiceProps) {
         </div>
       </div>
 <section className="px-4 md:px-6 py-12 bg-white max-w-6xl mx-auto">
-      <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-        Case Studies
-      </h2>
+  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+    Case Studies
+  </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {caseStudies.map((study, index) => {
-          const direction =
-            index % 3 === 0 ? 'left' : index % 3 === 2 ? 'right' : 'center';
-
-          return (
-            <motion.div
-              key={index}
-              variants={slideIn(direction)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              className="bg-primary text-white p-6 rounded-xl shadow-md hover:scale-[1.03] transition-transform duration-300 ease-in-out"
-            >
-              <p className="text-sm leading-relaxed">{study.content}</p>
-            </motion.div>
-          );
-        })}
-      </div>
-    </section>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {caseStudies.map((study, index) => (
+      <AnimatePresence key={index} mode="wait">
+        <motion.div
+          variants={caseStudyVariant}
+          initial="hidden"
+          whileInView="visible"
+          exit="hidden"
+          viewport={{ once: false, amount: 0.3 }}
+          className="bg-primary text-white p-6 rounded-xl shadow-md hover:scale-[1.03] transition-transform duration-300 ease-in-out"
+        >
+          <p className="text-sm leading-relaxed">{study.content}</p>
+        </motion.div>
+      </AnimatePresence>
+    ))}
+  </div>
+</section>
     </div>
   );
 }
 
 export default ServicesPage;
         
+

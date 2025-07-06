@@ -1,5 +1,5 @@
-// import { Icons } from '@/components/icons';
 
+import { qualities } from "@/constants/data";
 import { StaticImageData } from "next/image";
 
 export interface NavItem {
@@ -9,7 +9,6 @@ export interface NavItem {
   components?: Array;
   link: Boolean;
 }
-
 export interface PartnerItem {
   path: any;
   alt: string;
@@ -88,13 +87,12 @@ export type MainNavItem = NavItemWithOptionalChildren;
 
 export type SidebarNavItem = NavItemWithChildren;
 
-export interface CaseStudy{
-  content: string;
-}
-
 export interface Quality{
-  icon?: any;
+  icon: any;
   image: any;
   title: string;
   description: string;
 }
+ export interface CaseStudy{
+  content: string;
+ }
