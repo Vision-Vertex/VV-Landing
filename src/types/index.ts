@@ -1,5 +1,6 @@
 // import { Icons } from '@/components/icons';
 
+import { qualities } from "@/constants/data";
 import { StaticImageData } from "next/image";
 
 export interface NavItem {
@@ -86,3 +87,13 @@ export interface ServiceProps {
 export type MainNavItem = NavItemWithOptionalChildren;
 
 export type SidebarNavItem = NavItemWithChildren;
+
+export interface Quality{
+  icon: any;
+  image: any;
+  title: string;
+  description: string;
+}
+ export interface CaseStudy{
+  content: string;
+ }
