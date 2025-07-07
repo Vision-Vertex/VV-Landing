@@ -28,7 +28,7 @@ import { partners as partneritems } from '@/constants/data';
                </div> 
               <div className="grid grid-cols-3 gap-3 mx-5"> 
                 {partneritems.map((partner, index) => (
-                   <div className="odd:bg-accent odd:rounded-xl hover:scale-105 hover:shadow-lg transition-transform duration-300" key={index}>
+                   <div className="odd:bg-accent odd:rounded-xl hover:scale-105 hover:shadow-lg transition-transform duration-300 flex items-center justify-center py-6" key={index}>
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
