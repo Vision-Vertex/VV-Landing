@@ -84,6 +84,7 @@ function NavigationMenuTrigger({
 
 function NavigationMenuContent({
   className,
+  children,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Content>) {
   return (
@@ -95,7 +96,11 @@ function NavigationMenuContent({
         className
       )}
       {...props}
-    />
+    >
+      <div className="flex flex-col max-h-60 items-center overflow-y-auto" style={{scrollbarWidth: 'thin'}}>
+        {children}
+      </div>
+    </NavigationMenuPrimitive.Content>
   )
 }
 

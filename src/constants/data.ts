@@ -33,15 +33,57 @@ export const navItems: NavItem[] = [
     description: 'Home is here',
     components: [
       {
-        service_name: 'A service',
-        href: '/service/A',
-        description: 'A service',
+        service_name: 'Microsoft Ecosystem Solutions',
+        href: '/services/Microsoft-Ecosystem-Solutions',
+        description: 'Microsoft Ecosystem Solutions',
       },
       {
-        service_name: 'B service',
-        href: '/service/B',
-        description: 'B service',
+        service_name: 'Data Analytics & Business Intelligence',
+        href: '/services/Data-Analytics-Business-Intelligence',
+        description: 'Data Analytics & Business Intelligence',
       },
+      {
+        service_name: 'Cloud & DevOps (Azure & AWS)',
+        href:'/services/Cloud-Devops-Azure-Aws',
+        description: 'Cloud & DevOps (Azure & AWS)',
+
+      },
+      {
+        service_name: 'AI & Automation',
+        href:'/services/Ai-Automation',
+        description: 'AI & Automation',
+
+      }, 
+      {
+        service_name: 'Cybersecurity',
+        href:'/services/Cybersecurity',
+        description: 'Cybersecurity',
+
+      },
+      {
+        service_name: 'Java & Full Stack Development',
+        href:'/services/Java-Full-Stack-Development',
+        description: 'Java & Full Stack Development',
+
+      },
+      {
+        service_name: 'App Development',
+        href:'/services/App-Development',
+        description: 'App Development',
+
+      },
+      {
+        service_name: 'Training',
+        href:'/services/Training',
+        description: 'Training',
+
+      },
+      {
+        service_name: 'Freelancing',
+        href:'/services/Freelancing',
+        description: 'Freelancing',
+
+      }
     ],
     link: false,
   },
@@ -89,30 +131,6 @@ export const partners: PartnerItem[] = [
     path: Partner3,
     alt: 'Partner 3',
   },
-  // {
-  //   path: Google,
-  //   alt: 'Google Logo',
-  // },
-  // {
-  //   path: Google,
-  //   alt: 'Google Logo',
-  // },
-  // {
-  //   path: Google,
-  //   alt: 'Google Logo',
-  // },
-  // {
-  //   path: Google,
-  //   alt: 'Google Logo',
-  // },
-  // {
-  //   path: Google,
-  //   alt: 'Google Logo',
-  // },
-  // {
-  //   path: Google,
-  //   alt: 'Google Logo',
-  // },
 ];
 
 export const services: Services[] = [
