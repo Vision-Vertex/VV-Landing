@@ -11,7 +11,7 @@ export default function Footer(){
       {/* Top section */}
       <div className=" mx-auto  py-12 grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-0">
         {/* About */}
-        <div className='flex flex-col items-center md:pl-14'>
+        <div className='flex flex-col items-start md:pl-14'>
             <div className='flex flex-col items-start'>
             <Image
             src={Tentative}
@@ -20,7 +20,7 @@ export default function Footer(){
             alt={'Vision5 Tech Logo'} 
             className="mb-4" 
           />
-          <p className="text-xs leading-relaxed">
+          <p className="text-xs text-left leading-relaxed max-w-[200px] md:max-w-none">
             At Vision5 Tech, we help businesses cut costs and scale faster with expert offshore
             development teams and tailored technology solutions. From Microsoft Power Platform
             to secure full stack development, we deliver innovation you can trust — at a fraction
