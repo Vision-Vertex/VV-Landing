@@ -18,10 +18,10 @@ function Stat() {
   const current = qualities[currentIndex];
 
   return (
-    <div className="bg-accent w-screen grid grid-cols-1 md:grid-cols-2 px-6 md:px-28 py-20 gap-20 justify-between mb-24">
+    <div className="bg-accent w-screen grid grid-cols-1 md:grid-cols-2 px-6 md:px-28 py-10 gap-20 justify-between mb-24">
    
       <div>
-        <div className="text-4xl font-semibold mb-4">
+        <div className="text-4xl font-semibold mb-4 pt-10">
           Helping local & international{' '}
           <span className="text-secondary">businesses grow with purpose</span>
         </div>
@@ -51,3 +51,4 @@ function Stat() {
 }
 
 export default Stat;
+ 
