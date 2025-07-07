@@ -23,6 +23,9 @@ const poppinsExtraBold = Poppins({
 export const metadata: Metadata = {
   title: 'Vison 5',
   description: 'Vision 5 description',
+  icons:{
+    icon: '/favicon.ico/',
+  }
 };
 
 export default function RootLayout({
@@ -32,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppinsRegular.className} `}>
+      <body className={poppinsRegular.className}>
         {/* <PageContainer> */}
           <NavBar />
 
