@@ -14,9 +14,6 @@ export default function Home() {
         <Stat/>
         <Testmonial/>
         <AdBanner/>
-
-      {/* <PageContainer>
-      </PageContainer> */}
     </div>
   );
 }
