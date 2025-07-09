@@ -1,37 +1,31 @@
 import React from 'react';
 import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Image from 'next/image'; 
-import Tentative from '../../../public/logos/Vision5 Logo_R_O1.svg';
+import VisionVertex from '../../../public/logos/VisionVertexLogo2.svg';
 
-
-export default function Footer(){
-
+export default function Footer() {
   return (
     <footer className="bg-primary text-gray-300">
-      {/* Top section */}
-      <div className=" mx-auto  py-12 grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-0">
-        {/* About */}
-        <div className='flex flex-col items-start md:pl-14'>
-            <div className='flex flex-col items-start'>
-            <Image
-            src={Tentative}
-            width={100} 
-            height={100} 
-            alt={'Vision5 Tech Logo'} 
-            className="mb-4" 
+      <div className="max-w-7xl mx-auto py-12 px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-start text-sm">
+        
+        {/* Column 1: Logo and Description */}
+        <div>
+          <Image
+            src={VisionVertex}
+            width={200}
+            height={200}
+            alt="Vision5 Tech Logo"
+            className="mb-4"
           />
-          <p className="text-xs text-left leading-relaxed max-w-[200px] md:max-w-none">
+          <p className="text-xs leading-relaxed max-w-[260px]">
             At Vision5 Tech, we help businesses cut costs and scale faster with expert offshore
-            development teams and tailored technology solutions. From Microsoft Power Platform
-            to secure full stack development, we deliver innovation you can trust — at a fraction
-            of the cost.
+            development teams and tailored technology solutions.
           </p>
         </div>
-        </div>
 
-        {/* Services list */}
-        <div  className='flex flex-col md:items-center '>
-          <div className='flex flex-col items-start'><h3 className="text-white text-lg font-semibold mb-4">Services</h3>
+        {/* Column 2: Services */}
+        <div>
+          <h3 className="text-white text-lg font-semibold mb-4">Services</h3>
           <ul className="space-y-2 text-xs">
             <li>Offshore Development Teams</li>
             <li>Microsoft Power Platform Solutions</li>
@@ -39,11 +33,10 @@ export default function Footer(){
             <li>DevSecOps &amp; Secure Development</li>
             <li>Training &amp; Upskilling (Microsoft 365)</li>
           </ul>
-          </div>
         </div>
 
-        {/* Socials */}
-        <div  className='flex flex-col md:items-center'>
+        {/* Column 3: Socials (visible on md and up) */}
+        <div className="sm:col-span-2 md:col-span-1">
           <h3 className="text-white text-lg font-semibold mb-4">Our Socials</h3>
           <div className="flex space-x-4 text-xl">
             <a href="#" aria-label="Twitter" className="hover:text-white">
@@ -59,25 +52,20 @@ export default function Footer(){
         </div>
       </div>
 
-     
+      {/* Divider */}
       <div className="border-t border-gray-600"></div>
 
-      {/* Bottom section */}
-      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-sm">
-        <div className="flex space-x-6 mb-4 md:mb-0">
-          <a href="#" className="hover:text-white">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-white">
-            Terms of Use
-          </a>
+      {/* Bottom Section */}
+      <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 sm:grid-cols-2 text-sm gap-y-4">
+        <div className="flex space-x-6 justify-center sm:justify-start">
+          <a href="#" className="hover:text-white">Privacy Policy</a>
+          <a href="#" className="hover:text-white">Terms of Use</a>
         </div>
-        <div>
+        <div className="text-center sm:text-right">
           © {new Date().getFullYear()} All Rights Reserved
         </div>
       </div>
     </footer>
   );
-};
-
+}
 

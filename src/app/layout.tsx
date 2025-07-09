@@ -21,7 +21,7 @@ const poppinsExtraBold = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Vison 5',
+  title: 'Vison Vertex',
   description: 'Vision 5 description',
   icons:{
     icon: '/logos/logo.svg',
