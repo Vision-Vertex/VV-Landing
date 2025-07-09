@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import emailjs from 'emailjs-com'; // Correct import for emailjs-com
-import { EmailJsParams } from '@/constants/data';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +23,9 @@ const ContactUs = () => {
     e.preventDefault();
     setLoading(true);
     
-      const { serviceId, templateId, publicKey } = EmailJsParams[0];
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
 
     const templateParams = {

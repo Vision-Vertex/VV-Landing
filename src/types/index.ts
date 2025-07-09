@@ -96,8 +96,4 @@ export interface Quality{
  export interface CaseStudy{
   content: string;
  }
-export interface EmailJSConfig {
-  serviceId: string;
-  templateId: string;
-  publicKey: string;
-}
+

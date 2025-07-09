@@ -8,7 +8,6 @@ import {
   Quality,
   CaseStudy,
   Testmonial,
-  EmailJSConfig,
 } from '@/types';
 import Google from '../../public/partners/image 2.png';
 import Icon1 from '../../public/icons/Frame.png';
@@ -687,12 +686,4 @@ export const caseStudies: CaseStudy[] = [
     content:
       'For a logistics company, we automated their lead gen with email flows, increasing qualified leads by 120%.',
   },
-];
-export const EmailJsParams: EmailJSConfig[]=[
-  {
-    serviceId: "service_4x1xvjk",
-    templateId: "ContactUs_template",
-    publicKey: "VWnBlFXPsseJsybzr",
-  }
-
 ];
