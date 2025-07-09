@@ -36,6 +36,7 @@ jobs:
           script: |
             cd ${{ secrets.TARGET_DIR }}
             npm install
+            npm install cross-env --save-dev
             npm run build
-            PORT=4000 pm2 restart visionvertex || PORT=4000 pm2 start npm --name "visionvertex" -- run start
+            pm2 restart visionvertex || pm2 start npm --name "visionvertex" -- run start
             pm2 save
