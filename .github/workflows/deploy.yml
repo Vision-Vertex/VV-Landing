@@ -37,5 +37,5 @@ jobs:
             cd ${{ secrets.TARGET_DIR }}
             npm install
             npm run build
-            pm2 restart visionvertex || pm2 start npm --name "visionvertex" -- run start --env PORT=4000
+            pm2 restart visionvertex --env PORT=4000 || pm2 start npm --name "visionvertex" -- run start --env PORT=4000
             pm2 save
