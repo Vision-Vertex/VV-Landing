@@ -5,144 +5,128 @@ import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { useRouter } from "next/navigation"; 
 
 function ServicesList() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [fadeState, setFadeState] = useState<'fade-in' | 'fade-out'>('fade-in');
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const router= useRouter();
   
-  const handleIconClick = (index: number) => {
-    if (index === activeIndex) return;
-
-    setFadeState('fade-out');
-    setTimeout(() => {
-      setActiveIndex(index);
-      setFadeState('fade-in');
-      if (scrollRef.current) {
-        const containerHeight = scrollRef.current.clientHeight;
-        scrollRef.current.scrollTo({
-          top: index * containerHeight,
-          behavior: 'smooth',
-        });
-      }
-    }, 150);
-  };
-
-  const handleLearnMoreClick= () =>{
-    router.push(`/services/${services[activeIndex].slug}`);
-  }
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [sectionHeight, setSectionHeight] = useState(0);
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollTop = container.scrollTop;
-      const containerHeight = container.clientHeight;
-      const newIndex = Math.round(scrollTop / containerHeight);
-      if (newIndex !== activeIndex && newIndex >= 0 && newIndex < services.length) {
-        setActiveIndex(newIndex);
-      }
+    const updateSectionHeight = () => {
+      setSectionHeight(window.innerHeight);
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, [activeIndex]);
+    updateSectionHeight();
+    window.addEventListener('resize', updateSectionHeight);
+    return () => window.removeEventListener('resize', updateSectionHeight);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const scrollTop = window.scrollY - containerRef.current.offsetTop;
+      const index = Math.min(
+        services.length - 1,
+        Math.max(0, Math.floor(scrollTop / sectionHeight))
+      );
+      if (index !== activeIndex) setActiveIndex(index);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeIndex, services.length, sectionHeight]);
+
+  const handleIconClick = (index: number) => {
+    if (!containerRef.current) return;
+    window.scrollTo({
+      top: containerRef.current.offsetTop + index * sectionHeight,
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <section className="w-full md:h-screen grid grid-cols-1 md:grid-cols-2 gap-10 p-4 md:px-14 md:py-7 items-center bg-white">
-   
-      <div className="h-full flex flex-col justify-center space-y-6 pr-4 overflow-hidden">
-        <h1 className="text-3xl text-primary font-bold">Our Services</h1>
+    <div
+      ref={containerRef}
+      style={{ height: `${services.length * sectionHeight}px` }}
+      className="relative"
+    >
+      <div className="sticky top-0 min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 md:px-20 py-10 z-10">
+        <div className="max-w-6xl w-full">
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-primary font-bold mb-6 text-left">
+            Our Services
+          </h1>
 
-        <div
-          className={`flex flex-col space-y-3 transition-opacity duration-300 ease-in-out max-h-[60vh] overflow-y-auto pr-2 ${
-            fadeState === 'fade-in' ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <div className="bg-primary w-2 h-5" />
-            <div className="text-secondary font-medium text-lg">{services[activeIndex].headline}</div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            <div className="col-span-12 md:col-span-6 flex flex-col gap-4 md:row-start-1">
+             <div className="flex items-center gap-2">
+               <div className="bg-primary w-2 h-5" />
+                <div className="text-secondary font-medium text-sm sm:text-base">
+                  {services[activeIndex].headline}
+                </div>
+               </div>
+
+          <div className="flex flex-col gap-3">
+            <div className="text-primary text-sm sm:text-base px-2 leading-relaxed text-left break-words">
+               {services[activeIndex].small_description}
+            </div>
+
+          <div className="text-sm text-gray-700 leading-relaxed px-2 text-left break-words">
+             {services[activeIndex].description}
           </div>
-          <p className="text-primary text-base">{services[activeIndex].small_description}</p>
-          
-          <p className="text-sm whitespace-pre-line">
-            {services[activeIndex].description}
-          </p>
-          <Button variant="link" className="pl-0" onClick={handleLearnMoreClick}>
-            <Link href={services[activeIndex].slug} className="flex items-center gap-2">
-              Learn More <ChevronRight />
+
+          <Button variant="link" className="p-0 w-fit">
+            <Link href={`/services/${services[activeIndex].slug}`}
+             className="flex items-center gap-2 text-sm sm:text-base">
+              Learn More <ChevronRight size={18} />
             </Link>
-          </Button>
+         </Button>
         </div>
 
-      
-        <div className="hidden md:flex gap-3 overflow-y-auto max-h-[260px] pt-4 scrollbar-hide">
-          {services.map((serv, index) => (
-            <div
-              key={index}
-              onClick={() => handleIconClick(index)}
-              className={`cursor-pointer flex items-center justify-center transition-all duration-200 ${
-                activeIndex === index ? 'scale-110 bg-primary rounded-lg p-2 shadow-lg' : ''
+      <div className="flex flex-wrap gap-4 mt-6">
+            {services.map((serv, index) => (
+         <div
+           key={index}
+           onClick={() => handleIconClick(index)}
+           className={`cursor-pointer transition-all duration-200 flex items-center justify-center ${
+           activeIndex === index
+            ? 'scale-110 bg-primary rounded-lg p-2 shadow-lg'
+            : 'scale-100 bg-transparent'
+            }`}
+           style={{ width: 48, height: 48 }}>
+           <Image
+             src={serv.icon}
+              alt={serv.headline}
+             className={`transition-all duration-200 ${
+              activeIndex === index ? 'opacity-100' : 'opacity-60'
               }`}
-              style={{ width: 56, height: 56 }}
-            >
-              <Image
-                src={serv.icon}
-                alt={serv.headline}
-                width={40}
-                height={40}
-                className={`transition-opacity duration-200 ${activeIndex === index ? 'opacity-100' : 'opacity-60'}`}
-              />
+             width={32}
+             height={32}
+               />
+             </div>
+              ))}
+              </div>
+           </div>
+
+       
+            <div className="col-span-10 md:col-span-6 flex md:row-start-1 justify-center">
+              <div className="h-full">
+                <Image
+                  src={services[activeIndex].image}
+                  alt={services[activeIndex].headline}
+                  className="w-full rounded-xl object-cover h-[220px] sm:h-[260px] md:h-[300px] lg:h-[300px]"
+                  width={1400}
+                  height={1000}
+                 
+                />
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
-
-      <div
-        ref={scrollRef}
-        className="h-[70vh] overflow-y-auto scroll-smooth relative w-full rounded-md scrollbar-hide"
-        style={{
-          scrollSnapType: 'y mandatory',
-          WebkitOverflowScrolling: 'touch',
-        }}
-      >
-        <div className="h-full">
-          {services.map((serv, index) => (
-            <div
-              key={index}
-              className="h-[70vh] flex items-center justify-center scroll-snap-start px-4"
-              style={{
-                scrollSnapAlign: 'start',
-                minHeight: '100%',
-              }}
-            >
-              <Image
-                src={serv.image}
-                alt={serv.headline}
-                width={1400}
-                height={1400}
-                className="object-contain max-h-full max-w-full"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
- 
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-    </section>
+    </div>
   );
 }
 
-export default ServicesList;
+export default ServicesList;  
