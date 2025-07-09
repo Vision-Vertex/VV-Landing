@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { caseStudies } from '@/constants/data'; 
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Variants, easeInOut } from 'framer-motion';
 
 
 const caseStudyVariant = {
@@ -16,7 +16,7 @@ const caseStudyVariant = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.9, ease: 'easeInOut' },
+    transition: { duration: 0.9, ease: easeInOut },
   },
 };
 
