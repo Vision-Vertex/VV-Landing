@@ -36,19 +36,8 @@ const slideIn = (direction: 'left' | 'right' | 'center'): Variants => ({
     },
   },
 });
-function ServicesPage({ params }: ServiceProps) {
- /* const [currentIndex, setCurrentIndex] = useState(0);
+function ServicesPage({ params }: any) {
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % caseStudies.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? caseStudies.length - 1 : prev - 1
-    );
-  };
-  */
  
   const service = services.find((s) => s.slug === params.slug);
   const router = useRouter();

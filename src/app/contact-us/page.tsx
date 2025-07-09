@@ -1,6 +1,9 @@
 "use client"
 import React, { useState } from 'react';
-import {Button} from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
+import emailjs from 'emailjs-com'; // Correct import for emailjs-com
+import { EmailJsParams } from '@/constants/data';
+
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -9,8 +12,9 @@ const ContactUs = () => {
     message: '',
     phone: '',
   });
- const [message, setMessage] = useState({message:'', type:''});
- const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ message: '', type: '' });
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -19,22 +23,25 @@ const ContactUs = () => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setLoading(true);
+    
+      const { serviceId, templateId, publicKey } = EmailJsParams[0];
+
+
+    const templateParams = {
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+    };
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        setMessage({message:'Your message has been sent!', type:'success'});
-        setFormData({ firstName: '', lastName: '', email: '', message: '', phone: '' });
-      } else {
-        setMessage({message:'There was an error sending your message.', type:'error'});
-      }
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setMessage({ message: 'Your message has been sent successfully!', type: 'success' });
+      setFormData({ firstName: '', lastName: '', email: '', message: '', phone: '' }); // Clear form on success
     } catch (error) {
-      setMessage({message:'There was an error sending your message.', type:'error'});
+      console.error('EmailJS failed to send email:', error);
+      setMessage({ message: 'There was an error sending your message. Please try again.', type: 'error' });
     } finally {
       setLoading(false);
     }
@@ -135,7 +142,7 @@ const ContactUs = () => {
               >
                 {loading ? 'Sending...' : 'Send Us A Message'}
               </Button>
-              <p className={`text-sm ${message.type === 'error'? 'text-red-600':'text-green-600'} mt-2`}>{message.message}</p>
+              <p className={`text-sm ${message.type === 'error' ? 'text-red-600' : 'text-green-600'} mt-2`}>{message.message}</p>
             </div>
           </form>
         </div>

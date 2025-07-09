@@ -23,6 +23,9 @@ const poppinsExtraBold = Poppins({
 export const metadata: Metadata = {
   title: 'Vison 5',
   description: 'Vision 5 description',
+  icons:{
+    icon: '/logos/logo.svg',
+  }
 };
 
 export default function RootLayout({
