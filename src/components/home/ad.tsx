@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 function ad() {
   return (
-    <div className="bg-primary  rounded-3xl flex items-center text-sm justify-between px-10 py-5 w-10/12 mx-auto my-10">
+    <div className="bg-primary  rounded-2xl sm:rounded-3xl flex items-center text-sm justify-between px-4 sm:px-10 py-3 sm:py-5  mx-auto my-20">
       <div>
-        <div className="text-secondary font-bold uppercase">Join Us Now</div>
-        <div className='text-white'>Ready to get our services?</div>
+        <div className="text-secondary font-bold uppercase text-xs sm:text-base">Join Us Now</div>
+        <div className='text-white text-xs sm:text-base'>Ready to get our services?</div>
       </div>
       <div>
-        <Button variant="secondary">
+        <Button variant="secondary" className='text-white text-xs sm:text-base'>
           <Link href="/contact">Get Started</Link>
         </Button>
       </div>

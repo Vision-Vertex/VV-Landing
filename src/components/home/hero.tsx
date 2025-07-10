@@ -73,7 +73,7 @@ function hero() {
           </motion.div>
           </div>
   
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-14 py-12 -mt-6">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-4 md:px-14 py-12 -mt-6">
       <div className="m-8">
       <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8 md:mt-0 mt-8 md:mt-0">
         Cutting Costs, Elevating Quality: Your Global Tech Partner
