@@ -17,7 +17,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import { navItems } from '@/constants/data';
 
 export default function NavigationMenuDemo() {
