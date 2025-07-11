@@ -110,9 +110,9 @@ function ServicesList() {
               </div>
             </div>
 
-            {/* Right */}
+           
             <div className="col-span-10 md:col-span-6 flex md:row-start-1 justify-center">
-              <div className="w-[600px] h-[400px]">
+              <div className="w-[300px] h-[200px] sm:w-[300px] sm:h-[200px] md:w-[600px] md:h-[400px] ">
                 <Image
                   src={services[activeIndex].image}
                   alt={services[activeIndex].headline}
