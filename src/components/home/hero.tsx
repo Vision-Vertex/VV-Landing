@@ -3,7 +3,7 @@ import React from 'react';
 import Tentative from '../../../public/landing.svg';
 import Image from 'next/image';
 import V from '../../../public/icons/vision-logo/v.svg';
-import I from '../../../public/icons/vision-logo/I (1).svg';
+import I from '../../../public/icons/vision-logo/I2.svg';
 import S from '../../../public/icons/vision-logo/S.svg';
 import I2 from '../../../public/icons/vision-logo/i.svg';
 import O from '../../../public/icons/vision-logo/O.svg';
