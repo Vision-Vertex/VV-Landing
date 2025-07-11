@@ -18,7 +18,7 @@ export default function Footer() {
             className="mb-4"
           />
           <p className="text-xs leading-relaxed max-w-[260px]">
-            At Vision5 Tech, we help businesses cut costs and scale faster with expert offshore
+            At Vision vertex Tech, we help businesses cut costs and scale faster with expert offshore
             development teams and tailored technology solutions.
           </p>
         </div>

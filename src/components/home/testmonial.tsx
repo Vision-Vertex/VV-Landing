@@ -20,7 +20,7 @@ function testmonial() {
 
 
   return (
-    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-6 md:px-28  items-center">
+    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-4 md:px-14  items-center">
       <div className="space-y-6 min-h-[20rem] md:min-h-[25rem] ">
         <div className="font-medium text-secondary uppercase">Testimonials</div>
         <h2 className="text-4xl text-primary font-semibold leading-tight">

@@ -50,8 +50,8 @@ function ServicesList() {
       style={{ height: `${services.length * sectionHeight}px` }}
       className="relative"
     >
-      <div className="sticky top-0 min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 md:px-20 py-10 z-10">
-        <div className="max-w-6xl w-full">
+      <div className="sticky top-0 min-h-screen bg-white flex items-center justify-center px-4 md:px-14 py-10 z-10">
+        <div className="w-full">
           <h1 className="text-xl sm:text-2xl md:text-3xl text-primary font-bold mb-6 text-left">
             Our Services
           </h1>

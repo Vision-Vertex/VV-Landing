@@ -11,8 +11,14 @@ import { BsEnvelopeAtFill, BsLinkedin } from 'react-icons/bs';
 function AboutUsPage() {
  return (
    <div className="px-6 md:px-16 py-10 space-y-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ">
-        <Image src={Picture1} alt="Picture1" className="hidden md:block" />
+            <div className="mt-10 mb-10 lg:mb-0 lg:hidden">
+          <div className="w-20 h-28 bg-primary mx-auto"></div>
+          <div className="text-center text-primary uppercase font-bold text-5xl mt-2">
+            About Us
+          </div>
+        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 ">
+        <Image src={Picture1} alt="Picture1" className="hidden lg:block" />
         <div className="text-sm space-y-4">
           <div className="text-secondary uppercase font-bold">
             It started with a vision
@@ -38,15 +44,15 @@ function AboutUsPage() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 -mt-20 ">
-        <div className="mt-20 hidden md:block">
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:mt-1 lg:gap-2">
+        <div className="mt-20 hidden lg:block">
           <div className="w-20 h-28 bg-primary mx-auto"></div>
           <div className="text-center text-primary uppercase font-bold text-5xl mt-2">
             About Us
           </div>
         </div>
-        <Image src={Picture2} alt="Picture2" className="hidden md:block" />
-        <div className="text-sm space-y-4 mt-32 md:mt-3">
+        <Image src={Picture2} alt="Picture2" className="hidden lg:block" />
+        <div className="text-sm space-y-4 lg:mt-3 ">
           <div>
            <p> Recognizing the untapped potential of global talent, we expanded our
             focus to cultivating skilled developers in Ethiopia and India,
@@ -69,26 +75,36 @@ function AboutUsPage() {
         </div>
       </div>
 
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 mt-8">
+  {company_values.map((value) => {
+    const lowerTitle = value.title.toLowerCase();
 
-      {/* Company Values with Custom Colors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 mt-8">
-        {company_values.map((value) => {
-          const bgColor =
-            value.title.toLowerCase() === 'mission'
-              ? 'bg-[#17215c]'
-              : value.title.toLowerCase() === 'vision'
-              ? 'bg-[#f45929]'
-              : 'bg-primary';
+    const bgColor =
+      lowerTitle === 'mission'
+        ? 'bg-[#17215c]'
+        : lowerTitle === 'vision'
+        ? 'bg-[#f45929]'
+        : 'bg-primary';
 
-          return (
-            <div key={value.title} className={`${bgColor} p-8 rounded-lg shadow-lg transition-colors duration-300`}>
-              <h3 className="text-white uppercase font-bold">{value.title}</h3>
-              <h4 className="text-white text-2xl mb-2">{value.small_description}</h4>
-              <p className="text-white/90 text-sm">{value.description}</p>
-            </div>
-          );
-        })}
+    const titleColor =
+      lowerTitle === 'mission'
+        ? 'text-[#f45929]'
+        : lowerTitle === 'vision'
+        ? 'text-[#17215c]'
+        : 'text-white';
+
+    return (
+      <div
+        key={value.title}
+        className={`${bgColor} p-8 rounded-lg shadow-lg transition-colors duration-300 mb-10`}
+      >
+        <h3 className={`uppercase font-bold text-sm sm:text-base ${titleColor}`}>{value.title}</h3>
+        <h4 className="text-white text-xl sm:text-2xl mb-2 ">{value.small_description}</h4>
+        <p className="text-white/90 text-xs sm:text-sm text-justify">{value.description}</p>
       </div>
+    );
+  })}
+</div>
       {/* Team Section */}
       <div>
         <h2 className="text-center text-primary uppercase font-bold text-3xl mb-2 mt-8">Meet Our Team</h2>
