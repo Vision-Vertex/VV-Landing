@@ -24,7 +24,7 @@ import freelancingIcon from '../../public/icons/freelancingIcon.png';
 import fullstackIcon from '../../public/icons/fullstack.png';
 import microsoft from '../../public/icons/microsoft.png';
 import training from '../../public/icons/trainingIcon.png';
-import ai from '../../public/services/aiLogo.webp';
+import ai from '../../public/services/ai.webp';
 import analytics from '../../public/services/analytics.webp';
 import app from '../../public/services/app.jpg';
 import cloud from '../../public/services/cloud.webp';
