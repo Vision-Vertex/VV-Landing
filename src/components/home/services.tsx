@@ -64,8 +64,17 @@ function ServicesList() {
                 <div className="text-secondary font-medium text-sm sm:text-base">
                   {services[activeIndex].headline}
                 </div>
+                              
               </div>
-
+<div className="w-full md:hidden">
+                <Image
+                  src={services[activeIndex].image}
+                  alt={services[activeIndex].headline}
+                  className="w-full h-full rounded-xl object-cover"
+                  width={600}
+                  height={400}
+                />
+              </div>
               <div className="flex flex-col gap-3">
                 <div className="text-primary text-sm sm:text-base px-2 leading-relaxed text-left break-words">
                   {services[activeIndex].small_description}
@@ -111,8 +120,8 @@ function ServicesList() {
             </div>
 
            
-            <div className="col-span-10 md:col-span-6 flex md:row-start-1 justify-center">
-              <div className="w-[300px] h-[200px] sm:w-[300px] sm:h-[200px] md:w-[600px] md:h-[400px] ">
+            <div className="col-span-10 md:col-span-6 flex md:row-start-1 justify-center hidden md:block">
+              <div className="md:w-[600px] md:h-[400px] ">
                 <Image
                   src={services[activeIndex].image}
                   alt={services[activeIndex].headline}
