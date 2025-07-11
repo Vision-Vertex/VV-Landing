@@ -4,7 +4,9 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import Logo from '../../../public/logos/Vision5 Logo_O1.svg';
+import Logo from '../../../public/logos/VisionVertexLogo2.svg';
+import VisionVertex1 from '../../../public/logos/VisionVertexLogo1.svg';
+import VisionVertex from '../../../public/logos/Vision5 Logo_O1.svg';
 import VisionLogo from '../../../public/logos/vision.svg';
 
 import { cn } from '@/lib/utils';
@@ -35,16 +37,16 @@ export default function NavigationMenuDemo() {
         <Image
           className="hidden md:block"
           src={Logo}
-          width={130}
-          height={130}
+          width={200}
+          height={200}
           alt="Logo"
           priority/>
       
         <Image
           className="block md:hidden"
-          src={VisionLogo}
-          width={60}
-          height={60}
+          src={VisionVertex1}
+          width={50}
+          height={50}
           alt="Logo"
           priority/>
       </Link>
@@ -53,40 +55,47 @@ export default function NavigationMenuDemo() {
      <NavigationMenu>
       <NavigationMenuList className="flex flex-wrap gap-1 md:gap-4 text-sm md:text-base">
         <NavigationMenuItem className="flex items-center flex-wrap">
-          {navItems.map((navitem) => navitem.link ? (
-            <NavigationMenuLink
-              asChild className={navigationMenuTriggerStyle() + ' bg-transparent px-1 md:px-2'} key={navitem.title}>
-                    <Link href={navitem.href}>{navitem.title}</Link>
-            </NavigationMenuLink>
-            ) : (
-              <div key={navitem.title}>
-                <NavigationMenuTrigger className="bg-transparent text-sm md:text-base px-1 md:px-2">
-                 {navitem.title}
-                  </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                     <ul className="grid w-[230px] gap-3 p-4 md:grid-cols-1 lg:w-[350px] ">                       {navitem.components.map((component: any) => (
-                        <ListItem
-                          key={component.title}
-                          title={component.title}
-                          href={component.href}>
-                          {component.description}
-                         </ListItem>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-              </div>
-                )
-              )}
+          {navItems.map((navitem) =>
+  navitem.link ? (
+    <NavigationMenuLink
+      asChild
+      className={navigationMenuTriggerStyle() + ' bg-transparent px-1 md:px-2'}
+      key={navitem.title}
+    >
+      <Link href={navitem.href}>{navitem.title}</Link>
+    </NavigationMenuLink>
+  ) : (
+    <div key={navitem.title}>
+      <NavigationMenuTrigger className="bg-transparent text-sm md:text-base px-1 md:px-2">
+        {navitem.title}
+      </NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[230px] gap-3 p-4 md:grid-cols-1 lg:w-[350px]">
+          {(navitem.components && navitem.title === 'Services'? navitem.components.slice(0, 5): navitem.components || []
+           ).map((component: any) => (
+            <ListItem
+             key={component.title}
+             title={component.title}
+             href={component.href}>
+            {component.description}
+            </ListItem>
+            ))}
+             </ul>
+           </NavigationMenuContent>
+       </div>
+          )
+          )}
+
             </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     <Button variant="default" className="text-xs md:text-sm px-2 md:px-4 py-1 md:py-2 h-auto min-w-fit">
       <Link href="/contact-us">Contact Us</Link>
     </Button>
-  </div>
-  </div>
-  );
-}
+     </div>
+     </div>
+    );
+     }
 
 const ListItem = React.forwardRef<
   React.ElementRef<'a'>,

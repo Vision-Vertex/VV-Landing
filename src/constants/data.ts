@@ -30,6 +30,8 @@ import thinking from '../../public/qualities/thinking.jpg';
 import Partner1 from '../../public/partners/cropped-output-onlinepngtools-2.webp';
 import Partner2 from '../../public/partners/jem.png';
 import Partner3 from '../../public/partners/photo_2025-06-19 17.40.15.jpeg';
+import Partner4 from '../../public/partners/DailyOfficeSolutions.jpg';
+import Partner5 from '../../public/partners/TIME.jpg';
 import { UserRound, Users2Icon, icons } from 'lucide-react';
 import { slugify } from '@/lib/slugify';
 import { FaPaintBrush, FaHandshake, FaRocket, FaUserCheck } from 'react-icons/fa';
@@ -107,9 +109,22 @@ export const partners: PartnerItem[] = [
     path: Partner1,
     alt: 'Partner 1',
   },
+  
   {
     path: Partner2,
     alt: 'Partner 2',
+  },
+  {
+    path: Partner3,
+    alt: 'Partner 3',
+  },
+  {
+    path: Partner4,
+    alt: 'Partner 4',
+  },
+  {
+    path: Partner5,
+    alt: 'Partner 5',
   },
   {
     path: Partner3,
@@ -124,20 +139,8 @@ export const partners: PartnerItem[] = [
     alt: 'Partner 2',
   },
   {
-    path: Partner3,
-    alt: 'Partner 3',
-  },
-  {
-    path: Partner1,
-    alt: 'Partner 1',
-  },
-  {
-    path: Partner2,
-    alt: 'Partner 2',
-  },
-  {
-    path: Partner3,
-    alt: 'Partner 3',
+    path: Partner4,
+    alt: 'Partner 5',
   },
  
 ];
