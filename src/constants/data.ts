@@ -15,6 +15,24 @@ import Icon2 from '../../public/icons/Group 23.png';
 import Icon3 from '../../public/icons/Group 26.png';
 import Icon4 from '../../public/icons/image 4.png';
 import Icon5 from '../../public/icons/image 5.png';
+import AiIcon from '../../public/icons/AiIcon.png';
+import analyticsIcon from '../../public/icons/analyticsIcon.png';
+import appIcon from '../../public/icons/appIcon.png';
+import cloudIcon from '../../public/icons/cloudDevOpsIcon.png';
+import cybersecurityIcon from '../../public/icons/cybersecurityIcon.png';
+import freelancingIcon from '../../public/icons/freelancingIcon.png';
+import fullstackIcon from '../../public/icons/fullstack.png';
+import microsoft from '../../public/icons/microsoft.png';
+import training from '../../public/icons/trainingIcon.png';
+import ai from '../../public/services/aiLogo.webp';
+import analytics from '../../public/services/analytics.webp';
+import app from '../../public/services/app.jpg';
+import cloud from '../../public/services/cloud.webp';
+import cybersecurity from '../../public/services/cybersecurity.webp';
+import freelancing from '../../public/services/freelancing.avif';
+import fullstack from '../../public/services/fullstack.avif';
+import trainingImg from '../../public/services/training.avif';
+import microsoftImg from '../../public/services/microsoftLogo.avif';
 import Picture1 from '../../public/images/Rectangle 34 (1).png';
 import Picture2 from '../../public/images/Rectangle 34.png';
 import TestmonialLogos from '../../public/logos/hijrah.webp';
@@ -147,7 +165,7 @@ export const partners: PartnerItem[] = [
 
 export const services: Services[] = [
   {
-    icon: Icon1,
+    icon: microsoft,
     headline: 'Microsoft Ecosystem Solutions',
     slug: slugify('Microsoft Ecosystem Solutions'),
     small_description:
@@ -193,7 +211,7 @@ export const services: Services[] = [
         link: 'https://google.com',
       },
     ],
-    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2',
+    image: microsoftImg,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'As an official Microsoft partner, we deliver secure, scalable implementations of SharePoint, Teams, Power Platform, and Azure integrations. Our solutions include workflow automation, data visualization, and seamless cloud migration.',
@@ -225,7 +243,7 @@ export const services: Services[] = [
     ],
   },
   {
-    icon: Icon2,
+    icon: analyticsIcon,
     headline: 'Data Analytics & Business Intelligence',
     slug: slugify('Data Analytics & Business Intelligence'),
     small_description:
@@ -234,7 +252,7 @@ export const services: Services[] = [
       'We build custom analytics platforms with Power BI, Tableau, and SQL to uncover insights, predict trends, and automate reporting.',
     button1: '/',
     button2: '/',
-    image: Picture1,
+    image: analytics,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'From ETL pipelines to interactive dashboards, we create tailored solutions that turn complex data into clear business value.',
@@ -266,7 +284,7 @@ export const services: Services[] = [
     ],
   },
   {
-    icon: Icon3,
+    icon: cloudIcon,
     headline: 'Cloud & DevOps (Azure & AWS) ',
     slug: slugify('Cloud & DevOps (Azure & AWS)'),
     small_description:
@@ -275,7 +293,7 @@ export const services: Services[] = [
       "We design, migrate, and manage cloud environments with infrastructure-as-code and automated deployments.",
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: cloud,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'Full-spectrum cloud services including Kubernetes orchestration, serverless architecture, and cost optimization.',
@@ -307,7 +325,7 @@ export const services: Services[] = [
     ],
   },
   {
-    icon: Icon4,
+    icon: AiIcon,
     headline: 'AI & Automation',
     slug: slugify('AI & Automation'),
     small_description:
@@ -316,7 +334,7 @@ export const services: Services[] = [
       'We implement chatbots, document processing AI, and workflow automation to reduce costs and errors.',
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: ai,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'Custom solutions combining Microsoft AI Builder, AWS SageMaker, and UiPath for end-to-end automation.',
@@ -348,7 +366,7 @@ export const services: Services[] = [
     ],
   },
   {
-    icon: Icon5,
+    icon: cybersecurityIcon,
     headline: 'Cybersecurity',
     slug: slugify('Cybersecurity'),
     small_description:
@@ -357,7 +375,7 @@ export const services: Services[] = [
       "We deliver compliance audits, penetration testing, and 24/7 threat monitoring.",
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: cybersecurity,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'Comprehensive services including Zero Trust implementation, SIEM configuration, and security awareness training.',
@@ -389,7 +407,7 @@ export const services: Services[] = [
     ],
   },
   {
-    icon: Icon5,
+    icon: fullstack,
     headline: 'Java & Full Stack Development',
     slug: slugify('Java & Full Stack Development'),
     small_description:
@@ -398,7 +416,7 @@ export const services: Services[] = [
       "We build scalable web applications with modern Java frameworks and cloud-native architectures.",
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: fullstack,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'End-to-end development services from API design to progressive web apps.',
@@ -430,7 +448,7 @@ export const services: Services[] = [
     ],
   },
     {
-    icon: Icon5,
+    icon: appIcon,
     headline: 'App Development',
     slug: slugify('Java & Full Stack Development'),
     small_description:
@@ -439,7 +457,7 @@ export const services: Services[] = [
       "We develop user-centric applications with Flutter, React Native, and .NET MAUI.",
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: app,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'Full lifecycle development including UX design, testing, and App Store deployment.',
@@ -471,7 +489,7 @@ export const services: Services[] = [
     ],
   },
     {
-    icon: Icon5,
+    icon: training,
     headline: 'Training',
     slug: slugify('Training'),
     small_description:
@@ -480,7 +498,7 @@ export const services: Services[] = [
       "We offer certification prep and real-world project experience.",
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: trainingImg,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'Corporate and individual training in Power Platform, Azure, cybersecurity, and more.',
@@ -512,7 +530,7 @@ export const services: Services[] = [
     ],
   },
   {
-    icon: Icon5,
+    icon: freelancingIcon,
     headline: 'Freelancing',
     slug: slugify('Freelancing'),
     small_description:
@@ -521,7 +539,7 @@ export const services: Services[] = [
       "Access skilled professionals in development, data, and cloud within 48 hours.",
     button1: '/',
     button2: '/',
-    image: Picture2,
+    image: freelancing,
     second_headline: 'Why Choose Our Offshore Teams?',
     second_description:
       'Our platform connects you with pre-screened experts for project-based work.',

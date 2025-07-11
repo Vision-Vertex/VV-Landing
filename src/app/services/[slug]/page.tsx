@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { caseStudies } from '@/constants/data'; 
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { AnimatePresence, motion, Variants, easeInOut } from 'framer-motion';
+import Image from 'next/image';
 
 
 const caseStudyVariant = {
@@ -78,9 +79,18 @@ function ServicesPage({ params }: any) {
             <button className="text-[#F26522] font-semibold text-base hover:underline w-full sm:w-auto">Start Now &gt;</button>
           </div>
           </div>
-         <div className="flex-1 min-w-[0] md:min-w-[320px] max-w-[420px] w-full flex justify-center">
-          <img src={service.image} alt="Team working" className="w-full rounded-xl object-cover h-[220px] sm:h-[260px] md:h-[300px]" />
-         </div>
+        <div className="col-span-12 md:col-span-6 flex justify-center">
+  <div className="w-full">
+    <Image
+      src={service.image}
+      alt="Team working"
+      className="w-full rounded-xl object-cover h-[220px] sm:h-[260px] md:h-[300px]"
+      width={1400}
+      height={1000}
+    />
+  </div>
+</div>
+
         </div>
       <div className="flex justify-center items-center gap-6 md:gap-8 mt-10 md:mt-12 mb-6 md:mb-8 flex-wrap">
         {service.partners?.map((partner,i) => (
