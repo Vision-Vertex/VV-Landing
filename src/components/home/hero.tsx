@@ -14,7 +14,7 @@ function hero() {
   return (
     <>
       
-      <div className="bg-accent w-full p-8 md:px-14 md:py-7 h-[90vh] md:h-[80vh] flex items-center gap-10 justify-center">
+      <div className="bg-accent  w-full p-4 md:px-14 md:py-7 h-[40vh] md:h-[70vh] flex items-center gap-10 justify-center ">
         <Image
           src={Tentative}
           width={500}
@@ -71,9 +71,10 @@ function hero() {
           >
             <Image src={N} alt="N" width={110} height={110} />
           </motion.div>
-          </div>
+        {/* </div> */}
+      </div>
   
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-14 py-12 -mt-6">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-4 md:px-14 py-12 -mt-6">
       <div className="m-8">
       <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8 md:mt-0 mt-8 md:mt-0">
         Cutting Costs, Elevating Quality: Your Global Tech Partner
