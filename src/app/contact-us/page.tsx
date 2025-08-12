@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import emailjs from "emailjs-com";
 import PhoneInput, {
@@ -9,6 +10,7 @@ import PhoneInput, {
 } from "react-phone-number-input";
 import { E164Number } from "libphonenumber-js";
 import "react-phone-number-input/style.css";
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Clock, Users, MessageSquare } from "lucide-react";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -87,23 +89,67 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white gap-14">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-4 md:px-16 lg:px-40 py-10 md:py-20">
-        <div className="flex flex-col">
-          <h1 className="text-3xl font-bold text-primary mb-2">Get In Touch</h1>
-          <p className="text-sm text-gray-600 mb-6">
-            At Vision5 Tech, we help businesses cut costs and scale faster with
-            expert offshore development teams and tailored technology solutions.
-          </p>
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 flex-1"
-          >
-            <div>
-              <label
-                htmlFor="firstName"
-                className="block text-sm font-medium text-gray-700"
+    <div className="relative min-h-screen bg-white overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-tl from-secondary/10 to-primary/10 rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="px-6 md:px-16 py-20">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
               >
+                <MessageSquare size={16} />
+                Get In Touch
+              </motion.div>
+
+              <motion.h1
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+              >
+                Let's Start a{' '}
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Conversation
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              >
+                At Vision Vertex Solutions, we help businesses cut costs and scale faster with expert offshore development teams and tailored technology solutions.
+              </motion.p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              {/* Contact Form */}
+              <motion.div
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200"
+              >
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                      <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
                 First Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -114,14 +160,11 @@ const ContactUs = () => {
                 onChange={handleChange}
                 required
                 placeholder="Jane"
-                className="mt-1 w-full px-3 py-2 bg-gray-100 placeholder-gray-400 rounded-lg focus:outline-none"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300"
               />
             </div>
             <div>
-              <label
-                htmlFor="lastName"
-                className="block text-sm font-medium text-gray-700"
-              >
+                      <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
                 Last Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -132,14 +175,13 @@ const ContactUs = () => {
                 onChange={handleChange}
                 required
                 placeholder="Doe"
-                className="mt-1 w-full px-3 py-2 bg-gray-100 placeholder-gray-400 rounded-lg focus:outline-none"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300"
               />
             </div>
-            <div className="md:col-span-2">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                 Email <span className="text-red-500">*</span>
               </label>
               <input
@@ -150,18 +192,16 @@ const ContactUs = () => {
                 onChange={handleChange}
                 required
                 placeholder="jane@gmail.com"
-                className="mt-1 w-full px-3 py-2 bg-gray-100 placeholder-gray-400 rounded-lg focus:outline-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300"
               />
             </div>
-            <div className="md:col-span-2">
-              <label
-                htmlFor="phone"
-                className="block text-sm font-medium text-gray-700"
-              >
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone Number
               </label>
-              <div className="flex items-stretch mt-1 rounded-lg overflow-hidden border-none">
-                <div className="bg-accent px-3 py-2 flex items-center">
+                    <div className="flex items-stretch rounded-xl overflow-hidden border border-gray-200 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all duration-300">
+                      <div className="bg-gray-100 px-4 py-3 flex items-center border-r border-gray-200">
                   <PhoneInput
                     international
                     country={selectedCountry}
@@ -191,15 +231,14 @@ const ContactUs = () => {
                       }
                     `}
                   </style>
-
-                  <span className="ml-1">
+                        <span className="ml-2 text-gray-600 font-medium">
                     +{getCountryCallingCode(selectedCountry)}
                   </span>
                 </div>
                 <input
                   type="tel"
                   placeholder="913884176"
-                  className="flex-1 px-3 py-2 bg-gray-100 outline-none"
+                        className="flex-1 px-4 py-3 bg-gray-50 outline-none"
                   value={formData.phone.replace(
                     `+${getCountryCallingCode(selectedCountry)}`,
                     ""
@@ -214,12 +253,10 @@ const ContactUs = () => {
                 />
               </div>
             </div>
-            <div className="md:col-span-2">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Message
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
@@ -227,36 +264,153 @@ const ContactUs = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                placeholder="Type here…"
-                className="mt-1 w-full h-32 px-3 py-2 bg-gray-100 placeholder-gray-400 rounded-lg focus:outline-none resize-none"
+                      placeholder="Tell us about your project..."
+                      rows={5}
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 resize-none"
               />
             </div>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center md:col-span-2 gap-2">
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
               <Button
                 type="submit"
-                className="py-5 rounded-xl min-w-[180px]"
                 disabled={loading}
-              >
-                {loading ? "Sending..." : "Send Us A Message"}
+                      className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      {loading ? (
+                        <div className="flex items-center gap-2">
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          Sending...
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <Send size={18} />
+                          Send Message
+                        </div>
+                      )}
               </Button>
-              <p
-                className={`text-sm ${
-                  message.type === "error" ? "text-red-600" : "text-green-600"
-                } mt-2`}
-              >
+                  </motion.div>
+
+                  {message.message && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`flex items-center gap-2 p-4 rounded-xl ${
+                        message.type === "error" 
+                          ? "bg-red-50 border border-red-200 text-red-700" 
+                          : "bg-green-50 border border-green-200 text-green-700"
+                      }`}
+                    >
+                      {message.type === "error" ? (
+                        <AlertCircle size={20} />
+                      ) : (
+                        <CheckCircle size={20} />
+                      )}
                 {message.message}
-              </p>
+                    </motion.div>
+                  )}
+                </form>
+              </motion.div>
+
+              {/* Contact Info & Map */}
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="space-y-8"
+              >
+                {/* Contact Info Cards */}
+                <div className="space-y-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    className="bg-gradient-to-br from-primary to-primary/90 text-white p-6 rounded-2xl shadow-xl"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <Mail size={24} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-1">Email Us</h3>
+                        <p className="text-white/90">info@visionvertex.tech</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="bg-gradient-to-br from-secondary to-secondary/90 text-white p-6 rounded-2xl shadow-xl"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <Phone size={24} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-1">Call Us</h3>
+                        <p className="text-white/90">+251-923623256</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                    className="bg-gradient-to-br from-gray-800 to-gray-900 text-white p-6 rounded-2xl shadow-xl"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <MapPin size={24} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-1">Visit Us</h3>
+                        <p className="text-white/90">4 kilo Behind Ambassador mall in front of 4 kilo police station, Addis Ababa</p>
+                      </div>
             </div>
-          </form>
+                  </motion.div>
         </div>
-        <div className="h-64 md:h-full rounded-lg overflow-hidden shadow-lg">
+
+                {/* Map */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-200"
+                >
           <iframe
-            src="https://www.google.com/maps?q=5000+Thayer+Center+Suite+C,+Oakland,+MD&output=embed"
-            className="w-full h-full min-h-[250px]"
+                    src="https://www.google.com/maps?q=4+kilo+Behind+Ambassador+mall+in+front+of+4+kilo+police+station,+Addis+Ababa&output=embed"
+                    className="w-full h-64"
             style={{ border: 0 }}
             loading="lazy"
           ></iframe>
+                </motion.div>
+
+                {/* Response Time Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
+                  className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                      <Clock size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 text-lg mb-1">Response Time</h3>
+                      <p className="text-gray-600">We typically respond within 24 hours</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
         </div>
+          </div>
+        </section>
       </div>
     </div>
   );

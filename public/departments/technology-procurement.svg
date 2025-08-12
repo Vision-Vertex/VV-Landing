@@ -1,0 +1,112 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="procGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BE185D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#FDF2F8"/>
+  
+  <!-- Procurement Warehouse -->
+  <rect x="50" y="150" width="200" height="120" rx="8" fill="url(#procGrad)" opacity="0.9"/>
+  <rect x="60" y="160" width="180" height="20" rx="4" fill="white" opacity="0.8"/>
+  <rect x="60" y="190" width="180" height="20" rx="4" fill="white" opacity="0.7"/>
+  <rect x="60" y="220" width="180" height="20" rx="4" fill="white" opacity="0.6"/>
+  
+  <!-- Shopping carts -->
+  <path d="M 80 180 L 90 180 L 95 170 L 115 170 L 120 180 L 130 180" stroke="white" stroke-width="3" fill="none" opacity="0.8"/>
+  <circle cx="85" cy="190" r="4" fill="white" opacity="0.7"/>
+  <circle cx="125" cy="190" r="4" fill="white" opacity="0.7"/>
+  <rect x="85" y="175" width="40" height="10" rx="2" fill="white" opacity="0.6"/>
+  
+  <!-- Vendor Management Center -->
+  <rect x="300" y="150" width="200" height="120" rx="8" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="310" y="160" width="180" height="20" rx="4" fill="white" opacity="0.8"/>
+  <rect x="310" y="190" width="180" height="20" rx="4" fill="white" opacity="0.7"/>
+  <rect x="310" y="220" width="180" height="20" rx="4" fill="white" opacity="0.6"/>
+  
+  <!-- Vendor partners -->
+  <circle cx="330" cy="180" r="8" fill="white" opacity="0.9"/>
+  <circle cx="330" cy="180" r="4" fill="url(#procGrad)"/>
+  <circle cx="370" cy="180" r="8" fill="white" opacity="0.8"/>
+  <circle cx="370" cy="180" r="4" fill="url(#procGrad)"/>
+  <circle cx="410" cy="180" r="8" fill="white" opacity="0.7"/>
+  <circle cx="410" cy="180" r="4" fill="url(#procGrad)"/>
+  
+  <!-- Systems Integration Hub -->
+  <rect x="550" y="150" width="200" height="120" rx="8" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="560" y="160" width="180" height="20" rx="4" fill="white" opacity="0.8"/>
+  <rect x="560" y="190" width="180" height="20" rx="4" fill="white" opacity="0.7"/>
+  <rect x="560" y="220" width="180" height="20" rx="4" fill="white" opacity="0.6"/>
+  
+  <!-- Connected systems -->
+  <rect x="580" y="180" width="30" height="20" rx="3" fill="white" opacity="0.8"/>
+  <rect x="582" y="182" width="26" height="4" rx="1" fill="url(#procGrad)"/>
+  <rect x="582" y="188" width="20" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <rect x="690" y="180" width="30" height="20" rx="3" fill="white" opacity="0.8"/>
+  <rect x="692" y="182" width="26" height="4" rx="1" fill="url(#procGrad)"/>
+  <rect x="692" y="188" width="20" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <!-- Integration connection -->
+  <path d="M 610 190 L 690 190" stroke="white" stroke-width="3" fill="none" opacity="0.8"/>
+  
+  <!-- License Management Center -->
+  <rect x="150" y="320" width="200" height="120" rx="8" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="160" y="330" width="180" height="20" rx="4" fill="white" opacity="0.8"/>
+  <rect x="160" y="360" width="180" height="20" rx="4" fill="white" opacity="0.7"/>
+  <rect x="160" y="390" width="180" height="20" rx="4" fill="white" opacity="0.6"/>
+  
+  <!-- License documents -->
+  <rect x="180" y="350" width="25" height="30" rx="3" fill="white" opacity="0.9"/>
+  <rect x="182" y="352" width="21" height="4" rx="1" fill="url(#procGrad)"/>
+  <rect x="182" y="358" width="17" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <rect x="220" y="350" width="25" height="30" rx="3" fill="white" opacity="0.8"/>
+  <rect x="222" y="352" width="21" height="4" rx="1" fill="url(#procGrad)"/>
+  <rect x="222" y="358" width="17" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <rect x="260" y="350" width="25" height="30" rx="3" fill="white" opacity="0.7"/>
+  <rect x="262" y="352" width="21" height="4" rx="1" fill="url(#procGrad)"/>
+  <rect x="262" y="358" width="17" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <!-- Contract Management Hub -->
+  <rect x="450" y="320" width="200" height="120" rx="8" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="460" y="330" width="180" height="20" rx="4" fill="white" opacity="0.8"/>
+  <rect x="460" y="360" width="180" height="20" rx="4" fill="white" opacity="0.7"/>
+  <rect x="460" y="390" width="180" height="20" rx="4" fill="white" opacity="0.6"/>
+  
+  <!-- Contract documents -->
+  <rect x="480" y="350" width="30" height="35" rx="3" fill="white" opacity="0.9"/>
+  <rect x="482" y="352" width="26" height="4" rx="1" fill="url(#procGrad)"/>
+  <rect x="482" y="358" width="22" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="482" y="363" width="24" height="3" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <!-- Contract signing -->
+  <circle cx="550" cy="365" r="12" fill="white" opacity="0.8"/>
+  <path d="M 546 365 L 549 368 L 554 363" stroke="url(#procGrad)" stroke-width="2" fill="none"/>
+  
+  <!-- Workflow arrows -->
+  <path d="M 250 210 L 300 210" stroke="url(#procGrad)" stroke-width="3" fill="none" opacity="0.6"/>
+  <path d="M 500 210 L 550 210" stroke="url(#procGrad)" stroke-width="3" fill="none" opacity="0.6"/>
+  <path d="M 150 320 L 150 280" stroke="url(#procGrad)" stroke-width="3" fill="none" opacity="0.6"/>
+  <path d="M 450 320 L 450 280" stroke="url(#procGrad)" stroke-width="3" fill="none" opacity="0.6"/>
+  
+  <!-- KPIs and metrics -->
+  <rect x="100" y="480" width="600" height="80" rx="8" fill="white" stroke="url(#procGrad)" stroke-width="2" opacity="0.9"/>
+  
+  <!-- KPI bars -->
+  <rect x="120" y="520" width="40" height="20" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="180" y="510" width="40" height="30" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="240" y="500" width="40" height="40" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="300" y="490" width="40" height="50" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="360" y="480" width="40" height="60" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="420" y="470" width="40" height="70" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="480" y="460" width="40" height="80" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="540" y="450" width="40" height="90" fill="url(#procGrad)" opacity="0.8"/>
+  <rect x="600" y="440" width="40" height="100" fill="url(#procGrad)" opacity="0.8"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" fill="#1E293B" font-size="32" font-weight="bold">Technology Procurement &amp; Integration</text>
+  <text x="400" y="80" text-anchor="middle" fill="#64748B" font-size="18">Centralized Procurement, Vendor Management &amp; Systems Integration</text>
+</svg>

@@ -33,6 +33,48 @@ import freelancing from '../../public/services/freelancing.avif';
 import fullstack from '../../public/services/fullstack.avif';
 import trainingImg from '../../public/services/training.avif';
 import microsoftImg from '../../public/services/microsoftLogo.avif';
+
+// Import department images
+import technologyProcurementImg from '../../public/departments/technology-procurement.svg';
+import softwareEngineeringImg from '../../public/departments/software-engineering.svg';
+import cloudDevOpsImg from '../../public/departments/cloud-devops.svg';
+import aiDataImg from '../../public/departments/ai-data-science.svg';
+import trainingRDImg from '../../public/departments/training-rd.svg';
+
+// Import beautiful service icons
+import technologyProcurementIcon from '../../public/icons/technology-procurement-main.svg';
+import softwareEngineeringIcon from '../../public/icons/software-engineering-main.png';
+import cloudDevOpsIcon from '../../public/icons/cloud-devops-main.png';
+import aiDataIcon from '../../public/icons/ai-data-main.png';
+import trainingRDIcon from '../../public/icons/training-rd-main.png';
+
+// Import beautiful card icons
+import fullstackDevIcon from '../../public/icons/fullstack-dev.png';
+import uiUxDesignIcon from '../../public/icons/ui-ux-design.png';
+import qaTestingIcon from '../../public/icons/qa-testing.png';
+import productDeliveryIcon from '../../public/icons/product-delivery.png';
+
+import cloudInfrastructureIcon from '../../public/icons/cloud-infrastructure.svg';
+import ciCdPipelineIcon from '../../public/icons/ci-cd-pipeline.svg';
+import platformEngineeringIcon from '../../public/icons/platform-engineering.png';
+import microsoft365Icon from '../../public/icons/microsoft-365.png';
+
+import dataEngineeringIcon from '../../public/icons/data-engineering.png';
+import machineLearningIcon from '../../public/icons/machine-learning.svg';
+import businessIntelligenceIcon from '../../public/icons/business-intelligence.png';
+import businessAnalysisIcon from '../../public/icons/business-analysis.svg';
+
+import technicalTrainingIcon from '../../public/icons/technical-training.png';
+import internshipProgramsIcon from '../../public/icons/internship-programs.png';
+import researchDevelopmentIcon from '../../public/icons/research-development.svg';
+import continuousLearningIcon from '../../public/icons/continuous-learning.png';
+
+// Import procurement card icons
+import procurementManagementIcon from '../../public/icons/procurement-management.svg';
+import licenseManagementIcon from '../../public/icons/license-management.svg';
+import systemsIntegrationIcon from '../../public/icons/systems-integration.svg';
+import vendorManagementIcon from '../../public/icons/vendor-management.svg';
+
 import Picture1 from '../../public/images/Rectangle 34 (1).png';
 import Picture2 from '../../public/images/Rectangle 34.png';
 import TestmonialLogos from '../../public/logos/hijrah.webp';
@@ -62,56 +104,29 @@ export const navItems: NavItem[] = [
     description: 'Home is here',
     components: [
       {
-           service_name: 'Microsoft Ecosystem Solutions',
-        href: '/services/Microsoft-Ecosystem-Solutions',
-        description: 'Microsoft Ecosystem Solutions',
+        service_name: 'Technology Procurement & Integration Services',
+        href: '/services/Technology-Procurement-Integration-Services',
+        description: 'Centralized procurement, vendor management, and systems integration',
       },
       {
-        service_name: 'Data Analytics & Business Intelligence',
-        href: '/services/Data-Analytics-Business-Intelligence',
-        description: 'Data Analytics & Business Intelligence',
+        service_name: 'Software Engineering & Product Delivery',
+        href: '/services/Software-Engineering-Product-Delivery',
+        description: 'Full-stack development for web, mobile, ERP/CRM systems',
       },
       {
-        service_name: 'Cloud & DevOps (Azure & AWS)',
-        href:'/services/Cloud-Devops-Azure-Aws',
-        description: 'Cloud & DevOps (Azure & AWS)',
-
+        service_name: 'Cloud, DevOps & Platform Engineering',
+        href: '/services/Cloud-Devops-Platform-Engineering',
+        description: 'Cloud infrastructure management, CI/CD pipelines, and platform engineering',
       },
       {
-        service_name: 'AI & Automation',
-        href:'/services/Ai-Automation',
-        description: 'AI & Automation',
-
-      }, 
-      {
-        service_name: 'Cybersecurity',
-        href:'/services/Cybersecurity',
-        description: 'Cybersecurity',
-
+        service_name: 'AI, Data Science & Business Intelligence',
+        href: '/services/Ai-Data-Science-Business-Intelligence',
+        description: 'Data collection, engineering, analytics, and AI-powered solutions',
       },
       {
-        service_name: 'Java & Full Stack Development',
-        href:'/services/Java-Full-Stack-Development',
-        description: 'Java & Full Stack Development',
-
-      },
-      {
-        service_name: 'App Development',
-        href:'/services/App-Development',
-        description: 'App Development',
-
-      },
-      {
-        service_name: 'Training',
-        href:'/services/Training',
-        description: 'Training',
-
-      },
-      {
-        service_name: 'Freelancing',
-        href:'/services/Freelancing',
-        description: 'Freelancing',
-
+        service_name: 'Training, R&D & Talent Development',
+        href: '/services/Training-Rd-Talent-Development',
+        description: 'Technical onboarding, upskilling programs, and R&D initiatives',
       },
     ],
     link: false,
@@ -141,433 +156,213 @@ export const partners: PartnerItem[] = [
     path: Partner4,
     alt: 'Partner 4',
   },
-  {
-    path: Partner5,
-    alt: 'Partner 5',
-  },
-  {
-    path: Partner6,
-    alt: 'Partner 6',
-  },
-  {
-    path: Partner1,
-    alt: 'Partner 1',
-  },
-  {
-    path: Partner2,
-    alt: 'Partner 2',
-  },
-  {
-    path: Partner3,
-    alt: 'Partner 3',
-  },
+  
  
 ];
 
 export const services: Services[] = [
   {
-    icon: microsoft,
-    headline: 'Microsoft Ecosystem Solutions',
-    slug: slugify('Microsoft Ecosystem Solutions'),
+    icon: technologyProcurementIcon,
+    headline: 'Technology Procurement & Integration Services',
+    slug: slugify('Technology Procurement & Integration Services'),
     small_description:
-      'As a certified Microsoft partner, we deliver trusted, enterprise-grade Microsoft 365 solutions.',
+      'Centralized procurement, vendor management, and systems integration for seamless technology deployment.',
     description:
-      'We specialize in deploying and optimizing the Microsoft 365 suite—including SharePoint, Power Apps, Power Automate, and Power BI—with certified expertise. From document management to AI-driven automation, we help you maximize productivity while maintaining compliance.',
-    button1: '/',
-    button2: '/',
-    partners: [
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-      {
-        path: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-        alt: 'Google Logo',
-        link: 'https://google.com',
-      },
-    ],
-    image: microsoftImg,
-    second_headline: 'Why Choose Our Offshore Teams?',
+      'We provide comprehensive technology procurement and integration services that streamline your technology acquisition process. From vendor management and license sales to systems integration and deployment, we ensure smooth transitions from purchase to production with reduced costs and improved efficiency.',
+    button1: '/contact-us',
+    button2: '/services',
+    image: technologyProcurementImg,
+    second_headline: 'Why Choose Our Technology Procurement Team?',
     second_description:
-      'As an official Microsoft partner, we deliver secure, scalable implementations of SharePoint, Teams, Power Platform, and Azure integrations. Our solutions include workflow automation, data visualization, and seamless cloud migration.',
+      'From centralized procurement to turnkey systems integration, we reduce lead times, manage costs, and ensure compliant, efficient technology deployments with comprehensive vendor and license management.',
     cards: [
       {
-        icon: Icon1,
-        title: 'Official Microsoft Partner',
+        icon: procurementManagementIcon,
+        title: 'Procurement & Vendor Management',
         description:
-          'Certified expertise for reliable implementations.',
+          'Centralized procurement with preferred suppliers and negotiated contracts.',
       },
       {
-        icon: Icon2,
-        title: 'End-to-End Power Platform Integration',
+        icon: licenseManagementIcon,
+        title: 'License Management & Sales',
         description:
-          'Power BI, Apps, Automate & Virtual Agents.',
+          'Software license sales and lifecycle management for cloud & on-prem.',
       },
       {
-        icon: Icon3,
-        title: 'Enterprise Security & Compliance',
+        icon: systemsIntegrationIcon,
+        title: 'Systems Integration & Deployment',
         description:
-          'GDPR, HIPAA, and SOC 2-aligned solutions.',
+          'Turnkey integration with installation, testing, and handover.',
       },
       {
-        icon: Icon4,
-        title: 'Adoption & Training Programs',
+        icon: vendorManagementIcon,
+        title: 'Vendor & Contract Management',
         description:
-          'Ensure maximum ROI on your Microsoft investment.',
+          'Negotiation, SLAs, warranty claims, and compliance management.',
       },
     ],
   },
   {
-    icon: analyticsIcon,
-    headline: 'Data Analytics & Business Intelligence',
-    slug: slugify('Data Analytics & Business Intelligence'),
+    icon: softwareEngineeringIcon,
+    headline: 'Software Engineering & Product Delivery',
+    slug: slugify('Software Engineering & Product Delivery'),
     small_description:
-      'Advanced analytics and BI solutions for data-driven decision making',
+      'Full-stack development for web, mobile, ERP/CRM systems with UI/UX design and QA testing.',
     description:
-      'We build custom analytics platforms with Power BI, Tableau, and SQL to uncover insights, predict trends, and automate reporting.',
-    button1: '/',
-    button2: '/',
-    image: analytics,
-    second_headline: 'Why Choose Our Offshore Teams?',
+      'We deliver comprehensive software solutions across web, mobile, and enterprise platforms. Our team combines full-stack development expertise with UI/UX design and rigorous QA testing to build intuitive, user-centered products that drive business value.',
+    button1: '/contact-us',
+    button2: '/services',
+    image: softwareEngineeringImg,
+    second_headline: 'Why Choose Our Software Engineering Team?',
     second_description:
-      'From ETL pipelines to interactive dashboards, we create tailored solutions that turn complex data into clear business value.',
+      'From concept to deployment, we handle every aspect of software development with modern technologies, agile methodologies, and a focus on delivering scalable, maintainable solutions.',
     cards: [
       {
-        icon: Icon1,
-        title: 'AI-Enhanced Analytics',
+        icon: fullstackDevIcon,
+        title: 'Full-Stack Development',
         description:
-          'Machine learning integration.',
+          'Web, mobile, and enterprise applications.',
       },
       {
-        icon: Icon2,
-        title: 'Real-Time Dashboards',
+        icon: uiUxDesignIcon,
+        title: 'UI/UX Design & Prototyping',
         description:
-          'Power BI and custom visualization.',
+          'User-centered design with modern tools.',
       },
       {
-        icon: Icon3,
-        title: 'Data Governance Frameworks',
+        icon: qaTestingIcon,
+        title: 'QA Testing & Automation',
         description:
-          'Quality and security assurance.',
+          'Test-driven development and CI/CD pipelines.',
       },
       {
-        icon: Icon4,
-        title: 'Industry-Specific Models',
+        icon: productDeliveryIcon,
+        title: 'Product Delivery',
         description:
-          'Retail, healthcare, and finance templates.',
+          'End-to-end project management and deployment.',
       },
     ],
   },
   {
-    icon: cloudIcon,
-    headline: 'Cloud & DevOps (Azure & AWS) ',
-    slug: slugify('Cloud & DevOps (Azure & AWS)'),
+    icon: cloudDevOpsIcon,
+    headline: 'Cloud, DevOps & Platform Engineering',
+    slug: slugify('Cloud, DevOps & Platform Engineering'),
     small_description:
-      'Azure and AWS solutions with CI/CD pipelines for agile delivery  ',
+      'Cloud infrastructure management, CI/CD pipelines, and platform engineering solutions.',
     description:
-      "We design, migrate, and manage cloud environments with infrastructure-as-code and automated deployments.",
-    button1: '/',
-    button2: '/',
-    image: cloud,
-    second_headline: 'Why Choose Our Offshore Teams?',
+      'We design, implement, and manage cloud environments with automated CI/CD pipelines, infrastructure-as-code, and platform engineering best practices. Our expertise spans Azure, AWS, and hybrid cloud solutions.',
+    button1: '/contact-us',
+    button2: '/services',
+    image: cloudDevOpsImg,
+    second_headline: 'Why Choose Our Cloud & DevOps Team?',
     second_description:
-      'Full-spectrum cloud services including Kubernetes orchestration, serverless architecture, and cost optimization.',
+      'From infrastructure automation to platform engineering, we ensure your applications are scalable, secure, and efficiently deployed with modern DevOps practices.',
     cards: [
       {
-        icon: Icon1,
-        title: 'Azure Expert Certified Team',
+        icon: cloudInfrastructureIcon,
+        title: 'Cloud Infrastructure Management',
         description:
-          '.',
+          'Azure, AWS, and hybrid cloud solutions.',
       },
       {
-        icon: Icon2,
-        title: 'DevSecOps Implementation',
+        icon: ciCdPipelineIcon,
+        title: 'CI/CD Pipelines & Automation',
         description:
-          '.',
+          'GitHub Actions and automated deployments.',
       },
       {
-        icon: Icon3,
-        title: 'Multi-Cloud Hybrid Solutions',
+        icon: platformEngineeringIcon,
+        title: 'Platform Engineering',
         description:
-          '.',
+          'Internal platform support and management.',
       },
       {
-        icon: Icon4,
-        title: '24/7 Performance Monitoring',
+        icon: microsoft365Icon,
+        title: 'Microsoft 365 Integration',
         description:
-          '.',
+          'Seamless productivity tool integration.',
       },
     ],
   },
   {
-    icon: AiIcon,
-    headline: 'AI & Automation',
-    slug: slugify('AI & Automation'),
+    icon: aiDataIcon,
+    headline: 'AI, Data Science & Business Intelligence',
+    slug: slugify('AI, Data Science & Business Intelligence'),
     small_description:
-      'AI-driven process automation with RPA and machine learning',
+      'Data collection, engineering, analytics, and AI-powered solutions for business intelligence.',
     description:
-      'We implement chatbots, document processing AI, and workflow automation to reduce costs and errors.',
-    button1: '/',
-    button2: '/',
-    image: ai,
-    second_headline: 'Why Choose Our Offshore Teams?',
+      'We transform raw data into actionable insights through advanced analytics, machine learning, and AI-powered solutions. Our team builds intelligent systems that drive data-driven decision making and business growth.',
+    button1: '/contact-us',
+    button2: '/services',
+    image: aiDataImg,
+    second_headline: 'Why Choose Our AI & Data Science Team?',
     second_description:
-      'Custom solutions combining Microsoft AI Builder, AWS SageMaker, and UiPath for end-to-end automation.',
+      'From data engineering to predictive modeling, we create intelligent solutions that uncover patterns, predict trends, and automate complex business processes.',
     cards: [
       {
-        icon: Icon1,
-        title: 'Pre-Built Industry Models',
+        icon: dataEngineeringIcon,
+        title: 'Data Engineering & Analytics',
         description:
-          '.',
+          'ETL pipelines and data processing.',
       },
       {
-        icon: Icon2,
-        title: 'Seamless Microsoft 365 Integration',
+        icon: machineLearningIcon,
+        title: 'Machine Learning & AI Solutions',
         description:
-          '.',
+          'Custom ML models and AI applications.',
       },
       {
-        icon: Icon3,
-        title: 'Process Mining Capabilities',
+        icon: businessIntelligenceIcon,
+        title: 'Business Intelligence & Dashboards',
         description:
-          '.',
+          'Power BI and custom visualizations.',
       },
       {
-        icon: Icon4,
-        title: 'Change Management Support',
+        icon: businessAnalysisIcon,
+        title: 'Business Analysis',
         description:
-          '.',
+          'Requirements gathering and analysis.',
       },
     ],
   },
   {
-    icon: cybersecurityIcon,
-    headline: 'Cybersecurity',
-    slug: slugify('Cybersecurity'),
+    icon: trainingRDIcon,
+    headline: 'Training, R&D & Talent Development',
+    slug: slugify('Training, R&D & Talent Development'),
     small_description:
-      'Proactive security strategies for cloud and hybrid environments ',
+      'Technical onboarding, upskilling programs, and R&D initiatives.',
     description:
-      "We deliver compliance audits, penetration testing, and 24/7 threat monitoring.",
-    button1: '/',
-    button2: '/',
-    image: cybersecurity,
-    second_headline: 'Why Choose Our Offshore Teams?',
+      'We build the next generation of tech talent through comprehensive training programs, hands-on experience, and continuous learning opportunities. Our R&D initiatives drive innovation and keep us at the forefront of technology.',
+    button1: '/contact-us',
+    button2: '/services',
+    image: trainingRDImg,
+    second_headline: 'Why Choose Our Training & R&D Team?',
     second_description:
-      'Comprehensive services including Zero Trust implementation, SIEM configuration, and security awareness training.',
+      'From technical onboarding to advanced skill development, we create learning experiences that prepare individuals for successful careers in technology while fostering innovation through research and development.',
     cards: [
       {
-        icon: Icon1,
-        title: 'Microsoft Security Partner',
+        icon: technicalTrainingIcon,
+        title: 'Technical Training & Upskilling',
         description:
-          '.',
+          'Comprehensive learning programs.',
       },
       {
-        icon: Icon2,
-        title: 'GDPR/HIPAA Compliance Specialists',
+        icon: internshipProgramsIcon,
+        title: 'Internship & Shadowing Programs',
         description:
-          '.',
+          'Hands-on experience and mentorship.',
       },
       {
-        icon: Icon3,
-        title: 'Cloud-Native Protection',
+        icon: researchDevelopmentIcon,
+        title: 'Research & Development',
         description:
-          '.',
+          'Innovation and technology exploration.',
       },
       {
-        icon: Icon4,
-        title: 'Incident Response Readiness',
+        icon: continuousLearningIcon,
+        title: 'Continuous Learning Culture',
         description:
-          '.',
-      },
-    ],
-  },
-  {
-    icon: fullstack,
-    headline: 'Java & Full Stack Development',
-    slug: slugify('Java & Full Stack Development'),
-    small_description:
-      'Robust solutions with Spring Boot, React, and microservices.',
-    description:
-      "We build scalable web applications with modern Java frameworks and cloud-native architectures.",
-    button1: '/',
-    button2: '/',
-    image: fullstack,
-    second_headline: 'Why Choose Our Offshore Teams?',
-    second_description:
-      'End-to-end development services from API design to progressive web apps.',
-    cards: [
-      {
-        icon: Icon1,
-        title: 'Java Experts (Spring/Quarkus)',
-        description:
-          '.',
-      },
-      {
-        icon: Icon2,
-        title: 'React/Angular Specialists',
-        description:
-          '.',
-      },
-      {
-        icon: Icon3,
-        title: 'CI/CD Pipeline Integration',
-        description:
-          '.',
-      },
-      {
-        icon: Icon4,
-        title: 'Legacy System Modernization',
-        description:
-          '.',
-      },
-    ],
-  },
-    {
-    icon: appIcon,
-    headline: 'App Development',
-    slug: slugify('Java & Full Stack Development'),
-    small_description:
-      'From low-code Power Apps to native cross-platform solutions.',
-    description:
-      "We develop user-centric applications with Flutter, React Native, and .NET MAUI.",
-    button1: '/',
-    button2: '/',
-    image: app,
-    second_headline: 'Why Choose Our Offshore Teams?',
-    second_description:
-      'Full lifecycle development including UX design, testing, and App Store deployment.',
-    cards: [
-      {
-        icon: Icon1,
-        title: 'Power Platform Integration',
-        description:
-          '.',
-      },
-      {
-        icon: Icon2,
-        title: 'Cross-Platform Capabilities',
-        description:
-          '.',
-      },
-      {
-        icon: Icon3,
-        title: 'IoT & Wearable Tech Experience',
-        description:
-          '.',
-      },
-      {
-        icon: Icon4,
-        title: 'App Store Optimization',
-        description:
-          '.',
-      },
-    ],
-  },
-    {
-    icon: training,
-    headline: 'Training',
-    slug: slugify('Training'),
-    small_description:
-      ' Hands-on programs for Microsoft, cloud, and development skills.',
-    description:
-      "We offer certification prep and real-world project experience.",
-    button1: '/',
-    button2: '/',
-    image: trainingImg,
-    second_headline: 'Why Choose Our Offshore Teams?',
-    second_description:
-      'Corporate and individual training in Power Platform, Azure, cybersecurity, and more.',
-    cards: [
-      {
-        icon: Icon1,
-        title: 'Microsoft Learning Partner',
-        description:
-          '.',
-      },
-      {
-        icon: Icon2,
-        title: 'Cloud Lab Environments',
-        description:
-          '.',
-      },
-      {
-        icon: Icon3,
-        title: 'Job Placement Assistance',
-        description:
-          '.',
-      },
-      {
-        icon: Icon4,
-        title: 'Custom Corporate Programs',
-        description:
-          '.',
-      },
-    ],
-  },
-  {
-    icon: freelancingIcon,
-    headline: 'Freelancing',
-    slug: slugify('Freelancing'),
-    small_description:
-      'Vetted freelancers for short-term projects.',
-    description:
-      "Access skilled professionals in development, data, and cloud within 48 hours.",
-    button1: '/',
-    button2: '/',
-    image: freelancing,
-    second_headline: 'Why Choose Our Offshore Teams?',
-    second_description:
-      'Our platform connects you with pre-screened experts for project-based work.',
-    cards: [
-      {
-        icon: Icon1,
-        title: 'Rigorous Vetting Process',
-        description:
-          '.',
-      },
-      {
-        icon: Icon2,
-        title: 'Microsoft Technology Experts',
-        description:
-          '.',
-      },
-      {
-        icon: Icon3,
-        title: 'Hourly or Project-Based Contracts',
-        description:
-          '.',
-      },
-      {
-        icon: Icon4,
-        title: 'Dedicated Account Management',
-        description:
-          '.',
+          'Ongoing development and experimentation.',
       },
     ],
   },
@@ -597,19 +392,19 @@ export const stats: Stats[] = [
 export const testmonial: Testmonial[] = [
   {
     quote:
-      "We are incredibly grateful to Vision5 Tech LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision5 Tech. We highly recommend them to any organization looking for trusted IT solutions.",
+      "We are incredibly grateful to Vision Vertex Solutions LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision Vertex Solutions. We highly recommend them to any organization looking for trusted IT solutions.",
     name: 'First Hijrah Foundation Board',
     image: TestmonialLogos,
   },
    {
     quote:
-      "We are incredibly grateful to Vision5 Tech LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision5 Tech. We highly recommend them to any organization looking for trusted IT solutions.",
+      "We are incredibly grateful to Vision Vertex Solutions LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision Vertex Solutions. We highly recommend them to any organization looking for trusted IT solutions.",
     name: 'Tinova',
     image: TestmonialLogos2,
   },
   {
     quote:
-      "We are incredibly grateful to Vision5 Tech LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision5 Tech. We highly recommend them to any organization looking for trusted IT solutions.",
+      "We are incredibly grateful to Vision Vertex Solutions LLC for developing a customized donation tracking application during one of the most critical times in our organization's history—when we purchased our new center. Their team not only delivered a user-friendly and reliable solution, but they also truly understood our community-driven mission. The application helped us manage and track hundreds of contributions with ease, transparency, and accuracy. It has been a game-changer in our fundraising and reporting efforts. We couldn't be more pleased with the professionalism, responsiveness, and technical expertise of Vision Vertex Solutions. We highly recommend them to any organization looking for trusted IT solutions.",
     name: 'JS',
     image: TestmonialLogos3,
   },
@@ -663,7 +458,7 @@ export const team: Team[] = [
   },
   {
     image: Team2,
-    position: 'Vision 5',
+    position: 'Vision Vertex',
     name: 'John Doe',
     linkedin: 'https://www.linkedin.com/in/john-doe-1234567890',
     email: 'john.doe@example.com',
@@ -708,4 +503,31 @@ export const caseStudies: CaseStudy[] = [
     content:
       'For a logistics company, we automated their lead gen with email flows, increasing qualified leads by 120%.',
   },
+];
+
+export const startupStats = [
+  {
+    icon: 'Target',
+    number: "100%",
+    label: "Focus",
+    description: "Dedicated to excellence"
+  },
+  {
+    icon: 'Zap',
+    number: "24/7",
+    label: "Energy",
+    description: "Always ready to serve"
+  },
+  {
+    icon: 'Heart',
+    number: "100+",
+    label: "Passion",
+    description: "Hours of dedication"
+  },
+  {
+    icon: 'Rocket',
+    number: "10x",
+    label: "Growth",
+    description: "Rapidly expanding"
+  }
 ];

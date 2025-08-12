@@ -1,0 +1,34 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="siGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <rect width="96" height="96" rx="20" fill="url(#siGrad)"/>
+    <rect x="15" y="30" width="20" height="20" rx="3" fill="white" opacity="0.8"/>
+    <rect x="17" y="32" width="16" height="3" rx="1" fill="url(#siGrad)"/>
+    <rect x="17" y="37" width="12" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="17" y="41" width="14" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="17" y="45" width="10" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="40" y="30" width="20" height="20" rx="3" fill="white" opacity="0.8"/>
+    <rect x="42" y="32" width="16" height="3" rx="1" fill="url(#siGrad)"/>
+    <rect x="42" y="37" width="12" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="42" y="41" width="14" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="42" y="45" width="10" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="65" y="30" width="20" height="20" rx="3" fill="white" opacity="0.8"/>
+    <rect x="67" y="32" width="16" height="3" rx="1" fill="url(#siGrad)"/>
+    <rect x="67" y="37" width="12" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="67" y="41" width="14" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <rect x="67" y="45" width="10" height="2" rx="1" fill="url(#siGrad)" opacity="0.7"/>
+    <path d="M 35 40 L 40 40" stroke="white" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M 60 40 L 65 40" stroke="white" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M 38 40 L 40 40 L 39 38 M 40 40 L 39 42" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+    <path d="M 63 40 L 65 40 L 64 38 M 65 40 L 64 42" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+    <path d="M 25 65 L 75 65" stroke="white" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M 30 65 L 35 65 L 33 63 M 35 65 L 33 67" stroke="white" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M 45 65 L 50 65 L 48 63 M 50 65 L 48 67" stroke="white" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M 60 65 L 65 65 L 63 63 M 65 65 L 63 67" stroke="white" stroke-width="2" fill="none" opacity="0.7"/>
+    <circle cx="50" cy="80" r="8" fill="white" opacity="0.8"/>
+    <path d="M 46 80 L 49 83 L 54 78" stroke="url(#siGrad)" stroke-width="2" fill="none"/>
+  </svg>

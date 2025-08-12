@@ -1,0 +1,194 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="trainGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D97706;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B45309;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trainGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FBBF24;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="trainGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#451A03"/>
+  
+  <!-- Learning environment -->
+  <!-- Classroom setup -->
+  <rect x="50" y="80" width="300" height="200" rx="8" fill="#1F2937" stroke="#F59E0B" stroke-width="2"/>
+  <text x="200" y="105" fill="#F59E0B" font-size="14" text-anchor="middle">Interactive Learning Environment</text>
+  
+  <!-- Students -->
+  <circle cx="100" cy="140" r="15" fill="url(#trainGrad1)" opacity="0.9"/>
+  <text x="100" y="145" fill="white" font-size="10" text-anchor="middle" font-weight="bold">👨‍💻</text>
+  
+  <circle cx="150" cy="140" r="15" fill="url(#trainGrad1)" opacity="0.9"/>
+  <text x="150" y="145" fill="white" font-size="10" text-anchor="middle" font-weight="bold">👩‍💻</text>
+  
+  <circle cx="200" cy="140" r="15" fill="url(#trainGrad1)" opacity="0.9"/>
+  <text x="200" y="145" fill="white" font-size="10" text-anchor="middle" font-weight="bold">👨‍💻</text>
+  
+  <circle cx="250" cy="140" r="15" fill="url(#trainGrad1)" opacity="0.9"/>
+  <text x="200" y="145" fill="white" font-size="10" text-anchor="middle" font-weight="bold">👩‍💻</text>
+  
+  <!-- Mentor -->
+  <circle cx="175" cy="180" r="20" fill="url(#trainGrad2)" opacity="0.8"/>
+  <text x="175" y="185" fill="white" font-size="12" text-anchor="middle" font-weight="bold">👨‍🏫</text>
+  
+  <!-- Connection lines -->
+  <path d="M 100 155 L 155 160" stroke="#F59E0B" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 150 155 L 165 160" stroke="#F59E0B" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 200 155 L 175 160" stroke="#F59E0B" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 250 155 L 185 160" stroke="#F59E0B" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Learning materials -->
+  <rect x="80" y="210" width="60" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="110" y="230" fill="#F59E0B" font-size="8" text-anchor="middle">React</text>
+  <text x="110" y="240" fill="#F59E0B" font-size="8" text-anchor="middle">Course</text>
+  
+  <rect x="150" y="210" width="60" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="180" y="230" fill="#F59E0B" font-size="8" text-anchor="middle">Node.js</text>
+  <text x="180" y="240" fill="#F59E0B" font-size="8" text-anchor="middle">Course</text>
+  
+  <rect x="220" y="210" width="60" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="250" y="230" fill="#F59E0B" font-size="8" text-anchor="middle">Python</text>
+  <text x="250" y="240" fill="#F59E0B" font-size="8" text-anchor="middle">Course</text>
+  
+  <!-- R&D Laboratory -->
+  <rect x="450" y="80" width="300" height="200" rx="8" fill="#1F2937" stroke="#F59E0B" stroke-width="2"/>
+  <text x="600" y="105" fill="#F59E0B" font-size="14" text-anchor="middle">Research &amp; Development Lab</text>
+  
+  <!-- Research areas -->
+  <rect x="470" y="120" width="80" height="60" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="510" y="140" fill="#F59E0B" font-size="10" text-anchor="middle">AI/ML</text>
+  <text x="510" y="155" fill="#F59E0B" font-size="8" text-anchor="middle">Research</text>
+  <text x="510" y="165" fill="#F59E0B" font-size="8" text-anchor="middle">Projects</text>
+  
+  <rect x="570" y="120" width="80" height="60" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="610" y="140" fill="#F59E0B" font-size="10" text-anchor="middle">Cloud</text>
+  <text x="610" y="155" fill="#F59E0B" font-size="8" text-anchor="middle">Native</text>
+  <text x="610" y="165" fill="#F59E0B" font-size="8" text-anchor="middle">Apps</text>
+  
+  <rect x="670" y="120" width="80" height="60" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="710" y="140" fill="#F59E0B" font-size="10" text-anchor="middle">Blockchain</text>
+  <text x="710" y="155" fill="#F59E0B" font-size="8" text-anchor="middle">&amp; Web3</text>
+  <text x="710" y="165" fill="#F59E0B" font-size="8" text-anchor="middle">Tech</text>
+  
+  <rect x="470" y="200" width="80" height="60" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="510" y="220" fill="#F59E0B" font-size="10" text-anchor="middle">IoT</text>
+  <text x="510" y="235" fill="#F59E0B" font-size="8" text-anchor="middle">Devices</text>
+  <text x="510" y="245" fill="#F59E0B" font-size="8" text-anchor="middle">&amp; Sensors</text>
+  
+  <rect x="570" y="200" width="80" height="60" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="610" y="220" fill="#F59E0B" font-size="10" text-anchor="middle">AR/VR</text>
+  <text x="610" y="235" fill="#F59E0B" font-size="8" text-anchor="middle">Immersive</text>
+  <text x="610" y="245" fill="#F59E0B" font-size="8" text-anchor="middle">Tech</text>
+  
+  <rect x="670" y="200" width="80" height="60" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="710" y="220" fill="#F59E0B" font-size="10" text-anchor="middle">Quantum</text>
+  <text x="710" y="235" fill="#F59E0B" font-size="8" text-anchor="middle">Computing</text>
+  <text x="710" y="245" fill="#F59E0B" font-size="8" text-anchor="middle">Research</text>
+  
+  <!-- Skill development tracking -->
+  <rect x="50" y="320" width="700" height="120" rx="8" fill="#1F2937" stroke="#F59E0B" stroke-width="2"/>
+  <text x="400" y="345" fill="#F59E0B" font-size="14" text-anchor="middle">Skill Development &amp; Progress Tracking</text>
+  
+  <!-- Skill bars -->
+  <text x="80" y="370" fill="#F59E0B" font-size="10">JavaScript</text>
+  <rect x="200" y="360" width="200" height="15" fill="#374151" rx="7"/>
+  <rect x="200" y="360" width="180" height="15" fill="url(#trainGrad1)" rx="7"/>
+  <text x="420" y="370" fill="#F59E0B" font-size="10">90%</text>
+  
+  <text x="80" y="395" fill="#F59E0B" font-size="10">React</text>
+  <rect x="200" y="385" width="200" height="15" fill="#374151" rx="7"/>
+  <rect x="200" y="385" width="160" height="15" fill="url(#trainGrad1)" rx="7"/>
+  <text x="420" y="395" fill="#F59E0B" font-size="10">80%</text>
+  
+  <text x="80" y="420" fill="#F59E0B" font-size="10">Node.js</text>
+  <rect x="200" y="410" width="200" height="15" fill="#374151" rx="7"/>
+  <rect x="200" y="410" width="140" height="15" fill="url(#trainGrad1)" rx="7"/>
+  <text x="420" y="420" fill="#F59E0B" font-size="10">70%</text>
+  
+  <text x="80" y="445" fill="#F59E0B" font-size="10">Python</text>
+  <rect x="200" y="435" width="200" height="15" fill="#374151" rx="7"/>
+  <rect x="200" y="435" width="120" height="15" fill="url(#trainGrad1)" rx="7"/>
+  <text x="420" y="445" fill="#F59E0B" font-size="10">60%</text>
+  
+  <!-- Certification badges -->
+  <rect x="500" y="360" width="200" height="80" rx="8" fill="#1F2937" stroke="#F59E0B" stroke-width="2"/>
+  <text x="600" y="380" fill="#F59E0B" font-size="12" text-anchor="middle">Certifications</text>
+  
+  <circle cx="540" cy="400" r="15" fill="url(#trainGrad1)"/>
+  <text x="540" y="405" fill="white" font-size="8" text-anchor="middle" font-weight="bold">AWS</text>
+  
+  <circle cx="570" cy="400" r="15" fill="url(#trainGrad1)"/>
+  <text x="570" y="405" fill="white" font-size="8" text-anchor="middle" font-weight="bold">Azure</text>
+  
+  <circle cx="600" cy="400" r="15" fill="url(#trainGrad1)"/>
+  <text x="600" y="405" fill="white" font-size="8" text-anchor="middle" font-weight="bold">GCP</text>
+  
+  <circle cx="630" cy="400" r="15" fill="url(#trainGrad1)"/>
+  <text x="630" y="405" fill="white" font-size="8" text-anchor="middle" font-weight="bold">K8s</text>
+  
+  <circle cx="660" cy="400" r="15" fill="url(#trainGrad1)"/>
+  <text x="660" y="405" fill="white" font-size="8" text-anchor="middle" font-weight="bold">Docker</text>
+  
+  <!-- Innovation pipeline -->
+  <rect x="50" y="480" width="700" height="80" rx="8" fill="#1F2937" stroke="#F59E0B" stroke-width="2"/>
+  <text x="400" y="500" fill="#F59E0B" font-size="12" text-anchor="middle">Innovation Pipeline</text>
+  
+  <!-- Innovation stages -->
+  <rect x="80" y="510" width="100" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="130" y="530" fill="#F59E0B" font-size="10" text-anchor="middle">Ideation</text>
+  <text x="130" y="540" fill="#F59E0B" font-size="8" text-anchor="middle">Brainstorm</text>
+  
+  <path d="M 180 530 L 200 530" stroke="#F59E0B" stroke-width="2"/>
+  <polygon points="200,525 200,535 205,530" fill="#F59E0B"/>
+  
+  <rect x="210" y="510" width="100" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="260" y="530" fill="#F59E0B" font-size="10" text-anchor="middle">Prototype</text>
+  <text x="260" y="540" fill="#F59E0B" font-size="8" text-anchor="middle">MVP</text>
+  
+  <path d="M 310 530 L 330 530" stroke="#F59E0B" stroke-width="2"/>
+  <polygon points="330,525 330,535 335,530" fill="#F59E0B"/>
+  
+  <rect x="340" y="510" width="100" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="390" y="530" fill="#F59E0B" font-size="10" text-anchor="middle">Test</text>
+  <text x="390" y="540" fill="#F59E0B" font-size="8" text-anchor="middle">Validate</text>
+  
+  <path d="M 440 530 L 460 530" stroke="#F59E0B" stroke-width="2"/>
+  <polygon points="460,525 460,535 465,530" fill="#F59E0B"/>
+  
+  <rect x="470" y="510" width="100" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="520" y="530" fill="#F59E0B" font-size="10" text-anchor="middle">Deploy</text>
+  <text x="520" y="540" fill="#F59E0B" font-size="8" text-anchor="middle">Launch</text>
+  
+  <path d="M 570 530 L 590 530" stroke="#F59E0B" stroke-width="2"/>
+  <polygon points="590,525 590,535 595,530" fill="#F59E0B"/>
+  
+  <rect x="600" y="510" width="100" height="40" fill="#F59E0B" opacity="0.2" rx="4"/>
+  <text x="650" y="530" fill="#F59E0B" font-size="10" text-anchor="middle">Scale</text>
+  <text x="650" y="540" fill="#F59E0B" font-size="8" text-anchor="middle">Growth</text>
+  
+  <!-- Floating elements -->
+  <circle cx="750" cy="150" r="15" fill="url(#trainGrad2)" filter="url(#trainGlow)"/>
+  <text x="750" y="155" fill="white" font-size="10" text-anchor="middle" font-weight="bold">📚</text>
+  
+  <circle cx="720" cy="250" r="12" fill="url(#trainGrad2)" filter="url(#trainGlow)"/>
+  <text x="720" y="255" fill="white" font-size="8" text-anchor="middle" font-weight="bold">🔬</text>
+  
+  <circle cx="750" cy="350" r="10" fill="url(#trainGrad1)" filter="url(#trainGlow)"/>
+  <text x="750" y="355" fill="white" font-size="8" text-anchor="middle" font-weight="bold">🎯</text>
+  
+  <!-- Title -->
+  <text x="400" y="590" text-anchor="middle" fill="#E2E8F0" font-size="24" font-weight="bold">Training, R&amp;D &amp; Talent Development</text>
+  <text x="400" y="610" text-anchor="middle" fill="#94A3B8" font-size="14">Skill Development • Mentorship • Innovation • Research • Certifications</text>
+</svg>

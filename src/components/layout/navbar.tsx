@@ -1,143 +1,150 @@
 'use client';
 
-import * as React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import Logo from '../../../public/logos/VisionVertexLogo1.svg';
-import VisionLogo from '../../../public/logos/vision.svg';
-
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-// import { Icons } from "@/components/icons"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
 import { Button } from '../ui/button';
 import { navItems } from '@/constants/data';
-import PageContainer from './page-container';
+import Logo from '../../../public/logos/VisionVertexLogo1.svg';
+import VisionLogo from '../../../public/logos/vision.svg';
 
 export default function NavigationMenuDemo() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   
   return (
     <div className={cn(
-      "flex justify-between items-center w-full p-4 md:px-14 md:py-7",
-      isHomePage ? "bg-accent" : "bg-white"
+      "flex justify-between items-center w-full p-4 md:px-14 md:py-7 relative z-50",
+      isHomePage ? "hidden" : "bg-white"
     )}>
       <Link href={'/'}>
-        <Image className=' hidden md:block' src={Logo} width={110} height={110} alt="Logo" />
-        <Image className='md:hidden' src={VisionLogo}  alt="Logo" />
+        <Image className='' src={Logo} width={110} height={110} alt="Logo" />
+        
       </Link>
-      <div className="flex gap-10">
-        <NavigationMenu>
-          <NavigationMenuList>
-            {/* <NavigationMenuItem>
-              <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
-                      >
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          shadcn/ui
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          Beautifully designed components that you can copy and
-                          paste into your apps. Accessible. Customizable. Open
-                          Source.
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <ListItem href="/docs" title="Introduction">
-                    Re-usable components built using Radix UI and Tailwind CSS.
-                  </ListItem>
-                  <ListItem href="/docs/installation" title="Installation">
-                    How to install dependencies and structure your app.
-                  </ListItem>
-                  <ListItem
-                    href="/docs/primitives/typography"
-                    title="Typography"
-                  >
-                    Styles for headings, paragraphs, lists...etc
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem> */}
-            <NavigationMenuItem className='flex items-center'>
-              {navItems.map((navitem) =>
-                navitem.link ? (
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle() + ' bg-transparent'}
-                    key={navitem.title}
-                    href={navitem.href}
-                  >
-                    {navitem.title}
-                  </NavigationMenuLink>
-                ) : (
-                  <div key={navitem.title}>
-                    <NavigationMenuTrigger className='bg-transparent'>
-                      {navitem.title}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[230px] gap-3 p-4 md:grid-cols-1 lg:w-[350px] ">
-                        {navitem.components?.map((component: any) => (
-                          <ListItem
-                            key={component.title}
-                            title={component.title}
-                            href={component.href}
-                          >
-                            {component.description}
-                          </ListItem>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </div>
-                )
-              )}
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+      
+      {/* Desktop Navigation */}
+      <div className="hidden sm:flex gap-10">
+        <nav className="flex items-center gap-6">
+          {navItems.map((navitem) =>
+            navitem.link ? (
+              <Link
+                key={navitem.title}
+                href={navitem.href}
+                className="text-gray-800 hover:text-primary transition-colors duration-200 text-sm font-medium"
+              >
+                {navitem.title}
+              </Link>
+            ) : (
+              <div key={navitem.title} className="relative group">
+                <button className="text-gray-800 hover:text-primary transition-colors duration-200 text-sm font-medium flex items-center gap-1">
+                  {navitem.title}
+                  <svg className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="absolute top-full left-0 mt-3 w-64 bg-white/20 backdrop-blur-sm border border-white/20 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100]">
+                  <ul className="py-2 space-y-2 w-full">
+                    {navitem.components?.map((component: any, index: number) => (
+                      <li key={`${navitem.title}-${component.service_name}-${index}`}>
+                        <Link
+                          href={component.href}
+                          className="block p-3 rounded-lg hover:bg-primary text-gray-600 hover:text-white transition-colors duration-200"
+                        >
+                          <p className="text-xs mt-1">{component.service_name}</p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )
+          )}
+        </nav>
         <Button variant={'default'}>
           <Link href={'/contact-us'}>Contact Us</Link>
         </Button>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={toggleMenu}
+        className="sm:hidden text-gray-800 hover:text-primary transition-colors duration-200 p-2"
+        aria-label="Toggle menu"
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Navigation Dropdown */}
+      <div
+        className={cn(
+          "absolute top-full left-4 right-4 mt-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl sm:hidden overflow-hidden z-[100]",
+          isMenuOpen ? "block" : "hidden"
+        )}
+      >
+        {/* Decorative Elements */}
+        <div className="absolute top-4 right-4 w-2 h-2 bg-primary/20 rounded-full"></div>
+        <div className="absolute bottom-4 left-4 w-1 h-1 bg-secondary/30 rounded-full"></div>
+        
+        <div className="p-6 space-y-6">
+          {navItems.map((navitem) => (
+            <div key={navitem.title} className="group">
+              {navitem.link ? (
+                <Link
+                  href={navitem.href}
+                  className="flex items-center gap-3 text-gray-800 hover:text-primary transition-colors duration-200 text-base font-semibold"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="w-2 h-2 bg-primary/30 rounded-full group-hover:bg-primary transition-colors duration-200"></div>
+                  {navitem.title}
+                </Link>
+              ) : (
+                <div>
+                  <div className="flex items-center gap-3 text-gray-800 font-semibold text-base mb-3 group-hover:text-secondary/90 transition-colors duration-200">
+                    <div className="w-2 h-2 bg-secondary/40 rounded-full group-hover:bg-secondary transition-colors duration-200"></div>
+                    {navitem.title}
+                  </div>
+                  <div className="pl-5 space-y-3">
+                    {navitem.components?.map((component: any, index: number) => (
+                      <div key={`${navitem.title}-${component.service_name}-${index}`}>
+                        <Link
+                          href={component.href}
+                          className="block text-gray-600 hover:text-primary transition-colors duration-200 text-sm"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {component.service_name}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+          
+          <div className="pt-4 border-t border-gray-200/30">
+            <Button 
+              variant={'outline'} 
+              className="w-full border-primary text-primary bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white backdrop-blur-sm transition-colors duration-200 shadow-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Link href={'/contact-us'} className="flex items-center gap-2">
+                Contact Us
+                <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-primary">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = 'ListItem';
+

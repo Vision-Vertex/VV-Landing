@@ -1,0 +1,41 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="procGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BE185D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="20" fill="url(#procGrad)"/>
+  
+  <!-- Shopping cart for procurement -->
+  <path d="M 25 35 L 35 35 L 40 25 L 65 25 L 70 35 L 75 35" stroke="white" stroke-width="3" fill="none" opacity="0.9"/>
+  <circle cx="30" cy="45" r="5" fill="white" opacity="0.8"/>
+  <circle cx="65" cy="45" r="5" fill="white" opacity="0.8"/>
+  <rect x="30" y="30" width="35" height="15" rx="3" fill="white" opacity="0.7"/>
+  
+  <!-- Integration arrows -->
+  <path d="M 20 60 L 35 60 L 30 55 M 35 60 L 30 65" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M 40 60 L 55 60 L 50 55 M 55 60 L 50 65" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M 60 60 L 75 60 L 70 55 M 75 60 L 70 65" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+  
+  <!-- License management -->
+  <rect x="25" y="70" width="15" height="20" rx="3" fill="white" opacity="0.8"/>
+  <rect x="27" y="72" width="11" height="3" rx="1" fill="url(#procGrad)"/>
+  <rect x="27" y="77" width="8" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="27" y="81" width="10" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="27" y="85" width="6" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <!-- Vendor management -->
+  <rect x="40" y="70" width="15" height="20" rx="3" fill="white" opacity="0.8"/>
+  <circle cx="47" cy="75" r="3" fill="url(#procGrad)"/>
+  <rect x="44" y="80" width="6" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="44" y="84" width="6" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="44" y="88" width="6" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  
+  <!-- Systems integration -->
+  <rect x="55" y="70" width="15" height="20" rx="3" fill="white" opacity="0.8"/>
+  <rect x="57" y="72" width="11" height="3" rx="1" fill="url(#procGrad)"/>
+  <rect x="57" y="77" width="8" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="57" y="81" width="10" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+  <rect x="57" y="85" width="6" height="2" rx="1" fill="url(#procGrad)" opacity="0.7"/>
+</svg>
