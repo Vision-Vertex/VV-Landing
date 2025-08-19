@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "visionvertex.tech",
+  "Id": "1d4b42d0-5173-4046-9f64-f69411d3893a"
+}
