@@ -225,12 +225,6 @@ function Hero() {
             delay: 1,
           }}
         />
-
-        {/* Subtle Grid Lines */}
-        <div className="absolute inset-0 opacity-10 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent transform rotate-12 scale-150"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-white to-transparent transform -rotate-12 scale-150"></div>
-        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center overflow-hidden">
@@ -277,8 +271,8 @@ function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-3"
             >
-              <Button className="bg-primary text-white hover:bg-gray-100 px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group">
-                <Link href="/services" className="flex items-center gap-2">
+              <Button className="bg-primary text-white hover:bg-gray-100 hover:text-primary  px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <Link href="/#services" className="flex items-center gap-2">
                   Our Services
                   <ArrowRight
                     size={16}
@@ -288,7 +282,7 @@ function Hero() {
               </Button>
               <Button
                 variant="outline"
-                className="border-white/30 text-white bg-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-semibold backdrop-blur-sm transition-all duration-300"
+                className="border-white/30 text-white bg-white/10 hover:bg-gray-100 hover:text-primary px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-semibold backdrop-blur-sm transition-all duration-300"
               >
                 <Link href="/about-us" className="flex items-center gap-2">
                   View Our Work

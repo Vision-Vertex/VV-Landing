@@ -1,10 +1,10 @@
-'use client';
-import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '../ui/button';
-import Image from 'next/image';
-import { testmonial as testimonialList } from '@/constants/data';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+"use client";
+import React, { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Button } from "../ui/button";
+import Image from "next/image";
+import { testmonial as testimonialList } from "@/constants/data";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 function testmonial() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +14,9 @@ function testmonial() {
   };
 
   const prevTestimonial = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonialList.length) % testimonialList.length);
+    setActiveIndex(
+      (prev) => (prev - 1 + testimonialList.length) % testimonialList.length
+    );
   };
 
   useEffect(() => {
@@ -60,7 +62,7 @@ function testmonial() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
           >
-            What our clients{' '}
+            What our clients{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               say about us
             </span>
@@ -73,8 +75,9 @@ function testmonial() {
             viewport={{ once: true }}
             className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Discover how we've helped businesses transform their digital presence 
-            and achieve remarkable results through our innovative solutions.
+            Discover how we've helped businesses transform their digital
+            presence and achieve remarkable results through our innovative
+            solutions.
           </motion.p>
         </motion.div>
 
@@ -91,7 +94,7 @@ function testmonial() {
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-2xl"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-secondary/5 to-primary/5 rounded-full blur-xl"></div>
-            
+
             <div className="relative z-10">
               {/* Quote Icon */}
               <motion.div
@@ -130,45 +133,53 @@ function testmonial() {
                     />
                     <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
                       <Star size={12} className="text-white fill-white" />
-        </div>
-      </div>
+                    </div>
+                  </div>
                   <div className="text-left">
-                    <h4 className="font-bold text-gray-900">{testimonialList[activeIndex].name}</h4>
+                    <h4 className="font-bold text-gray-900">
+                      {testimonialList[activeIndex].name}
+                    </h4>
                     <p className="text-sm text-gray-600">Satisfied Client</p>
                   </div>
-  </div>
+                </div>
               </motion.div>
 
               {/* Navigation Dots */}
               <div className="flex justify-center gap-2 mb-6">
-            {testimonialList.map((_, idx) => (
+                {testimonialList.map((_, idx) => (
                   <button
-                key={idx}
+                    key={idx}
                     onClick={() => setActiveIndex(idx)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      idx === activeIndex 
-                        ? 'bg-gradient-to-r from-primary to-secondary scale-125' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
+                      idx === activeIndex
+                        ? "bg-gradient-to-r from-primary to-secondary scale-125"
+                        : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-      </div>
-    </div>
 
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
           >
-            <ChevronLeft size={20} className="text-gray-600 group-hover:text-primary transition-colors" />
+            <ChevronLeft
+              size={20}
+              className="text-gray-600 group-hover:text-primary transition-colors"
+            />
           </button>
 
           <button
             onClick={nextTestimonial}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
           >
-            <ChevronRight size={20} className="text-gray-600 group-hover:text-primary transition-colors" />
+            <ChevronRight
+              size={20}
+              className="text-gray-600 group-hover:text-primary transition-colors"
+            />
           </button>
         </motion.div>
 
@@ -179,13 +190,10 @@ function testmonial() {
           transition={{ duration: 0.6, delay: 0.7 }}
           viewport={{ once: true }}
           className="text-center mt-12"
-        >
-         
-        </motion.div>
-    </div>
+        ></motion.div>
+      </div>
     </section>
   );
 }
 
 export default testmonial;
-

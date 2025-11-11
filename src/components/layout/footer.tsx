@@ -1,9 +1,9 @@
-import React from 'react';
-import { FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
-import { Mail, Phone, MapPin, ArrowRight, Heart } from 'lucide-react';
-import Image from 'next/image'; 
-import VisionVertex from '../../../public/logos/VisionVertexLogo2.svg';
-import Link from 'next/link';
+import React from "react";
+import { FaTwitter, FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
+import { Mail, Phone, MapPin, ArrowRight, Heart } from "lucide-react";
+import Image from "next/image";
+import VisionVertex from "../../../public/logos/VisionVertexLogo2.svg";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +20,6 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-6 md:px-16 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="mb-6">
@@ -33,10 +32,11 @@ export default function Footer() {
                 />
               </div>
               <p className="text-white/80 leading-relaxed mb-6 text-sm">
-                At Vision Vertex Solutions, we help businesses cut costs and scale faster with expert offshore
-                development teams and tailored technology solutions.
+                At Vision Vertex Solutions, we help businesses cut costs and
+                scale faster with expert offshore development teams and tailored
+                technology solutions.
               </p>
-              
+
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300">
@@ -49,7 +49,10 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300">
                   <MapPin size={16} className="text-secondary" />
-                  <span className="text-sm">4 kilo Behind Ambassador mall in front of 4 kilo police station, Addis Ababa</span>
+                  <span className="text-sm">
+                    4 kilo Behind Ambassador mall in front of 4 kilo police
+                    station, Addis Ababa
+                  </span>
                 </div>
               </div>
             </div>
@@ -62,18 +65,36 @@ export default function Footer() {
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: 'Technology Procurement & Integration Services', href: '/services/Technology-Procurement-Integration-Services' },
-                  { name: 'Software Engineering & Product Delivery', href: '/services/Software-Engineering-Product-Delivery' },
-                  { name: 'Cloud, DevOps & Platform Engineering', href: '/services/Cloud-DevOps-Platform-Engineering' },
-                  { name: 'AI, Data Science & Business Intelligence', href: '/services/AI-Data-Science-Business-Intelligence' },
-                  { name: 'Training, R&D & Talent Development', href: '/services/Training-RD-Talent-Development' }
+                  {
+                    name: "Technology Procurement & Integration Services",
+                    href: "/services/Technology-Procurement-Integration-Services",
+                  },
+                  {
+                    name: "Software Engineering & Product Delivery",
+                    href: "/services/Software-Engineering-Product-Delivery",
+                  },
+                  {
+                    name: "Cloud, DevOps & Platform Engineering",
+                    href: "/services/Cloud-DevOps-Platform-Engineering",
+                  },
+                  {
+                    name: "AI, Data Science & Business Intelligence",
+                    href: "/services/AI-Data-Science-Business-Intelligence",
+                  },
+                  {
+                    name: "Training, R&D & Talent Development",
+                    href: "/services/Training-RD-Talent-Development",
+                  },
                 ].map((service, index) => (
                   <li key={index}>
                     <Link
                       href={service.href}
                       className="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group"
                     >
-                      <ArrowRight size={12} className="text-secondary group-hover:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight
+                        size={12}
+                        className="text-secondary group-hover:translate-x-1 transition-transform duration-300"
+                      />
                       <span className="text-sm">{service.name}</span>
                     </Link>
                   </li>
@@ -89,18 +110,21 @@ export default function Footer() {
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: 'About Us', href: '/about-us' },
-                  { name: 'Our Services', href: '/services' },
-                  { name: 'Contact Us', href: '/contact-us' },
-                  { name: 'Privacy Policy', href: '/privacy-policy' },
-                  { name: 'Terms of Service', href: '/terms-of-service' }
+                  { name: "About Us", href: "/about-us" },
+                  { name: "Our Services", href: "/services" },
+                  { name: "Contact Us", href: "/contact-us" },
+                  { name: "Privacy Policy", href: "#" },
+                  { name: "Terms of Service", href: "#" },
                 ].map((link, index) => (
                   <li key={index}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group"
                     >
-                      <ArrowRight size={12} className="text-secondary group-hover:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight
+                        size={12}
+                        className="text-secondary group-hover:translate-x-1 transition-transform duration-300"
+                      />
                       <span className="text-sm">{link.name}</span>
                     </Link>
                   </li>
@@ -114,15 +138,17 @@ export default function Footer() {
                 Connect With Us
                 <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary rounded-full"></div>
               </h3>
-              
+
               <div className="mb-6">
-                <p className="text-white/80 text-sm mb-4">Follow us on social media</p>
+                <p className="text-white/80 text-sm mb-4">
+                  Follow us on social media
+                </p>
                 <div className="flex gap-4">
                   {[
-                    { icon: FaTwitter, href: '#', label: 'Twitter' },
-                    { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-                    { icon: FaInstagram, href: '#', label: 'Instagram' },
-                    { icon: FaGithub, href: '#', label: 'GitHub' }
+                    { icon: FaTwitter, href: "#", label: "Twitter" },
+                    { icon: FaLinkedin, href: "#", label: "LinkedIn" },
+                    { icon: FaInstagram, href: "#", label: "Instagram" },
+                    { icon: FaGithub, href: "#", label: "GitHub" },
                   ].map((social, index) => (
                     <a
                       key={index}
@@ -146,17 +172,28 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 md:px-16 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <div className="flex items-center gap-2 text-white/80">
-              <span>© {currentYear} Vision Vertex Solutions. All rights reserved.</span>
+              <span>
+                © {currentYear} Vision Vertex Solutions. All rights reserved.
+              </span>
             </div>
-            
+
             <div className="flex items-center gap-6 text-white/80">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors duration-300 text-sm">
+              <Link
+                href="#"
+                className="hover:text-white transition-colors duration-300 text-sm"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-white transition-colors duration-300 text-sm">
+              <Link
+                href="#"
+                className="hover:text-white transition-colors duration-300 text-sm"
+              >
                 Terms of Service
               </Link>
-              <Link href="/cookie-policy" className="hover:text-white transition-colors duration-300 text-sm">
+              <Link
+                href="#"
+                className="hover:text-white transition-colors duration-300 text-sm"
+              >
                 Cookie Policy
               </Link>
             </div>
@@ -166,4 +203,3 @@ export default function Footer() {
     </footer>
   );
 }
-
