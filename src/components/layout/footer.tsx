@@ -57,7 +57,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Services */}
             <div>
               <h3 className="text-white text-lg font-semibold mb-6 relative">
                 Our Services
