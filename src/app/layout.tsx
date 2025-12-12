@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/layout/navbar";
-import PageContainer from "@/components/layout/page-container";
 import Footer from "@/components/layout/footer";
 import { PerformanceMonitor } from "@/components/ui/performance-monitor";
 
