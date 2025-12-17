@@ -7,7 +7,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Handshake, Star } from "lucide-react";
 
-const marqueePartners = [...partneritems, ...partneritems];
+// const marqueePartners = [...partneritems, ...partneritems];
 
 function Partners() {
   return (
