@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Hero from "@/components/home/hero";
 
-// Lazy load components for  performance
 const Partners = dynamic(() => import("@/components/home/partners"), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />,
   ssr: true,
