@@ -7,8 +7,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Handshake, Star } from "lucide-react";
 
-// const marqueePartners = [...partneritems, ...partneritems];
-
 function Partners() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-white to-primary/5 py-24">
