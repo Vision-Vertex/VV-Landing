@@ -33,16 +33,50 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
+          set -e
           mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no \
-            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
-            "mkdir -p ${{ secrets.TARGET_DIR }}"
+          chmod 700 ~/.ssh
+          
+          # Write SSH key with proper formatting
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          
+          # Add VPS host to known_hosts
+          ssh-keyscan -p ${SSH_PORT} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          
+          # Configure SSH options
+          cat >> ~/.ssh/config << EOF
+          Host vps-deploy
+            HostName ${{ secrets.VPS_HOST }}
+            User ${{ secrets.VPS_USER }}
+            Port ${SSH_PORT}
+            IdentityFile ~/.ssh/deploy_key
+            StrictHostKeyChecking no
+            UserKnownHostsFile ~/.ssh/known_hosts
+            ServerAliveInterval 60
+            ServerAliveCountMax 3
+          EOF
+          chmod 600 ~/.ssh/config
+          
+          # Test SSH connection
+          echo "Testing SSH connection..."
+          ssh -F ~/.ssh/config vps-deploy "echo 'SSH connection successful'"
+          
+          # Create target directory
+          echo "Creating target directory..."
+          ssh -F ~/.ssh/config vps-deploy "mkdir -p ${{ secrets.TARGET_DIR }}"
+          
+          # Sync files
+          echo "Syncing files to VPS..."
           rsync -az --delete \
-            -e "ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no" \
+            -e "ssh -F ~/.ssh/config" \
+            --exclude '.git' \
+            --exclude 'node_modules' \
+            --exclude '.next' \
             ./ \
-            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.TARGET_DIR }}
+            vps-deploy:${{ secrets.TARGET_DIR }}
+          
+          echo "File sync completed successfully"
 
       - name: Install, build & restart on VPS
         uses: appleboy/ssh-action@v0.1.7
