@@ -37,44 +37,50 @@ jobs:
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           
-          # Write SSH key with proper formatting
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
+          # Write SSH key with proper formatting (preserve newlines)
+          # Handle both single-line and multi-line key formats
+          if [[ "$SSH_PRIVATE_KEY" == *"BEGIN"* ]]; then
+            printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          else
+            echo "$SSH_PRIVATE_KEY" | base64 -d > ~/.ssh/id_ed25519 2>/dev/null || echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          fi
+          chmod 600 ~/.ssh/id_ed25519
           
-          # Add VPS host to known_hosts
-          ssh-keyscan -p ${SSH_PORT} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          # Verify key exists and has content
+          if [ ! -s ~/.ssh/id_ed25519 ]; then
+            echo "Error: SSH key file is empty"
+            exit 1
+          fi
           
-          # Configure SSH options
-          cat >> ~/.ssh/config << EOF
-          Host vps-deploy
-            HostName ${{ secrets.VPS_HOST }}
-            User ${{ secrets.VPS_USER }}
-            Port ${SSH_PORT}
-            IdentityFile ~/.ssh/deploy_key
-            StrictHostKeyChecking no
-            UserKnownHostsFile ~/.ssh/known_hosts
-            ServerAliveInterval 60
-            ServerAliveCountMax 3
-          EOF
-          chmod 600 ~/.ssh/config
-          
-          # Test SSH connection
+          # Test basic SSH connection first
           echo "Testing SSH connection..."
-          ssh -F ~/.ssh/config vps-deploy "echo 'SSH connection successful'"
+          ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no -o ConnectTimeout=10 \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+            "echo 'SSH connection successful'" || {
+            echo "SSH connection test failed. Checking key format..."
+            head -1 ~/.ssh/id_ed25519
+            echo "Attempting connection with verbose output..."
+            ssh -vvv -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no \
+              ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+              "echo 'test'" 2>&1 | head -20
+            exit 1
+          }
           
           # Create target directory
           echo "Creating target directory..."
-          ssh -F ~/.ssh/config vps-deploy "mkdir -p ${{ secrets.TARGET_DIR }}"
+          ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+            "mkdir -p ${{ secrets.TARGET_DIR }}"
           
           # Sync files
           echo "Syncing files to VPS..."
           rsync -az --delete \
-            -e "ssh -F ~/.ssh/config" \
+            -e "ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no" \
             --exclude '.git' \
             --exclude 'node_modules' \
             --exclude '.next' \
             ./ \
-            vps-deploy:${{ secrets.TARGET_DIR }}
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.TARGET_DIR }}
           
           echo "File sync completed successfully"
 
