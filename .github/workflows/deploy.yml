@@ -1,4 +1,5 @@
-name: Deploy Dynamic Next.js
+name: Deploy VV Landing Next.js
+
 on:
   push:
     branches:
@@ -7,46 +8,84 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js & cache dependencies
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-      - name: Create .env.local from EMAILJS_CONFIG
+          node-version: '22.x'
+          cache: 'npm'                           # caches ~/.npm and node_modules
+
+      - name: Create .env.local
         env:
           EMAILJS_CONFIG: ${{ secrets.EMAILJS_CONFIG }}
         run: |
-          echo "$EMAILJS_CONFIG" > emailjs.json
-          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=$(jq -r .serviceId emailjs.json)" >> .env.local
-          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=$(jq -r .templateId emailjs.json)" >> .env.local
-          echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=$(jq -r .publicKey emailjs.json)" >> .env.local
-          rm emailjs.json
-        shell: bash
+          echo "$EMAILJS_CONFIG" > .env.local
 
-      - name: Upload project to VPS via SSH
+      - name: Sync project to VPS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" ./ \
+          ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+            "mkdir -p ${{ secrets.TARGET_DIR }}"
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_ed25519 -p ${SSH_PORT} -o StrictHostKeyChecking=no" \
+            ./ \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.TARGET_DIR }}
 
-      - name: Restart PM2 on VPS
+      - name: Install, build & restart on VPS
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
+          port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            set -e
             cd ${{ secrets.TARGET_DIR }}
-            npm install
-            npm install cross-env --save-dev
-            npm run build
-            pm2 restart visionvertex || pm2 start npm --name "visionvertex" -- run start
+            echo "Current directory: $(pwd)"
+            echo "Node version: $(node --version)"
+            echo "NPM version: $(npm --version)"
+            export NODE_ENV=production
+            echo "Installing dependencies (including devDependencies for build)..."
+            npm ci --include=dev
+            echo "Building application..."
+            NODE_ENV=production npm run build
+            # Verify build completed successfully
+            if [ ! -d ".next" ]; then
+              echo "Error: Build failed - .next directory not found"
+              echo "Listing current directory contents:"
+              ls -la
+              exit 1
+            fi
+            echo "Build successful - .next directory found"
+            # Verify standalone server exists
+            if [ ! -f ".next/standalone/server.js" ]; then
+              echo "Error: Standalone server not found at .next/standalone/server.js"
+              exit 1
+            fi
+            # Copy static assets for standalone mode (required for CSS/images to load)
+            echo "Copying static assets to standalone directory..."
+            cp -r public .next/standalone/ 2>/dev/null || true
+            cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
+            # ensure PM2 always runs in TARGET_DIR
+            pm2 delete vvlanding || true
+            export HOST=0.0.0.0
+            export NODE_ENV=production
+            pm2 start node \
+            --name vvlanding \
+            --cwd "${PWD}" \
+            --update-env \
+            -- .next/standalone/server.js
             pm2 save
