@@ -82,6 +82,7 @@ jobs:
             # ensure PM2 always runs in TARGET_DIR
             pm2 delete vvlanding || true
             export HOST=0.0.0.0
+            export PORT=4000
             export NODE_ENV=production
             pm2 start node \
             --name vvlanding \
