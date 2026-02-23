@@ -136,6 +136,11 @@ export const navItems: NavItem[] = [
     href: '/about-us',
     link: true,
   },
+  {
+    title: 'Careers',
+    href: '/careers',
+    link: true,
+  },
 ];
 
 export const partners: PartnerItem[] = [

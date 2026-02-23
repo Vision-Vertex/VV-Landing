@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 import { PerformanceMonitor } from "@/components/ui/performance-monitor";
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
+import { Providers } from "../components/providers/Providers";
 
 // Optimize font loading by loading all weights in one instance
 const poppins = Poppins({
@@ -80,10 +80,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased overflow-x-hidden">
-        <PerformanceMonitor />
-        <NavBar />
-        <main className="overflow-x-hidden">{children}</main>
-        <Footer />
+        <Providers>
+          <PerformanceMonitor />
+          <ConditionalLayout>
+            <main className="overflow-x-hidden">{children}</main>
+          </ConditionalLayout>
+        </Providers>
       </body>
     </html>
   );

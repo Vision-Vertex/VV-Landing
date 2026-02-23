@@ -78,7 +78,6 @@ const ContactUs = () => {
       });
       setSelectedCountry("ET");
     } catch (error) {
-      console.error("EmailJS failed to send email:", error);
       setMessage({
         message: "There was an error sending your message. Please try again.",
         type: "error",
