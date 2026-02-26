@@ -107,6 +107,7 @@ function Hero() {
           </Button>
         </div>
 
+       
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
@@ -227,8 +228,8 @@ function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center w-full h-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center overflow-hidden ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center w-full h-1/2 justify-center lg:-mt-70">
           {/* Left Column - Content */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -243,7 +244,7 @@ function Hero() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+              className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight "
             >
               Transform your ideas into{" "}
               <span className="text-gradient-to-r from-primary to-secondary bg-clip-text ">
@@ -257,7 +258,7 @@ function Hero() {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base md:text-lg text-gray-200 leading-relaxed max-w-lg"
+              className="text-base md:text-lg text-gray-200 leading-relaxed max-w-lg "
             >
               We're your partner in software engineering, cloud & DevOps, AI &
               data science, and training & R&D. From full-stack development to
@@ -317,10 +318,10 @@ function Hero() {
             className="relative flex items-center justify-center h-full order-1 lg:order-2 pt-10 lg:pt-0"
           >
             {/* Glowing Background Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary-500/20 to-primary-500/20 rounded-full blur-3xl scale-150"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary-500/20 to-primary-500/20 rounded-full blur-3xl scale-150  "></div>
 
             {/* VISION Logo Animation */}
-            <div className="relative z-10 flex items-center justify-center">
+            <div className="relative z-10 flex items-center justify-center ">
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -461,7 +462,8 @@ function Hero() {
                   }}
                 />
               </motion.div>
-            </div>
+            </div> 
+            
 
             {/* Floating Elements */}
             <motion.div

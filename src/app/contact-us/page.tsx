@@ -54,6 +54,7 @@ const ContactUs = () => {
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+    emailjs.init(publicKey);
 
     const templateParams = {
       first_name: formData.firstName,
@@ -352,7 +353,7 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg mb-1">Call Us</h3>
-                        <p className="text-white/90">+251-923623256</p>
+                        <p className="text-white/90">+251-949021111</p>
                       </div>
                     </div>
                   </motion.div>
