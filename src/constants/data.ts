@@ -93,6 +93,20 @@ import Partner3 from '../../public/partners/tinova.png';
 import Partner4 from '../../public/partners/dailyofficesolutions.png';
 import Partner5 from '../../public/partners/wagms.png';
 import Partner6 from '../../public/partners/TIME.png';
+import Partner7 from '../../public/partners/SAP.png';
+import Partner8 from '../../public/partners/DELL.png';
+import Partner9 from '../../public/partners/Lenovo.png';
+import Partner10 from '../../public/partners/NetApp.png';
+import Partner11 from '../../public/partners/RedHat.png';
+import Partner12 from '../../public/partners/Microsoft.png';
+import Partner13 from '../../public/partners/aruba.png';
+import Partner14 from '../../public/partners/Juniper.png';
+import Partner15 from '../../public/partners/Fortinet.png';
+import Partner16 from '../../public/partners/HewlettPackard.png';
+import Partner17 from '../../public/partners/Mistumi.png';
+import Partner18 from '../../public/partners/Redington.png';
+import Partner19 from '../../public/partners/Gulf.png';
+import Partner20 from '../../public/partners/Axiz.png';
 import { UserRound, Users2Icon, icons } from 'lucide-react';
 import { slugify } from '@/lib/slugify';
 import { FaPaintBrush, FaHandshake, FaRocket, FaUserCheck } from 'react-icons/fa';
@@ -132,6 +146,11 @@ export const navItems: NavItem[] = [
     link: false,
   },
   {
+    title: 'Partners',
+    href: '/partners',
+    link: true,
+  },
+  {
     title: 'About Us',
     href: '/about-us',
     link: true,
@@ -140,27 +159,132 @@ export const navItems: NavItem[] = [
 
 export const partners: PartnerItem[] = [
   {
-    path: Partner1,
-    alt: 'Partner 1',
-  },
-  
-  {
-    path: Partner2,
-    alt: 'Partner 2',
+    path: Partner12,
+    alt: 'Partner 12',
+     link : 'https://share.google/94EYHJ35oMW2u3un1',
+     name:'Microsoft',
   },
   {
-    path: Partner3,
-    alt: 'Partner 3',
+    path: Partner8,
+    alt: 'Partner 8',
+     link : 'https://share.google/b9if2D7BFj8E9TGhC',
+     name: 'DELL',
+  },
+  {
+    path: Partner15,
+    alt: 'Partner 15',
+     link : 'https://share.google/024xZmzuLJuq7FYp8',
+     name :'Fortinet',
+  },
+  {
+    path: Partner9,
+    alt: 'Partner 9',
+     link : 'https://share.google/2VbZqZ7BgQtcjrfax',
+     name:'Lenovo',
+  },
+  {
+    path: Partner10,
+    alt: 'Partner 10',
+     link : 'https://share.google/2IBySzukrdadD35rM',
+     name:'NetApp',
+  },
+   {
+    path: Partner7,
+    alt: 'Partner 7',
+     link : 'https://www.sap.com/products/erp.html',
+     name: 'SAP ',
+  },
+  {
+    path: Partner11,
+    alt: 'Partner 11',
+     link : 'https://share.google/bNAGsqkcDzKoWFbak',
+     name :'Red Hat',
+  },
+   {
+    path: Partner16,
+    alt: 'Partner 16',
+     link : 'https://www.hpe.com/emea_europe/en/home.html',
+     name:'HPE',
+  },
+  {
+    path: Partner13,
+    alt: 'Partner 13',
+     link : 'https://share.google/kOcGQ54bJnlxMhIgd',
+     name:'Aruba Networking',
+  },
+  {
+    path: Partner14,
+    alt: 'Partner 14',
+     link : 'https://www.juniper.net/',
+     name:'Juniper Networks',
+  },
+  {
+    path: Partner17,
+    alt: 'Partner 17',
+     link : 'https://share.google/gg4LOMWDjjkNSvCMr',
+     name:'Mitsumi Distribution',
+  },
+  {
+    path: Partner18,
+    alt: 'Partner 18',
+     link : 'https://www.remington.com/',
+     name:'Redington',
+  },
+  {
+    path: Partner19,
+    alt: 'Partner 19',
+     link : 'https://www.firstgulf.com/',
+     name:'First Gulf '
+  },
+  {
+    path: Partner20,
+    alt: 'Partner 20',
+     link : 'https://axiz.com/app/main/landing-page?page=General',
+     name:'Axiz Digital',
   },
   {
     path: Partner4,
     alt: 'Partner 4',
+     link : 'https://dailyofficesolutions.com/',
+     name: 'Daily Office Solutions',
+  },
+  {
+    path: Partner2,
+    alt: 'Partner 2',
+    link: 'https://www.jemsquare.com/',
+    name: 'JEM Square',
+  },
+  {
+    path: Partner3,
+    alt: 'Partner 3',
+    link: 'https://share.google/pVigDpzwUODtsSrh0',
+    name: 'Tinova',
   },
   
- 
+  {
+    path: Partner5,
+    alt: 'Partner 5',
+     link : 'https://wagminc.com/',
+     name:'WAGM',
+  },
+  {
+    path: Partner6,
+    alt: 'Partner 6',
+     link : 'https://www.alamy.com/',
+     name:'TIME',
+  },
+
+  {
+    path: Partner1,
+    alt: 'Partner 1',
+    link: 'https://www.firsthijrah.com/',
+    name: 'First Hijrah Foundation',
+  },
+  
 ];
 
 export const services: Services[] = [
+ 
   {
     icon: technologyProcurementIcon,
     headline: 'Technology Procurement & Integration Services',

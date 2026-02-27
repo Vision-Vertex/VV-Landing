@@ -156,7 +156,7 @@ function ServicesList() {
                     </motion.div>
                   )}
 
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed ">
                     {service.description.length > 100
                       ? service.description.substring(0, 100) + "..."
                       : service.description}
@@ -175,26 +175,28 @@ function ServicesList() {
                           key={cardIndex}
                           whileHover={{ scale: 1.02, x: 5 }}
                           transition={{ duration: 0.3 }}
-                          className="flex items-start gap-3 p-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl border border-gray-200 hover:border-primary/20 transition-all duration-300"
+                          className="flex items-start gap-1 p-1 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl border border-gray-200 hover:border-primary/20 transition-all duration-300 lg:gap-3 lg:p-3"
                         >
                           <Image
                             src={card.icon}
                             alt={card.title}
                             width={20}
                             height={20}
-                            className="object-contain mt-1"
+                            className="object-contain  mt-1"
                           />
-                          <div>
-                            <h4 className="font-semibold text-gray-900 text-sm">
+                          <div className="mr-4 p-0 justify-between ">
+                            <h4 className=" font-semibold text-gray-900 text-sm  ">
                               {card.title}
                             </h4>
-                            <p className="text-xs text-gray-600">
+                            <p className="text-xs text-gray-600  sm:items-start ">
                               {card.description.length > 50
                                 ? card.description.substring(0, 50) + "..."
                                 : card.description}
                             </p>
                           </div>
+                        
                         </motion.div>
+                         
                       ))}
                   </div>
 

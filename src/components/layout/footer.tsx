@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight, Heart } from "lucide-react";
 import Image from "next/image";
 import VisionVertex from "../../../public/logos/VisionVertexLogo2.svg";
 import Link from "next/link";
-
+import { services } from "@/constants/data";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -45,7 +45,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300">
                   <Phone size={16} className="text-secondary" />
-                  <span className="text-sm">+251-923623256</span>
+                  <span className="text-sm">+251-949021111</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300">
                   <MapPin size={16} className="text-secondary" />
@@ -75,15 +75,15 @@ export default function Footer() {
                   },
                   {
                     name: "Cloud, DevOps & Platform Engineering",
-                    href: "/services/Cloud-DevOps-Platform-Engineering",
+                    href: `/services/${services[2].slug}`,
                   },
                   {
                     name: "AI, Data Science & Business Intelligence",
-                    href: "/services/AI-Data-Science-Business-Intelligence",
+                    href: `/services/${services[3].slug}`,
                   },
                   {
                     name: "Training, R&D & Talent Development",
-                    href: "/services/Training-RD-Talent-Development",
+                    href: `/services/${services[4].slug}`,
                   },
                 ].map((service, index) => (
                   <li key={index}>
@@ -111,10 +111,11 @@ export default function Footer() {
               <ul className="space-y-3">
                 {[
                   { name: "About Us", href: "/about-us" },
-                  { name: "Our Services", href: "/services" },
+                  { name: "Our Services", href: "/#services"},
+                  { name: "Our Partners", href: "/partners" },
                   { name: "Contact Us", href: "/contact-us" },
-                  { name: "Privacy Policy", href: "#" },
-                  { name: "Terms of Service", href: "#" },
+                  { name: "Privacy Policy", href: "/about-us" },
+                  { name: "Terms of Service", href: "/about-us" },
                 ].map((link, index) => (
                   <li key={index}>
                     <Link
@@ -146,9 +147,9 @@ export default function Footer() {
                 <div className="flex gap-4">
                   {[
                     { icon: FaTwitter, href: "#", label: "Twitter" },
-                    { icon: FaLinkedin, href: "#", label: "LinkedIn" },
+                    { icon: FaLinkedin, href: "https://www.linkedin.com/company/vision-vertex/", label: "LinkedIn" },
                     { icon: FaInstagram, href: "#", label: "Instagram" },
-                    { icon: FaGithub, href: "#", label: "GitHub" },
+                    { icon: FaGithub, href: "https://github.com/Vision-Vertex", label: "GitHub" },
                   ].map((social, index) => (
                     <a
                       key={index}
@@ -179,19 +180,19 @@ export default function Footer() {
 
             <div className="flex items-center gap-6 text-white/80">
               <Link
-                href="#"
+                href="/about-us"
                 className="hover:text-white transition-colors duration-300 text-sm"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="#"
+                href="/about-us"
                 className="hover:text-white transition-colors duration-300 text-sm"
               >
                 Terms of Service
               </Link>
               <Link
-                href="#"
+                href="/about-us"
                 className="hover:text-white transition-colors duration-300 text-sm"
               >
                 Cookie Policy
