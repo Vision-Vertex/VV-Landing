@@ -93,11 +93,8 @@ export function PerformanceMonitor() {
     }
   }, []);
 
-  // Log metrics to console in development
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development' && Object.values(metrics).some(m => m !== null)) {
-      console.log('Performance Metrics:', metrics);
-    }
+    // Metrics are tracked but not logged
   }, [metrics]);
 
   return null; // This component doesn't render anything
@@ -111,7 +108,5 @@ export function measurePerformance(name: string, fn: () => void) {
   fn();
   const end = performance.now();
   
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`${name} took ${end - start}ms`);
-  }
+  // Performance is measured but not logged
 }
