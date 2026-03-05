@@ -54,6 +54,13 @@ jobs:
           script: |
             set -e
             cd ${{ secrets.TARGET_DIR }}
+
+            # Create .env on the VPS from PROD_ENV secret
+            cat > .env << 'EOF'
+            ${{ secrets.PROD_ENV }}
+            EOF
+            chmod 600 .env
+
             echo "Current directory: $(pwd)"
             echo "Node version: $(node --version)"
             echo "NPM version: $(npm --version)"
