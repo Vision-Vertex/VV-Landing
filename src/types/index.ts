@@ -13,6 +13,7 @@ export interface PartnerItem {
   path: any;
   alt: string;
   link?: string;
+  name?: string;
 }
 
 export interface NavItemWithChildren extends NavItem {

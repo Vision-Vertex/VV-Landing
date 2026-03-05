@@ -6,8 +6,9 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Handshake, Star } from "lucide-react";
+//const marqueePartners = [...partneritems, ...partneritems];
+const items = partneritems;
 
-const marqueePartners = [...partneritems, ...partneritems];
 
 function Partners() {
   return (
@@ -96,7 +97,7 @@ function Partners() {
         </div> */}
 
         {/* Partners Grid */}
-        <motion.div
+        {/* <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -131,7 +132,7 @@ function Partners() {
                   <div className="absolute inset-x-10 -top-3 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <h3 className="text-sm font-medium text-gray-700 transition-colors duration-300 group-hover:text-primary">
                     {/* {partner.alt} */}
-                  </h3>
+                  {/* </h3>
                   <p className="mt-2 text-xs uppercase tracking-[0.35em] text-gray-400">
                     Partner
                   </p>
@@ -139,8 +140,46 @@ function Partners() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
+        </motion.div>  */}
+        <motion.div
+        className="flex space-x-8  mb-20 "
+        animate={{ x: ["-100%", "0%"] }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 20, 
+          ease: "linear",
+        }}
+      >
+        {items.map((partner, index) => (
+          <div key={index} className="group relative m-4 ">
+            <div className="relative overflow-hidden w-64 min-h-[60px] rounded-2xl border border-secondary/10 bg-white p-8 shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 w-40 mx-auto justify-between hover:shadow-[0_36px_80px_-24px_rgba(79,70,229,0.45)]">
+              <div className="relative flex h-40 items-center justify-center  bg-transparent leading-3.2">
+                
+                <Image
+                  src={partner.path}
+                  alt={partner.alt}
+                  width={160}
+                  height={160}
+                  className="w-auto h-32 object-contain transition-transform duration-300 group-hover:scale-105"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
+                />
+                
+              </div>
+              <div className="relative mt-6 text-center">
+                <h3 className="text-base font-semibold text-gray-700 transition-colors duration-300 group-hover:text-primary">
+                  {/* {partner.alt} */}
+                </h3>
+                <p className="-mt-2 text-xs uppercase tracking-[0.25em] text-gray-400 items-center justify-center flex gap-1">
+                  {partner.name}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    
         {/* CTA Section */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
