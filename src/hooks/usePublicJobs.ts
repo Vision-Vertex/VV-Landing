@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { JobResponse } from '@/types/jobs';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
 export interface PublicJobsResponse {
   jobs: JobResponse[];

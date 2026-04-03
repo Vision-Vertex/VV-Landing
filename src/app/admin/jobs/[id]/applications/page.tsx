@@ -15,8 +15,6 @@ import { useJob } from '@/hooks/useJobs';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { toast } from 'sonner';
 import { getStatusBadgeConfig } from '@/lib/utils';
-import { apiClient } from '@/lib/api';
-
 function ApplicationsPage() {
   const params = useParams(); 
   const jobId = params.id as string;
@@ -35,14 +33,16 @@ function ApplicationsPage() {
     }
   }, [error]);
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside the *open* row’s menu (not other rows’ cells).
+  // The old forEach closed the menu whenever any other row’s ref didn’t contain the target,
+  // which fired on mousedown and unmounted the menu before click — so actions never ran.
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      Object.entries(dropdownRefs.current).forEach(([id, ref]) => {
-        if (ref && !ref.contains(event.target as Node)) {
-          setOpenDropdown(null);
-        }
-      });
+      if (!openDropdown) return;
+      const ref = dropdownRefs.current[openDropdown];
+      if (ref && !ref.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
     };
 
     if (openDropdown) {
@@ -68,7 +68,7 @@ function ApplicationsPage() {
     setLoadingResume(applicationId);
 
     try {
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
       const token = localStorage.getItem('access_token');
       
       // Fetch resume from the endpoint
@@ -288,7 +288,7 @@ function ApplicationsPage() {
                                 <motion.div
                                   initial={{ opacity: 0, y: -10 }}
                                   animate={{ opacity: 1, y: 0 }}
-                                  className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-10 overflow-hidden"
+                                  className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50 overflow-hidden"
                                 >
                                   <div className="py-1">
                                     <button
