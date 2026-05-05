@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { company_values, team } from '@/constants/data';
 import { BsEnvelopeAtFill, BsLinkedin } from 'react-icons/bs';
 import { Star, Users, Target, Award } from 'lucide-react';
-
+// test
 function AboutUsPage() {
  return (
     <div className="relative min-h-screen bg-white overflow-hidden">
