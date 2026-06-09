@@ -86,14 +86,7 @@ jobs:
             echo "Copying static assets to standalone directory..."
             cp -r public .next/standalone/ 2>/dev/null || true
             cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
-            # ensure PM2 always runs in TARGET_DIR
+            # ensure PM2 always binds to localhost (nginx proxies public traffic)
             pm2 delete vvlanding || true
-            export HOST=0.0.0.0
-            export PORT=4000
-            export NODE_ENV=production
-            pm2 start node \
-            --name vvlanding \
-            --cwd "${PWD}" \
-            --update-env \
-            -- .next/standalone/server.js
+            pm2 start ecosystem.config.cjs --only vvlanding --update-env
             pm2 save
