@@ -6,6 +6,8 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Handshake, Star } from "lucide-react";
+import { SectionTag } from "../ui/section-tag";
+import { SectionTitle } from "../ui/section-title";
 //const marqueePartners = [...partneritems, ...partneritems];
 const items = partneritems;
 
@@ -31,28 +33,25 @@ function Partners() {
           className="mx-auto mb-16 max-w-4xl text-center"
         >
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-6 py-2 text-sm font-semibold text-primary shadow-sm"
           >
-            <Handshake size={16} />
-            Partners
+            <SectionTag>Partners</SectionTag>
           </motion.div>
 
-          <motion.h2
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-gray-900 md:text-5xl"
+            className="mb-4"
           >
-            Trusted by Industry{" "}
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              Leaders
-            </span>
-          </motion.h2>
+            <SectionTitle accent="Leaders">
+              Trusted by Industry
+            </SectionTitle>
+          </motion.div>
 
           <motion.p
             initial={{ y: 30, opacity: 0 }}
@@ -210,7 +209,7 @@ function Partners() {
                 innovative solutions that drive business growth and
                 technological advancement.
               </p>
-              <Button className="group inline-flex items-center gap-2 rounded-xl bg-secondary px-8 py-4 text-lg font-semibold text-white shadow-[0_18px_48px_-22px_rgba(99,102,241,0.75)] transition-transform duration-300 hover:-translate-y-1 hover:bg-secondary/90 hover:shadow-[0_26px_58px_-18px_rgba(99,102,241,0.8)]">
+              <Button size="lg" variant="secondary" className="group">
                 <Link href="/contact-us" className="flex items-center gap-2">
                   Become Our Partner
                   <ArrowRight

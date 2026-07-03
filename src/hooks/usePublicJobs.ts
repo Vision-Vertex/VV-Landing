@@ -2,8 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { JobResponse } from '@/types/jobs';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
+import { getApiBaseUrl } from '@/lib/api-config';
 
 export interface PublicJobsResponse {
   jobs: JobResponse[];
@@ -15,7 +14,7 @@ export interface PublicJobsResponse {
 
 // Public endpoint - no authentication required
 async function fetchPublicJobs(): Promise<PublicJobsResponse> {
-  const response = await fetch(`${API_BASE_URL}/jobs`, {
+  const response = await fetch(`${getApiBaseUrl()}/jobs`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -24,7 +23,7 @@ async function fetchPublicJobs(): Promise<PublicJobsResponse> {
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
-    throw new Error(error.message || 'Failed to fetch jobs');
+    throw new Error(error.message || error.detail || 'Failed to fetch jobs');
   }
 
   return response.json();
@@ -32,7 +31,7 @@ async function fetchPublicJobs(): Promise<PublicJobsResponse> {
 
 // Public endpoint - no authentication required
 async function fetchPublicJobById(id: string): Promise<JobResponse> {
-  const response = await fetch(`${API_BASE_URL}/jobs/${id}`, {
+  const response = await fetch(`${getApiBaseUrl()}/jobs/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +40,7 @@ async function fetchPublicJobById(id: string): Promise<JobResponse> {
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
-    throw new Error(error.message || 'Failed to fetch job details');
+    throw new Error(error.message || error.detail || 'Failed to fetch job details');
   }
 
   return response.json();
@@ -61,4 +60,3 @@ export function usePublicJob(id: string) {
     enabled: !!id,
   });
 }
-

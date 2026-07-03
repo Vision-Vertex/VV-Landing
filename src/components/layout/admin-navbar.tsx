@@ -86,7 +86,7 @@ export default function AdminNavbar() {
         </Link>
 
         {/* Create Job Button */}
-        <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-md px-6">
+        <Button size="lg">
           <Link href={'/admin/jobs/create'} className="flex items-center gap-2">
             <Plus size={18} />
             Create Job
@@ -166,7 +166,7 @@ export default function AdminNavbar() {
           
           <div className="pt-4 border-t border-gray-200 space-y-2">
             <Button 
-              className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-lg"
+              className="w-full" size="lg"
               onClick={() => setIsMenuOpen(false)}
             >
               <Link href={'/admin/jobs/create'} className="flex items-center gap-2">

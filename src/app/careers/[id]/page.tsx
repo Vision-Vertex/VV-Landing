@@ -100,7 +100,7 @@ function JobDetailPage() {
                     {job.title}
                   </h1>
                   {job.framework && (
-                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/5 px-3 py-1 rounded-full">
                       {job.framework}
                     </span>
                   )}
@@ -221,7 +221,7 @@ function JobDetailPage() {
             {/* Apply Button */}
             <div className="pt-6 border-t border-gray-200">
               <Link href={`/careers/${jobId}/apply`}>
-                <Button className="w-full cursor-pointer md:w-auto bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-12 py-6 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button className="w-full md:w-auto" size="lg">
                   Apply for This Position
                   <ArrowRight size={20} className="ml-2" />
                 </Button>

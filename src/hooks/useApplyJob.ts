@@ -3,7 +3,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
+import { getApiBaseUrl } from "@/lib/api-config";
 
 export interface ApplicationFormData {
   job_id: string;
@@ -40,7 +40,7 @@ async function uploadResume(file: File): Promise<string> {
       formData.append("file", file);
       formData.append("resume", file); // Try both 'file' and 'resume' field names
 
-      const uploadResponse = await fetch(`${API_BASE_URL}${endpoint}`, {
+      const uploadResponse = await fetch(`${getApiBaseUrl()}${endpoint}`, {
         method: "POST",
         body: formData,
       });
@@ -93,7 +93,7 @@ async function applyToJob(
     // Append the resume file
     formData.append("resume", data.resume as Blob);
 
-    response = await fetch(`${API_BASE_URL}/jobs/${data.job_id}/apply`, {
+    response = await fetch(`${getApiBaseUrl()}/jobs/${data.job_id}/apply`, {
       method: "POST",
       // Don't set Content-Type header - browser will set it with boundary
       body: formData,
@@ -123,7 +123,7 @@ async function applyToJob(
       requestBody.resume_path = data.resume;
     }
 
-    response = await fetch(`${API_BASE_URL}/jobs/${data.job_id}/apply`, {
+    response = await fetch(`${getApiBaseUrl()}/jobs/${data.job_id}/apply`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

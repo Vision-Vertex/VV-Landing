@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Briefcase, MapPin, Clock, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
+import { SectionTag } from '@/components/ui/section-tag';
+import { SectionTitle } from '@/components/ui/section-title';
 import { usePublicJobs } from '@/hooks/usePublicJobs';
 import { JobResponse } from '@/types/jobs';
 import { toast } from 'sonner';
@@ -61,26 +63,25 @@ function CareersPage() {
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
-            <Briefcase size={16} />
-            Open Positions
+            <SectionTag icon={<Briefcase size={14} className="text-secondary" />}>
+              Open Positions
+            </SectionTag>
           </motion.div>
-          <motion.h1
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="mb-6"
           >
-            Build Your Career at{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Vision Vertex
-            </span>
-          </motion.h1>
+            <SectionTitle as="h1" accent="Vision Vertex" className="text-4xl md:text-6xl">
+              Build Your Career at
+            </SectionTitle>
+          </motion.div>
 
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -130,7 +131,7 @@ function CareersPage() {
                               {job.title}
                             </h3>
                             {job.framework && (
-                              <span className="inline-flex items-center gap-1 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-3 py-1 rounded-full text-xs font-medium">
+                              <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/5 px-3 py-1 rounded-full">
                                 {job.framework}
                               </span>
                             )}
@@ -166,7 +167,7 @@ function CareersPage() {
                       )}
 
                       
-                      <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                      <Button size="lg">
                         <Link href={`/careers/${job.id}`} className="flex items-center gap-2">
                           View Details
                           <ArrowRight size={18} />

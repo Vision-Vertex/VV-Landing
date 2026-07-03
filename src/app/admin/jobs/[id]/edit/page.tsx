@@ -590,7 +590,7 @@ export default function EditJobPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {statuses.map((status) => (
                 <button key={status} type="button" onClick={() => handleSelectChange('status', status)} disabled={isPending}
-                  className={`p-4 rounded-xl border-2 transition-all flex items-center justify-center gap-2 ${formData.status === status ? 'border-primary bg-primary/5 text-primary' : 'border-gray-300 hover:border-primary/50 text-gray-700 bg-gray-50'} ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                  className={`p-4 rounded-md border-2 transition-all flex items-center justify-center gap-2 ${formData.status === status ? 'border-primary bg-primary/5 text-primary' : 'border-gray-300 hover:border-primary/50 text-gray-700 bg-gray-50'} ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}>
                   {formData.status === status && <CheckCircle2 size={18} />}
                   <span className="font-medium capitalize">{status}</span>
                 </button>
@@ -610,7 +610,7 @@ export default function EditJobPage() {
             <Button type="button" variant="outline" onClick={() => router.push(`/admin/jobs/${jobId}`)} className="px-8 py-6 text-lg border-2 border-gray-300 hover:bg-gray-100 text-gray-700" disabled={isPending}>
               <X size={18} className="mr-2" /> Cancel
             </Button>
-            <Button type="submit" disabled={isPending} className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 min-w-[200px]">
+            <Button type="submit" disabled={isPending} size="lg" className="disabled:opacity-50 min-w-[200px]">
               {isPending ? <><Loader2 size={18} className="mr-2 animate-spin" /> Updating...</> : <><Save size={18} className="mr-2" /> Update Job Posting</>}
             </Button>
           </motion.div>

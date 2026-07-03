@@ -5,6 +5,8 @@ import Image from "next/image";
 import { partners as partneritems } from "@/constants/data";
 import { ArrowRight, Handshake, Star } from "lucide-react";
 import Link from "next/link";
+import { SectionTag } from "@/components/ui/section-tag";
+import { SectionTitle } from "@/components/ui/section-title";
 
 function PartnersPage() {
   return (
@@ -16,28 +18,27 @@ function PartnersPage() {
       className="mx-auto mb-16 max-w-4xl text-center "
     >
       <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-6 py-2 text-sm font-semibold text-primary shadow-sm"
       >
-        <Handshake size={16} />
-        Partners
+        <SectionTag icon={<Handshake size={14} className="text-secondary" />}>
+          Partners
+        </SectionTag>
       </motion.div>
 
-      <motion.h2
+      <motion.div
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
         viewport={{ once: true }}
-        className="text-3xl font-bold text-gray-900 md:text-5xl"
+        className="mb-4"
       >
-        Trusted by Industry{" "}
-        <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-          Leaders
-        </span>
-      </motion.h2>
+        <SectionTitle accent="Leaders">
+          Trusted by Industry
+        </SectionTitle>
+      </motion.div>
 
       <motion.p
         initial={{ y: 30, opacity: 0 }}

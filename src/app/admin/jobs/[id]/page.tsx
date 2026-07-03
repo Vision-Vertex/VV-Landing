@@ -147,7 +147,7 @@ function JobDetailPage() {
               </Button>
               
               <Link href={`/admin/jobs/${jobId}/applications`}>
-                <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white gap-2">
+                <Button className="gap-2" size="lg">
                   <Users size={18} />
                   View Applications
                 </Button>
