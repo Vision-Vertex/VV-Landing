@@ -34,11 +34,8 @@ export default function AdminNavbar() {
   return (
     <div className="flex justify-between items-center w-full p-4 md:px-14 md:py-5 relative z-50 bg-white border-b border-gray-100 shadow-sm">
       {/* Left Side: Logo */}
-      <Link href={'/admin'} className="flex items-center gap-2">
-        <Image className='' src={Logo} width={40} height={40} alt="Logo" />
-        <span className="font-bold text-xl text-gray-900 hidden md:block">
-          Vision<span className="text-primary">Vertex</span> Admin
-        </span>
+      <Link href={'/admin'} className="flex items-center">
+        <Image src={Logo} width={52} height={52} alt="VisionVertex Logo" />
       </Link>
       
       {/* Desktop Navigation (Right Side) */}
@@ -86,9 +83,9 @@ export default function AdminNavbar() {
         </Link>
 
         {/* Create Job Button */}
-        <Button size="lg">
-          <Link href={'/admin/jobs/create'} className="flex items-center gap-2">
-            <Plus size={18} />
+        <Button asChild className="px-3 py-1.5 h-auto text-xs font-medium">
+          <Link href={'/admin/jobs/create'} className="flex items-center gap-1.5">
+            <Plus size={14} />
             Create Job
           </Link>
         </Button>
@@ -165,12 +162,13 @@ export default function AdminNavbar() {
           </div>
           
           <div className="pt-4 border-t border-gray-200 space-y-2">
-            <Button 
-              className="w-full" size="lg"
+            <Button
+              asChild
+              className="w-full px-3 py-1.5 h-auto text-xs font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Link href={'/admin/jobs/create'} className="flex items-center gap-2">
-                <Plus size={18} />
+              <Link href={'/admin/jobs/create'} className="flex items-center justify-center gap-1.5">
+                <Plus size={14} />
                 Create Job
               </Link>
             </Button>

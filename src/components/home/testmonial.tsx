@@ -103,8 +103,8 @@ function testmonial() {
                 viewport={{ once: true }}
                 className="flex justify-center mb-8"
               >
-                <div className="p-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full">
-                  <Quote size={32} className="text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <Quote size={24} />
                 </div>
               </motion.div>
 

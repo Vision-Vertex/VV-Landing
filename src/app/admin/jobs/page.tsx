@@ -43,14 +43,6 @@ function JobsPage() {
             tag="Jobs Management"
             title="Job Openings"
             description="View, edit, and manage active job postings and track applications."
-            action={
-              <Button asChild>
-                <Link href="/admin/jobs/create" className="flex items-center gap-2">
-                  <Plus size={16} />
-                  Add New Job
-                </Link>
-              </Button>
-            }
           />
 
           {/* Stats */}

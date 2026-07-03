@@ -60,8 +60,6 @@ function JobDetailPage() {
     );
   }
 
-  const requirements = parseRequirements(job.requirements);
-
   return (
     <div className="relative min-h-screen bg-white overflow-hidden">
       <div className="absolute inset-0">
@@ -153,15 +151,10 @@ function JobDetailPage() {
                     <h2 className="text-xl font-bold text-gray-900 mb-3">
                       Requirements
                     </h2>
-                    <ul className="space-y-3">
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
                       {requirementsList.map((requirement, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="flex-shrink-0 mt-1">
-                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
-                          </div>
-                          <span className="text-gray-600 leading-relaxed flex-1">
-                            {requirement}
-                          </span>
+                        <li key={idx} className="leading-relaxed">
+                          {requirement}
                         </li>
                       ))}
                     </ul>
@@ -181,42 +174,35 @@ function JobDetailPage() {
               })()}
 
             {/* Required Skills */}
-            {job.required_skills && (
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-3">
-                  Required Skills
-                </h2>
-                <div className="flex flex-wrap gap-2">
-                  {job.required_skills &&
-                    (() => {
-                      const raw = job.required_skills as string | string[];
-                      const skillsArray =
-                        typeof raw === "string"
-                          ? raw.split(",").map((s: string) => s.trim())
-                          : Array.isArray(raw)
-                            ? raw
-                            : [];
-                      return (
-                        <div>
-                          <h2 className="text-xl font-bold text-gray-900 mb-3">
-                            Required Skills
-                          </h2>
-                          <div className="flex flex-wrap gap-2">
-                            {skillsArray.map((skill: string, idx: number) => (
-                              <span
-                                key={idx}
-                                className="px-3 py-1 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary rounded-full text-sm font-medium"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    })()}
+            {job.required_skills && (() => {
+              const raw = job.required_skills as string | string[];
+              const skillsArray =
+                typeof raw === "string"
+                  ? raw.split(",").map((s: string) => s.trim()).filter(Boolean)
+                  : Array.isArray(raw)
+                    ? raw
+                    : [];
+
+              if (skillsArray.length === 0) return null;
+
+              return (
+                <div>
+                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                    Required Skills
+                  </h2>
+                  <div className="flex flex-wrap gap-2">
+                    {skillsArray.map((skill: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-md text-sm font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Apply Button */}
             <div className="pt-6 border-t border-gray-200">

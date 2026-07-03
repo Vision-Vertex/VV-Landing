@@ -3,11 +3,10 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { 
-  ArrowLeft, User, Mail, Building2, Shield, Calendar, 
-  Loader2, AlertCircle, LogOut
+  User, Mail, Building2, Shield, Calendar, 
+  Loader2, AlertCircle
 } from 'lucide-react';
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { useAuth } from '@/contexts/AuthContext';
@@ -57,8 +56,7 @@ function ProfilePage() {
               {(error as any)?.message || 'Unable to load your profile. Please try again.'}
             </p>
             <Button onClick={() => router.push('/admin/jobs')}>
-              <ArrowLeft size={18} className="mr-2" />
-              Back to Jobs
+              Try Again
             </Button>
           </div>
         </div>
@@ -70,13 +68,6 @@ function ProfilePage() {
     <ProtectedRoute>
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-6">
-          <Link href="/admin/jobs">
-            <Button variant="outline" size="sm" className="gap-2">
-              <ArrowLeft size={16} />
-              Back to Jobs
-            </Button>
-          </Link>
-
           <AdminPageHeader
             tag="Account"
             title="My Profile"

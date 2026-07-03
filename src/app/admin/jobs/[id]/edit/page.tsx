@@ -18,7 +18,7 @@ import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { 
   Briefcase, MapPin, DollarSign, Layers, Clock, Save, X, Plus,
-  CheckCircle2, AlertCircle, Loader2, ArrowLeft
+  CheckCircle2, AlertCircle, Loader2
 } from 'lucide-react';
 import { useUpdateJob } from '@/hooks/useUpdateJob';
 import { useJob } from '@/hooks/useJobs';
@@ -261,8 +261,7 @@ export default function EditJobPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Job not found</h2>
           <p className="text-gray-600 mb-6">The job you're trying to edit doesn't exist or has been removed.</p>
           <Button onClick={() => router.push('/admin/jobs')}>
-            <ArrowLeft size={18} className="mr-2" />
-            Back to Jobs
+            View All Jobs
           </Button>
         </div>
       </div>
