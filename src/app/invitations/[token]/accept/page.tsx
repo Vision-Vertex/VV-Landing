@@ -321,7 +321,7 @@ function AcceptInvitationPage() {
               <Button
                 type="submit"
                 disabled={isAccepting}
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 gap-2"
+                className="w-full gap-2" size="lg"
               >
                 {isAccepting ? (
                   <>

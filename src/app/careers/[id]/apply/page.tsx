@@ -181,7 +181,7 @@ function ApplyPage() {
 
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
               Apply for{' '}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="text-secondary">
                 {job.title}
               </span>
             </h1>
@@ -374,7 +374,7 @@ function ApplyPage() {
                 <Button
                   type="submit"
                   disabled={isPending}
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white py-6 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full" size="lg"
                 >
                   {isPending ? (
                     <div className="flex items-center gap-2">

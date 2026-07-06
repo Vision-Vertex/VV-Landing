@@ -15,6 +15,7 @@ import { useJob } from '@/hooks/useJobs';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { toast } from 'sonner';
 import { getStatusBadgeConfig } from '@/lib/utils';
+import { getApiBaseUrl } from '@/lib/api-config';
 function ApplicationsPage() {
   const params = useParams(); 
   const jobId = params.id as string;
@@ -68,11 +69,10 @@ function ApplicationsPage() {
     setLoadingResume(applicationId);
 
     try {
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
       const token = localStorage.getItem('access_token');
       
       // Fetch resume from the endpoint
-      const response = await fetch(`${API_BASE_URL}/applications/${applicationId}/resume`, {
+      const response = await fetch(`${getApiBaseUrl()}/applications/${applicationId}/resume`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

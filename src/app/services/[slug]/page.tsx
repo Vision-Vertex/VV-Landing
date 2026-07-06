@@ -26,6 +26,7 @@ import {
   Code,
   Rocket,
 } from "lucide-react";
+import { SectionTag } from "@/components/ui/section-tag";
 
 const slideIn = (direction: "left" | "right" | "center"): Variants => ({
   hidden: {
@@ -70,15 +71,9 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
                 transition={{ duration: 0.6 }}
                 className="space-y-8"
               >
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium"
-                >
-                  <Star size={16} />
+                <SectionTag icon={<Star size={14} className="text-secondary" />}>
                   {service.headline}
-                </motion.div>
+                </SectionTag>
 
                 <motion.h1
                   initial={{ y: 30, opacity: 0 }}
@@ -89,7 +84,7 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
                   {service.small_description.split(" ").map((word, index) => (
                     <span key={index} className="inline-block">
                       {index === 0 ? (
-                        <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        <span className="text-secondary">
                           {word}
                         </span>
                       ) : (
@@ -119,7 +114,7 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Link href={service.button1}>
-                      <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200">
+                      <Button size="lg">
                         Get in touch
                         <ArrowRight size={18} className="ml-2" />
                       </Button>
@@ -132,7 +127,7 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
                     <Link href={"/contact-us"}>
                       <Button
                         variant="outline"
-                        className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200"
+                        size="lg"
                       >
                         Start Now
                         <ArrowRight size={18} className="ml-2" />
@@ -242,16 +237,9 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
-              >
-                <Target size={16} />
+              <SectionTag icon={<Target size={14} className="text-secondary" />}>
                 Why Choose Us
-              </motion.div>
+              </SectionTag>
 
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 {service.second_headline}
@@ -390,7 +378,7 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                      <Button className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-md text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                         <Link
                           href="/contact-us"
                           className="flex items-center gap-2"
@@ -428,16 +416,9 @@ function ServicesPage({ params }: { params: Promise<{ slug: string }> }) {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
-              >
-                <Target size={16} />
+              <SectionTag icon={<Target size={14} className="text-secondary" />}>
                 Our Process
-              </motion.div>
+              </SectionTag>
 
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 How We Deliver Excellence

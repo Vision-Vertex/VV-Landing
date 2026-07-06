@@ -19,7 +19,7 @@ export default function Loading() {
         <div className="space-y-2">
           <h2 className="text-2xl font-bold text-gray-900">
             Loading{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-secondary">
               Vision Vertex
             </span>
           </h2>

@@ -131,8 +131,8 @@ export default function NavigationMenuDemo() {
           
           <div className="pt-4 border-t border-gray-200/30">
             <Button 
-              variant={'outline'} 
-              className="w-full border-primary text-primary bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white backdrop-blur-sm transition-colors duration-200 shadow-lg"
+              variant="outline" 
+              className="w-full"
               onClick={() => setIsMenuOpen(false)}
             >
               <Link href={'/contact-us'} className="flex items-center gap-2">

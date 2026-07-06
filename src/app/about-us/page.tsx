@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { company_values, team } from '@/constants/data';
 import { BsEnvelopeAtFill, BsLinkedin } from 'react-icons/bs';
 import { Star, Users, Target, Award } from 'lucide-react';
+import { SectionTag } from '@/components/ui/section-tag';
+import { SectionTitle } from '@/components/ui/section-title';
 // test
 function AboutUsPage() {
  return (
@@ -28,26 +30,25 @@ function AboutUsPage() {
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
-            <Star size={16} />
-            Our Story
+            <SectionTag icon={<Star size={14} className="text-secondary" />}>
+              Our Story
+            </SectionTag>
           </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="mb-6"
           >
-            About{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Vision Vertex Solutions
-            </span>
-          </motion.h1>
+            <SectionTitle as="h1" accent="Vision Vertex Solutions" className="text-4xl md:text-6xl">
+              About
+            </SectionTitle>
+          </motion.div>
 
           <motion.p
             initial={{ y: 30, opacity: 0 }}
@@ -103,16 +104,9 @@ function AboutUsPage() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium"
-            >
-              <Target size={16} />
+            <SectionTag icon={<Target size={14} className="text-secondary" />}>
               It started with a vision
-            </motion.div>
+            </SectionTag>
 
             <motion.h2
               initial={{ y: 20, opacity: 0 }}
@@ -178,7 +172,7 @@ function AboutUsPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg">
                 <Link href="/contact-us" className="flex items-center gap-2">
                   Book Us Now
                   <Award size={18} />

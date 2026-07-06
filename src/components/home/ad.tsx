@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { Rocket, ArrowRight, Sparkles, Star } from 'lucide-react';
+import { SectionTag } from '../ui/section-tag';
 
 function ad() {
   return (
@@ -72,14 +73,17 @@ function ad() {
                 >
                   {/* Badge */}
                   <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1 rounded-full text-xs font-medium mb-4"
                   >
-                    <Rocket size={14} />
-                    Special Launch Offer
+                    <SectionTag
+                      variant="light"
+                      className="mb-4"
+                    >
+                      Special Launch Offer
+                    </SectionTag>
                   </motion.div>
 
                   {/* Headline */}
@@ -91,7 +95,7 @@ function ad() {
                     className="text-2xl md:text-3xl font-bold text-white mb-3"
                   >
                     Ready to transform your{' '}
-                    <span className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                    <span className="text-white/80 underline decoration-secondary decoration-2 underline-offset-4">
                       business?
                     </span>
                   </motion.h2>
@@ -143,7 +147,7 @@ function ad() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button className="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <Button size="lg" className="bg-white text-primary hover:bg-white/90 group">
                       <Link href="/contact-us" className="flex items-center gap-2">
                         Get Started Now
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />

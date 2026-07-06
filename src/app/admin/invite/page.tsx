@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { 
-  ArrowLeft, Mail, Loader2, AlertCircle
+  Mail, Loader2, AlertCircle
 } from 'lucide-react';
 import { useInviteAdmin } from '@/hooks/useInviteAdmin';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import { AdminPageHeader } from '@/components/layout/admin-page-header';
 
 function InviteAdminPage() {
   const router = useRouter();
@@ -55,18 +55,15 @@ function InviteAdminPage() {
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <Link href="/admin/jobs">
-              <Button variant="outline" className="gap-2 mb-6">
-                <ArrowLeft size={18} />
-                Back to Jobs
-              </Button>
-            </Link>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Invite Admin</h1>
-            <p className="text-gray-600">Send an invitation to a new admin.</p>
+          <AdminPageHeader
+            tag="Team"
+            title="Invite Admin"
+            description="Send an invitation to a new admin user."
+          />
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <div className="bg-white rounded-md p-6 shadow-sm border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="email" className="text-gray-800 font-semibold mb-2 block">
@@ -101,7 +98,7 @@ function InviteAdminPage() {
                 <Button
                   type="submit"
                   disabled={isPending}
-                  className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white"
+                  size="lg"
                 >
                   {isPending ? (
                     <>
