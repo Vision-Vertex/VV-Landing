@@ -35,11 +35,11 @@ import trainingImg from '../../public/services/training.avif';
 import microsoftImg from '../../public/services/microsoftLogo.avif';
 
 // Import department images
-import technologyProcurementImg from '../../public/departments/technology-procurement.svg';
-import softwareEngineeringImg from '../../public/departments/software-engineering.svg';
-import cloudDevOpsImg from '../../public/departments/cloud-devops.svg';
-import aiDataImg from '../../public/departments/ai-data-science.svg';
-import trainingRDImg from '../../public/departments/training-rd.svg';
+import technologyProcurementImg from '../../public/departments/Technology option 1.png';
+import softwareEngineeringImg from '../../public/departments/Software option 2.png';
+import cloudDevOpsImg from '../../public/departments/Cloud option 2.png';
+import aiDataImg from '../../public/departments/AI option 1.png';
+import trainingRDImg from '../../public/departments/Training option 1.png';
 
 // Import beautiful service icons
 import technologyProcurementIcon from '../../public/icons/technology-procurement-main.svg';

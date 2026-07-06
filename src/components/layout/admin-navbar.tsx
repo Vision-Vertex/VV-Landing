@@ -32,10 +32,10 @@ export default function AdminNavbar() {
   };
 
   return (
-    <div className="flex justify-between items-center w-full p-4 md:px-14 md:py-5 relative z-50 bg-white border-b border-gray-100 shadow-sm">
+    <div className="flex justify-between items-center w-full md:px-14 relative z-50 bg-white border-b border-gray-100 shadow-sm">
       {/* Left Side: Logo */}
-      <Link href={'/admin'} className="flex items-center">
-        <Image src={Logo} width={52} height={52} alt="VisionVertex Logo" />
+      <Link href={'/admin'} className="shrink-0">
+        <Image className="w-[110px] h-[110px]" src={Logo} width={100} height={100} alt="Logo" />
       </Link>
       
       {/* Desktop Navigation (Right Side) */}
