@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     description: "Cutting Costs, Elevating Quality: Your Global Tech Partner",
   },
   icons: {
-    icon: "/logos/logo.svg",
-    apple: "/logos/logo.svg",
+    icon: "/logos/icon.svg",
+    apple: "/logos/icon.svg",
   },
   robots: {
     index: true,

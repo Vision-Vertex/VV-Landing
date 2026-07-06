@@ -18,6 +18,9 @@ import VisionLogo from "../../../public/logos/vision.svg";
 const HERO_BACKGROUND =
   "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80";
 
+const heroOutlineButtonClass =
+  "border-white/30 text-white bg-white/10 hover:bg-white hover:text-primary backdrop-blur-sm";
+
 function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -99,10 +102,7 @@ function Hero() {
               )
             )}
           </nav>
-          <Button
-            variant={"outline"}
-            className="border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-primary backdrop-blur-sm"
-          >
+          <Button variant="outline" className={heroOutlineButtonClass}>
             <Link href={"/contact-us"}>Contact Us</Link>
           </Button>
         </div>
@@ -171,8 +171,8 @@ function Hero() {
 
             <div className="pt-4 border-t border-gray-200/30">
               <Button
-                variant={"outline"}
-                className="w-full border-primary text-primary bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white backdrop-blur-sm transition-colors duration-200 shadow-lg"
+                variant="outline"
+                className={cn("w-full", heroOutlineButtonClass)}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <Link href={"/contact-us"} className="flex items-center gap-2">
@@ -247,7 +247,7 @@ function Hero() {
               className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight "
             >
               Transform your ideas into{" "}
-              <span className="text-gradient-to-r from-primary to-secondary bg-clip-text ">
+              <span className="text-secondary">
                 digital success
               </span>{" "}
               with us!
@@ -272,7 +272,7 @@ function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-3"
             >
-              <Button className="bg-primary text-white hover:bg-gray-100 hover:text-primary  px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group">
+              <Button size="lg" className="group">
                 <Link href="/#services" className="flex items-center gap-2">
                   Our Services
                   <ArrowRight
@@ -283,7 +283,8 @@ function Hero() {
               </Button>
               <Button
                 variant="outline"
-                className="border-white/30 text-white bg-white/10 hover:bg-gray-100 hover:text-primary px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-semibold backdrop-blur-sm transition-all duration-300"
+                size="lg"
+                className={heroOutlineButtonClass}
               >
                 <Link href="/about-us" className="flex items-center gap-2">
                   View Our Work
@@ -463,31 +464,6 @@ function Hero() {
                 />
               </motion.div>
             </div> 
-            
-
-            {/* Floating Elements */}
-            <motion.div
-              className="absolute top-10 right-10 w-10 h-10 border border-secondary-400/30 rounded-full"
-              animate={{
-                rotate: 360,
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                rotate: { duration: 12, repeat: Infinity, ease: "linear" },
-                scale: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-            <motion.div
-              className="absolute bottom-10 left-10 w-8 h-8 border border-primary-400/30 rounded-full"
-              animate={{
-                rotate: -360,
-                scale: [1, 0.9, 1],
-              }}
-              transition={{
-                rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
           </motion.div>
         </div>
       </div>

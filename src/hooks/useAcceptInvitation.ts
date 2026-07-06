@@ -3,7 +3,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
+import { getApiBaseUrl } from '@/lib/api-config';
 
 export interface ValidateInvitationResponse {
   valid: boolean;
@@ -41,7 +41,7 @@ export interface AcceptInvitationResponse {
 
 // Validate invitation token
 async function validateInvitation(token: string): Promise<ValidateInvitationResponse> {
-  const response = await fetch(`${API_BASE_URL}/auth/invitations/${token}/validate`, {
+  const response = await fetch(`${getApiBaseUrl()}/auth/invitations/${token}/validate`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ async function acceptInvitation(
   token: string,
   data: AcceptInvitationRequest
 ): Promise<AcceptInvitationResponse> {
-  const url = `${API_BASE_URL}/auth/invitations/${encodeURIComponent(token)}/accept`;
+  const url = `${getApiBaseUrl()}/auth/invitations/${encodeURIComponent(token)}/accept`;
   const payload = {
     token: token, // Backend requires token in body even though it's also in URL
     password: data.password,

@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
+import { getApiBaseUrl } from "./api-config";
 
 export interface LoginCredentials {
   email: string;
@@ -21,11 +21,10 @@ export interface ApiError {
 }
 
 class ApiClient {
-  private baseURL: string;
   private refreshPromise: Promise<LoginResponse> | null = null; // Prevent concurrent refresh calls
 
-  constructor(baseURL: string) {
-    this.baseURL = baseURL;
+  private get baseURL(): string {
+    return getApiBaseUrl();
   }
   
   async post<T>(endpoint: string, data: any): Promise<T> {
@@ -304,5 +303,5 @@ class ApiClient {
   }
 }
 
-export const apiClient = new ApiClient(API_BASE_URL);
+export const apiClient = new ApiClient();
 

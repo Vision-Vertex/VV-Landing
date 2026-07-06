@@ -5,6 +5,8 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { testmonial as testimonialList } from "@/constants/data";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { SectionTag } from "../ui/section-tag";
+import { SectionTitle } from "../ui/section-title";
 
 function testmonial() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -45,28 +47,25 @@ function testmonial() {
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
-            <Star size={16} />
-            Client Success Stories
+            <SectionTag>Client Success Stories</SectionTag>
           </motion.div>
 
-          <motion.h2
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+            className="mb-6"
           >
-            What our clients{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              say about us
-            </span>
-          </motion.h2>
+            <SectionTitle as="h2" accent="say about us" className="text-3xl md:text-4xl">
+              What our clients
+            </SectionTitle>
+          </motion.div>
 
           <motion.p
             initial={{ y: 30, opacity: 0 }}
@@ -104,8 +103,8 @@ function testmonial() {
                 viewport={{ once: true }}
                 className="flex justify-center mb-8"
               >
-                <div className="p-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full">
-                  <Quote size={32} className="text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <Quote size={24} />
                 </div>
               </motion.div>
 
@@ -131,7 +130,7 @@ function testmonial() {
                       height={60}
                       className="rounded-full border-4 border-white shadow-lg"
                     />
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-secondary rounded-full flex items-center justify-center">
                       <Star size={12} className="text-white fill-white" />
                     </div>
                   </div>
@@ -150,9 +149,9 @@ function testmonial() {
                   <button
                     key={idx}
                     onClick={() => setActiveIndex(idx)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 rounded-md transition-all duration-300 ${
                       idx === activeIndex
-                        ? "bg-gradient-to-r from-primary to-secondary scale-125"
+                        ? "bg-primary scale-125"
                         : "bg-gray-300 hover:bg-gray-400"
                     }`}
                   />
@@ -164,7 +163,7 @@ function testmonial() {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-md shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
           >
             <ChevronLeft
               size={20}
@@ -174,7 +173,7 @@ function testmonial() {
 
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-md shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
           >
             <ChevronRight
               size={20}

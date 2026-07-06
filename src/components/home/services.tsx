@@ -1,25 +1,74 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { services } from "@/constants/data";
 import Image from "next/image";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { ChevronRight, ArrowRight, Star, Sparkles } from "lucide-react";
+import { SectionTag } from "../ui/section-tag";
+import { SectionTitle } from "../ui/section-title";
+import { LearnMoreLink } from "../ui/learn-more-link";
+import {
+  ShoppingCart,
+  FileText,
+  Code2,
+  Palette,
+  Cloud,
+  GitBranch,
+  Database,
+  Brain,
+  GraduationCap,
+  Users,
+  LucideIcon,
+  Sparkles
+} from "lucide-react";
+
+// Direct mapping of card titles to icons
+const iconMap: Record<string, LucideIcon> = {
+  "Procurement & Vendor Management": ShoppingCart,
+  "License Management & Sales": FileText,
+  "Full-Stack Development": Code2,
+  "UI/UX Design & Prototyping": Palette,
+  "Cloud Infrastructure Management": Cloud,
+  "CI/CD Pipelines & Automation": GitBranch,
+  "Data Engineering & Analytics": Database,
+  "Machine Learning & AI Solutions": Brain,
+  "Technical Training & Upskilling": GraduationCap,
+  "Internship & Shadowing Programs": Users,
+};
+
+const getIconForCard = (title: string): LucideIcon => {
+  return iconMap[title] || Sparkles;
+};
+
+interface CardIconProps {
+  title: string;
+}
+
+function CardIcon({ title }: CardIconProps) {
+  const IconComponent = getIconForCard(title);
+  
+  return (
+    <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shrink-0 shadow-md shadow-primary/20 transition-all duration-300 group-hover/card:shadow-primary/40 group-hover/card:scale-110">
+      <IconComponent size={18} strokeWidth={2} className="text-white" />
+    </div>
+  );
+}
 
 function ServicesList() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const featured = services[0];
+  const gridServices = services.slice(1);
+
+  const blurDataURL =
+    "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
   return (
-    <section id="services" className="relative bg-white py-16 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-tl from-secondary/10 to-primary/10 rounded-full blur-2xl"></div>
+    <section id="services" className="relative bg-white py-16 md:py-24 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-secondary/5 rounded-full blur-2xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-14">
-        {/* Header Section */}
+        {/* Header */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -28,240 +77,154 @@ function ServicesList() {
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
-            <Star size={16} />
-            Our Services
+            <SectionTag>What We Offer</SectionTag>
           </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="mb-6"
           >
-            Our{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Services
-            </span>
-          </motion.h1>
+            <SectionTitle as="h1" accent="Solutions">
+              End-to-End Technology
+            </SectionTitle>
+          </motion.div>
 
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            From software engineering to AI & data science, our specialized
+            From software engineering to AI &amp; data science, our specialized
             services deliver comprehensive solutions that drive innovation and
             business growth.
           </motion.p>
         </motion.div>
 
-        {/* Services Grid */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`group relative bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] ${
-                index === 0 ? "lg:col-span-2" : ""
-              }`}
-              onClick={() => setActiveIndex(index)}
-            >
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        {/* Featured card — full width */}
+        {featured && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] min-h-[440px] p-6 md:p-8 mb-8"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              <div className="flex flex-col order-2 lg:order-1">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
+                  {featured.headline}
+                </h2>
 
-              <div
-                className={`grid gap-8 items-center ${
-                  index === 0 ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"
-                }`}
-              >
-                {/* Content */}
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg"
-                    >
-                      <Image
-                        src={service.icon}
-                        alt={service.headline}
-                        width={24}
-                        height={24}
-                        className="object-contain"
-                      />
-                    </motion.div>
-                    <div>
-                      <h2 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
-                        {service.headline}
-                      </h2>
-                      <p className="text-primary font-medium text-sm">
-                        Premium Service
-                      </p>
-                    </div>
-                  </div>
+                <p className="text-[15px] leading-relaxed text-gray-500 mb-6">
+                  {featured.description}
+                </p>
 
-                  {/* Image - Only for 2-column cards (not first card) */}
-                  {index !== 0 && (
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative"
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {featured.cards?.slice(0, 2).map((card, cardIndex) => (
+                    <div
+                      key={cardIndex}
+                      className="flex items-start gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100 group/card hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
                     >
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg">
-                        <Image
-                          src={service.image}
-                          alt={service.headline}
-                          width={400}
-                          height={250}
-                          className="w-full object-cover"
-                          placeholder="blur"
-                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      <CardIcon title={card.title} />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 text-sm">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
+                          {card.description}
+                        </p>
                       </div>
-
-                      {/* Floating Stats */}
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg border border-gray-100"
-                      >
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-primary">
-                            100%
-                          </div>
-                          <div className="text-xs text-gray-600">
-                            Success Rate
-                          </div>
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  )}
-
-                  <p className="text-gray-600 leading-relaxed ">
-                    {service.description.length > 100
-                      ? service.description.substring(0, 100) + "..."
-                      : service.description}
-                  </p>
-
-                  {/* Service Features */}
-                  <div
-                    className={`grid gap-3 ${
-                      index === 0 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2"
-                    }`}
-                  >
-                    {service.cards
-                      ?.slice(0, index === 0 ? 2 : 2)
-                      .map((card, cardIndex) => (
-                        <motion.div
-                          key={cardIndex}
-                          whileHover={{ scale: 1.02, x: 5 }}
-                          transition={{ duration: 0.3 }}
-                          className="flex items-start gap-1 p-1 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl border border-gray-200 hover:border-primary/20 transition-all duration-300 lg:gap-3 lg:p-3"
-                        >
-                          <Image
-                            src={card.icon}
-                            alt={card.title}
-                            width={20}
-                            height={20}
-                            className="object-contain  mt-1"
-                          />
-                          <div className="mr-4 p-0 justify-between ">
-                            <h4 className=" font-semibold text-gray-900 text-sm  ">
-                              {card.title}
-                            </h4>
-                            <p className="text-xs text-gray-600  sm:items-start ">
-                              {card.description.length > 50
-                                ? card.description.substring(0, 50) + "..."
-                                : card.description}
-                            </p>
-                          </div>
-                        
-                        </motion.div>
-                         
-                      ))}
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex gap-3"
-                  >
-                    <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group">
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="flex items-center gap-2"
-                      >
-                        Learn More
-                        <ArrowRight
-                          size={16}
-                          className="group-hover:translate-x-1 transition-transform duration-300"
-                        />
-                      </Link>
-                    </Button>
-                  </motion.div>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Image - Only for first card (side by side layout) */}
-                {index === 0 && (
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative"
-                  >
-                    <div className="relative rounded-2xl overflow-hidden shadow-lg">
-                      <Image
-                        src={service.image}
-                        alt={service.headline}
-                        width={500}
-                        height={350}
-                        className="w-full object-cover"
-                        priority={index === 0}
-                        placeholder="blur"
-                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </div>
+                <LearnMoreLink href={`/services/${featured.slug}`} />
+              </div>
 
-                    {/* Floating Stats */}
+              <div className="relative overflow-hidden rounded-2xl order-1 lg:order-2 min-h-[300px] lg:min-h-[380px]">
+                <Image
+                  src={featured.image}
+                  alt={featured.headline}
+                  width={600}
+                  height={400}
+                  className="w-full h-full min-h-[300px] lg:min-h-[380px] object-cover rounded-2xl"
+                  priority
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Cards 2–5 — 2×2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {gridServices.map((service, index) => (
+            <motion.article
+              key={service.slug}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group flex flex-col bg-white border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] min-h-[500px]"
+            >
+              <div className="relative w-full shrink-0 overflow-hidden rounded-t-2xl">
+                <Image
+                  src={service.image}
+                  alt={service.headline}
+                  width={600}
+                  height={400}
+                  className="w-full h-[280px] md:h-[340px] object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-2xl"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                />
+              </div>
+
+              <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary transition-colors duration-200 mb-2">
+                  {service.headline}
+                </h3>
+
+                <p className="text-[15px] leading-relaxed text-gray-500 mb-4">
+                  {service.description}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  {service.cards?.slice(0, 2).map((card, cardIndex) => (
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg border border-gray-100"
+                      key={cardIndex}
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex items-start gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all duration-300 group/card"
                     >
-                      <div className="text-center">
-                        <div className="text-lg font-bold text-primary">
-                          100%
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          Success Rate
-                        </div>
+                      <CardIcon title={card.title} />
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-900 text-xs sm:text-sm group-hover/card:text-primary transition-colors duration-200">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-gray-500 mt-0.5 leading-relaxed line-clamp-2">
+                          {card.description}
+                        </p>
                       </div>
                     </motion.div>
-                  </motion.div>
-                )}
+                  ))}
+                </div>
+
+                <LearnMoreLink href={`/services/${service.slug}`} />
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

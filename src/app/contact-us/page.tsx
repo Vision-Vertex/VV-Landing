@@ -11,6 +11,8 @@ import PhoneInput, {
 import { E164Number } from "libphonenumber-js";
 import "react-phone-number-input/style.css";
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Clock, Users, MessageSquare } from "lucide-react";
+import { SectionTag } from "@/components/ui/section-tag";
+import { SectionTitle } from "@/components/ui/section-title";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -107,26 +109,25 @@ const ContactUs = () => {
               className="text-center mb-16"
             >
               <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
               >
-                <MessageSquare size={16} />
-                Get In Touch
+                <SectionTag icon={<MessageSquare size={14} className="text-secondary" />}>
+                  Get In Touch
+                </SectionTag>
               </motion.div>
 
-              <motion.h1
+              <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+                className="mb-6"
               >
-                Let's Start a{' '}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Conversation
-                </span>
-              </motion.h1>
+                <SectionTitle as="h1" accent="Conversation" className="text-4xl md:text-5xl lg:text-6xl">
+                  Let&apos;s Start a
+                </SectionTitle>
+              </motion.div>
 
               <motion.p
                 initial={{ y: 30, opacity: 0 }}
@@ -277,7 +278,7 @@ const ContactUs = () => {
               <Button
                 type="submit"
                 disabled={loading}
-                      className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="w-full" size="lg"
                     >
                       {loading ? (
                         <div className="flex items-center gap-2">

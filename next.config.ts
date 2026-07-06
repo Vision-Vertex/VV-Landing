@@ -1,7 +1,21 @@
 import type { NextConfig } from "next";
 
+const backendUrl = (
+  process.env.API_URL ||
+  process.env.NEXT_PUBLIC_API_URL ||
+  "http://localhost:8000"
+).replace(/\/$/, "");
+
 const nextConfig: NextConfig = {
   output: 'standalone',
+  async rewrites() {
+    return [
+      {
+        source: "/api/proxy/:path*",
+        destination: `${backendUrl}/:path*`,
+      },
+    ];
+  },
   images: {
     domains: ['images.unsplash.com'],
     formats: ['image/webp', 'image/avif'],

@@ -3,15 +3,15 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { 
-  ArrowLeft, User, Mail, Building2, Shield, Calendar, 
-  Loader2, AlertCircle, LogOut
+  User, Mail, Building2, Shield, Calendar, 
+  Loader2, AlertCircle
 } from 'lucide-react';
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { useAuth } from '@/contexts/AuthContext';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import { AdminPageHeader } from '@/components/layout/admin-page-header';
 import { useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
@@ -56,8 +56,7 @@ function ProfilePage() {
               {(error as any)?.message || 'Unable to load your profile. Please try again.'}
             </p>
             <Button onClick={() => router.push('/admin/jobs')}>
-              <ArrowLeft size={18} className="mr-2" />
-              Back to Jobs
+              Try Again
             </Button>
           </div>
         </div>
@@ -67,49 +66,20 @@ function ProfilePage() {
 
   return (
     <ProtectedRoute>
-      <div className="relative min-h-screen bg-gray-50 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-tl from-secondary/10 to-primary/10 rounded-full blur-2xl"></div>
-        </div>
+      <div className="min-h-screen bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-6">
+          <AdminPageHeader
+            tag="Account"
+            title="My Profile"
+            description="View and manage your account information."
+          />
 
-        <div className="relative z-10 px-6 md:px-16 py-10">
-          {/* Header */}
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
-            <Link href="/admin/jobs">
-              <Button variant="outline" className="gap-2 mb-6">
-                <ArrowLeft size={18} />
-                Back to Jobs
-              </Button>
-            </Link>
-
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <User className="text-primary" size={24} />
-              </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                My Profile
-              </h1>
-            </div>
-            <p className="text-gray-600">
-              View and manage your account information.
-            </p>
-          </motion.div>
-
-          {/* Profile Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Main Profile Card */}
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-xl border border-gray-200"
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="lg:col-span-2 bg-white rounded-md p-6 shadow-sm border border-gray-100"
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Personal Information</h2>
               

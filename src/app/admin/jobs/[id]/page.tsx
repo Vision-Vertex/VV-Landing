@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { 
-  Briefcase, MapPin, Clock, ArrowLeft, Users, DollarSign, 
+  Briefcase, MapPin, Clock, Users, DollarSign, 
   Calendar, FileText, Loader2, AlertCircle, Edit, Trash2
 } from 'lucide-react';
 import { useQueryClient } from '@tanstack/react-query';
@@ -93,8 +93,7 @@ function JobDetailPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Job not found</h2>
             <p className="text-gray-600 mb-6">The job you're looking for doesn't exist or has been removed.</p>
             <Button onClick={() => router.push('/admin/jobs')}>
-              <ArrowLeft size={18} className="mr-2" />
-              Back to Jobs
+              View All Jobs
             </Button>
           </div>
         </div>
@@ -116,16 +115,9 @@ function JobDetailPage() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4"
           >
-            <Link href="/admin/jobs">
-              <Button variant="outline" className="gap-2">
-                <ArrowLeft size={18} />
-                Back to Jobs
-              </Button>
-            </Link>
-            
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
               <Button
                 onClick={handleEdit}
                 variant="outline"
@@ -147,7 +139,7 @@ function JobDetailPage() {
               </Button>
               
               <Link href={`/admin/jobs/${jobId}/applications`}>
-                <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white gap-2">
+                <Button className="gap-2" size="lg">
                   <Users size={18} />
                   View Applications
                 </Button>
@@ -288,15 +280,10 @@ function JobDetailPage() {
                 return requirementsList.length > 0 ? (
                   <div>
                     <h2 className="text-xl font-bold text-gray-900 mb-3">Requirements</h2>
-                    <ul className="space-y-3">
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
                       {requirementsList.map((requirement, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="flex-shrink-0 mt-1">
-                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
-                          </div>
-                          <span className="text-gray-600 leading-relaxed flex-1">
-                            {requirement}
-                          </span>
+                        <li key={idx} className="leading-relaxed">
+                          {requirement}
                         </li>
                       ))}
                     </ul>
